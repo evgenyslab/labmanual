@@ -3,12 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to test's documentation!
+LAB MANUAL
 ================================
+
+This is the lab manual, a resource for all things setup related and navigation.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   macOS
+   linux
+   docker
+   aws
+   misc
+   projects
 
 
 
@@ -16,5 +25,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

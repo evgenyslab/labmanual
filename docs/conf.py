@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'test'
-copyright = '2019, test'
-author = 'test'
+project = 'LAB Manual'
+copyright = '2019, Evgeny'
+author = 'Evgeny Nuger'
 
 
 # -- General configuration ---------------------------------------------------
