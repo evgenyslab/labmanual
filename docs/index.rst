@@ -21,6 +21,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    projects
    python
    opencv
+   pytorch
 
 
 
