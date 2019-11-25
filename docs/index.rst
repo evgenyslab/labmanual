@@ -9,7 +9,7 @@ LAB MANUAL
 This is the lab manual, a resource for all things setup related and navigation.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :numbered:
    :caption: Contents:
 
@@ -19,6 +19,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    aws
    misc
    projects
+   python
 
 
 
