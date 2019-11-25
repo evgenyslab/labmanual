@@ -17,11 +17,12 @@ This is the lab manual, a resource for all things setup related and navigation.
    linux
    docker
    aws
-   misc
    projects
    python
    opencv
    pytorch
+   misc
+   random
 
 
 
