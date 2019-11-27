@@ -1,7 +1,9 @@
 .. comment:
 
-Python
-======
+Python Development
+==================
+
+This guide outlines my approach for python development and methodologies used.
 
 
 TODOs
@@ -13,6 +15,19 @@ Create alias for quick activation of virtual environment in local directory:
 .. code-block:: bash
 
 	alias activate="source .venv/bin/activate"
+	
+- [ ] python project structure
+- [ ] using setup.py to install python models
+
+  -  [ ] installing custom python modules into virtual environments
+
+- [ ] development with Jupyterlab
+
+  - [ ] remote development - using ssh forwarding
+  
+- [ ] development with pycharm
+
+- [ ] remote development and debugging over ssh
 
 
 Jupyter remote
