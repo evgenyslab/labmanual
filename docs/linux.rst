@@ -9,6 +9,9 @@ Ubuntu 18.04 Basic setup for Terminal & Python
 Download Image:
 ``````````````````
 
+Latest recommendation is to use Linux Mint - however, will need to :code:`sudo apt-get install python-tk` for
+python-based guis to work correctly!
+
 `Official 18.04 Image <http://releases.ubuntu.com/18.04/>`_, or, using :code:`wget`:
 
 .. code-block:: bash
