@@ -7,7 +7,7 @@ Setup
 -----
 
 - Linux Mint
-- Python 3, pip + virtual envs
+- Python 3, pip + virtual envs, note PIL requires imagemagik & matplot lib need python3-tk or python3-pyqt5
 - tk (for support)
 - zsh + oh my zsh
 - jetbrains
