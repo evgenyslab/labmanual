@@ -3,6 +3,20 @@
 Linux
 =================
 
+Setup
+-----
+
+- Linux Mint
+- Python 3, pip + virtual envs
+- tk (for support)
+- zsh + oh my zsh
+- jetbrains
+- vim
+- editor?
+- git/cmake/gdb
+- ssh
+
+
 Ubuntu 18.04 Basic setup for Terminal & Python
 ------------------------------------------------
 
