@@ -10,7 +10,7 @@ Download Image:
 ``````````````````
 
 Latest recommendation is to use Linux Mint - however, will need to :code:`sudo apt-get install python-tk` for
-python-based guis to work correctly!
+python-based guis to work correctly! (this will work with matplot lib, pillow still issue..)
 
 `Official 18.04 Image <http://releases.ubuntu.com/18.04/>`_, or, using :code:`wget`:
 
