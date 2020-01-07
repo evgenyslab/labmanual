@@ -3,8 +3,8 @@
 Linux
 =================
 
-Ubuntu 18.04 Basic setup for Terminal & Python
-------------------------------------------------
+Linux Mint Basic setup for Terminal & Python
+--------------------------------------------
 
 Download Image:
 ``````````````````
@@ -16,32 +16,23 @@ Download Image:
 	wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-desktop-amd64.iso
 
 
-Option 1: Create USB Install Media `ref_ <https://askubuntu.com/questions/372607/how-to-create-a-bootable-ubuntu-usb-flash-drive-from-terminal>`_:
-`````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
-.. code-block:: bash
-
-	# run lsblk to find out plugged in media
-	lsblk
-	# unmount the <?> device:
-	sudo umount /dev/sd<?>
-	# run dd to copy the iso:
-	sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync  status=progress
-
-Option 2: Create USB Install Media
-`````````````````````````````````````
+Create USB Install Media
+````````````````````````
 `Use Balena Etcher tool <https://www.balena.io/etcher/>`_.
+
+Installing
+''''''''''
+
+During installation, choose "something else" option when prompted to erase or install beside existing OS.
 
 HDD Partitioning:
 ''''''''''''''''''''
-- One ext4 called '/' for root OS ~ 7-12gb
+- One EFI partition with 100-500mb
+- One ext4 called '/' for root OS ~ 15-30gb
 - One ext4 called '/home' for all data ~ 30+gb
 - one swap ~1-4gb
 
-Setting GTK3 theme...
-''''''''''''''''''''''''''
-
-https://www.gnome-look.org/p/1275087/
 
 Terminal Stuffs
 ``````````````````
@@ -55,19 +46,17 @@ Terminal Stuffs
 	## create new su account:
 	sudo passwd
 
-	## install terminator:
-	sudo apt-get install terminator
-
-	## To remove the titlebar from the settings go to
-	## `Profiles->general->remove titlebar`
-
 	## Install git:
 	sudo apt-get install git-core
+    sudo apt-get install cmake build-essential
 
 	## install oh-my-zsh:
 	sudo apt-get install zsh
 	# change shell to zsh:
 	chsh -s $(which zsh)
+
+    # install utilities
+    sudo apt install htop screen 
 
 
 If getting a :code:`PAM permission` error, or a :code:`which zsh invalid command`
@@ -83,7 +72,7 @@ At this point, may want to log in/out for some settings to take hold.
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	chsh -s `which zsh`
 
-Restart terminator for changes to take effect
+Log and Out for changes to take effect
 
 .. code-block:: bash
 
@@ -106,10 +95,6 @@ to the bottom of `.zshrc` file:
 
 
 
-To set terminator colors:\
-in :code:`profiles->colors` -> disable :code:`use colors from system theme`\
-in :code:`profiles->colors` -> build-in schemes : :code:`soloraized dark`
-
 To install fonts theme to support built-in powerline:
 
 .. code-block:: bash
@@ -121,23 +106,6 @@ To install fonts theme to support built-in powerline:
 	rm -rf fonts
 
 set font to Droid Sans Mono Power
-
-On elementaryOS, need to install dconf-tools to change fonts:
-
-.. code-block:: bash
-
-	sudo apt-get install software-properties-common
-	sudo add-apt-repository ppa:philip.scott/elementary-tweaks
-	sudo apt-get update
-	sudo apt-get install elementary-tweaks
-
-
-Also, Elementary OS is undergoing some work on getting it to correctly
-ignore sleep command `REF <https://github.com/elementary/switchboard-plug-power/issues/89#issuecomment-461459091>`_ quick fix should be:
-
-.. code-block:: bash
-
-	sudo gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
 
 
 OPTIONALLY: Linking zsh from local user to superuser:\
@@ -162,19 +130,21 @@ Git stuff
 
 Python tools:
 ````````````````
-**NOTE** Migrate to python3 only
-
 .. code-block:: bash
 
 	sudo apt-get install python3-pip
-	# May want to upgrade pip as well:
-	pip3 install --upgrade pip
 
 	# Alias pip3 (if necessary): [This may need to be added to zshrc]
 	alias pip=$(which pip3)
 
 	# install virtualenv:
-	pip install virtualenv
+	sudo -H pip install virtualenv
+
+    # install imagemagick for Pillow backend in Mint:
+    sudo apt-get install imagemagick
+
+    $ install python3-tk for matplot lib
+    sudo apt-get install python3-tk
 
 
 Aliases
