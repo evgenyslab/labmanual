@@ -17,7 +17,7 @@ Setup
 - ssh
 
 
-Ubuntu 18.04 Basic setup for Terminal & Python
+Linux Mint Basic setup for Terminal & Python
 ------------------------------------------------
 
 Download Image:
@@ -47,6 +47,25 @@ HDD Partitioning:
 - One ext4 called '/home' for all data ~ 30+gb
 - one swap ~1-4gb
 
+HARDWARE SPECIFICS
+''''''''''''''''''
+
+Note that for the Lenovo X1 Thinkpad with Wacom tablet, I was able to install Linux mint natively with VM player W10 edition. To get pen input to work correctly (namely, OneNote in W10), VM needs to provide control to linux for wacom pen input AND its best to disable the touch capability of the wacom tablet:
+
+see: `https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3`_
+
+.. code-block:: bash
+
+        xsetwacom --list devices
+        # prints out device list... there should be a touch
+        
+        # disable finger touch:
+        xsetwacom --set "Wacom Intuos Pro M Finger touch" Touch off
+
+        # confirm:
+        xsetwacom --get "Wacom Intuos Pro M Finger touch" Touch off
+
+This way, in the VM, windows (and host Linux) will only react to pen input, meaning that in OneNote you will not get the pen marking up the page from your palm.
 
 Terminal Stuffs
 ``````````````````
