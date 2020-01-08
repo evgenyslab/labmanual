@@ -52,7 +52,7 @@ HARDWARE SPECIFICS
 
 Note that for the Lenovo X1 Thinkpad with Wacom tablet, I was able to install Linux mint natively with VM player W10 edition. To get pen input to work correctly (namely, OneNote in W10), VM needs to provide control to linux for wacom pen input AND its best to disable the touch capability of the wacom tablet:
 
-see: `https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3`_
+see: `HERE <https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3>`_
 
 .. code-block:: bash
 
