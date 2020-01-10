@@ -7,13 +7,20 @@ Setup
 -----
 
 - Linux Mint
-- Python 3, pip + virtual envs, note PIL requires imagemagik & matplot lib need python3-tk or python3-pyqt5
-- tk (for support)
+- Python
+- pip (sudo apt-get install python-pip)
+- virtual envs (sudo -H pip install virtualenv)
+- tk (for matplot lib support) (sudo apt-get install python3-tk)
+- imagemagick (for PIL)
+- openssh
+- ptp4l
+- cfis 
+- ssfs
 - zsh + oh my zsh
 - jetbrains
 - vim
-- editor?
-- git/cmake/gdb
+- atom
+- git/cmake/gdb (build essentials)
 - ssh
 
 
@@ -55,14 +62,14 @@ Note that for the Lenovo X1 Thinkpad with Wacom tablet, I was able to install Li
 see: |ref000|.
 
 .. |ref000| raw:: html
-        
+
         <a href="https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3" target="_blank"> HERE </a>
 
 .. code-block:: bash
 
         xsetwacom --list devices
         # prints out device list... there should be a touch
-        
+
         # disable finger touch:
         xsetwacom --set "Wacom Intuos Pro M Finger touch" Touch off
 
