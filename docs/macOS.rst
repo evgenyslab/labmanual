@@ -11,5 +11,5 @@ macOS - 10.15 Catelina
 - install virtualenvs: :code:`sudo -H pip3 install virtualenv`:
 - add alias in :code:`~/.zshrc`: :code:`alias mkvenv="virtualenv -p $(which python3) .venv`:
 - add alias in :code:`~/.zshrc`: :code:`alias activate="source ./venv/bin/activate`:
-- create :code:`~/.vimrc`: and add :ccode:`set nu \r syntax on`:
+- create :code:`~/.vimrc`: and add :code:`set nu \r syntax on`:
 
