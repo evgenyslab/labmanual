@@ -13,3 +13,7 @@ macOS - 10.15 Catelina
 - add alias in :code:`~/.zshrc`: :code:`alias activate="source ./venv/bin/activate`:
 - create :code:`~/.vimrc`: and add :code:`set nu \r syntax on`:
 
+Tips & Tricks
+-------------
+
+use :code:`mdls`: command to retreive meta data on any file, useful for scripting file renaming. If the command returns :code:`(null)`: it means spotlight search needs to be rebuilt on the drive using :code:`sudo mdutil -E /Drive`:.
