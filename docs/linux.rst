@@ -14,7 +14,7 @@ Setup
 - imagemagick (for PIL)
 - openssh
 - ptp4l
-- cfis 
+- cfis
 - ssfs
 - zsh + oh my zsh
 - jetbrains
@@ -92,15 +92,15 @@ Terminal Stuffs
 
 	## Install git:
 	sudo apt-get install git-core
-    sudo apt-get install cmake build-essential
+	sudo apt-get install cmake build-essential
 
 	## install oh-my-zsh:
 	sudo apt-get install zsh
 	# change shell to zsh:
 	chsh -s $(which zsh)
 
-    # install utilities
-    sudo apt install htop screen
+	# install utilities
+	sudo apt install htop screen
 
 
 If getting a :code:`PAM permission` error, or a :code:`which zsh invalid command`
@@ -134,8 +134,13 @@ to the bottom of `.zshrc` file:
 
 .. code-block:: bash
 
-	prompt_context() {
-	}
+	alias mkvenv="virtualenv -p $(which python3) .venv"
+	alias activate="source .venv/bin/activate"
+
+	if [[ $EUID == 0 ]]; then
+		PROMPT="%B%F{red}root%b%f $PROMPT"
+	fi
+
 
 
 
