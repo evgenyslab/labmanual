@@ -759,6 +759,7 @@ TODO:
                 mx = evt.clientX;
                 my = evt.clientY;
             }else if (evt.type==="touchstart"){
+                canvas.style.overflow = 'hidden';
                 evt.preventDefault();
                 mx = evt.touches[0].clientX;
                 my = evt.touches[0].clientY;
@@ -776,6 +777,7 @@ TODO:
                     mmx = evt.clientX;
                     mmy = evt.clientY;
                 }else if (evt.type==="touchmove"){
+                    evt.preventDefault();
                     mmx = evt.touches[0].clientX;
                     mmy = evt.touches[0].clientY;
                 }
@@ -800,6 +802,8 @@ TODO:
 
         function stopMove(evt) {
             mousedown = false;
+            if (evt.type==="touchend")
+                canvas.style.overflow = 'auto';
             // autorotate_timeout = setTimeout(autorotate, 2000);
         }
 
