@@ -1,9 +1,12 @@
-# /Lab Manual
+# [/Lab Manual](https://evgenyslab.github.io/labmanual/)
 
-Please refer to [THIS](https://evgenyslab.github.io/labmanual/) 
- manual for further
-operational instructions.
+Click ^^ for funsies.
 
 cheers :).
 
 
+# [/Camera Demo](https://evgenyslab.github.io/labmanual/camera.html)
+
+Click ^^ for camera funsies.
+
+cheers :).

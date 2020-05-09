@@ -370,14 +370,8 @@ TODO:
     }
 
     (function() {
-            // try to get window width/height on load
-        var w = window.innerWidth; // this doesn't work in sphinx
-        // create listener for window resize:
-        // todo: retain old cube..
-        window.addEventListener('resize', function () {
-        "use strict";
-        window.location.reload();
-        });
+
+
 
         var autorotate_toggle = false;
 
@@ -387,35 +381,49 @@ TODO:
         var canvas = document.getElementById('cnv');
         offsetWidth = canvas.offsetWidth;
         offsetHeight = canvas.offsetHeight;
-
-        // sphinx ONLY
-        if (document.getElementById('camera')!==null){
-            var page = document.getElementById('camera');
-            console.log("sphinx page width: ", page.offsetWidth);
-            // width is set by browser, height is set by camera
-            canvas.width = page.offsetWidth;
-            canvas.height = offsetHeight;
-        }else{
-            // width is set by browser, height is set by camera
-            canvas.width = offsetWidth;
-            canvas.height = offsetHeight;
-            if (w >= 800){
-                canvas.width = 800;
-            }else{
-                canvas.width = 0.8*w;
-            }
-        }
-
-
         var ctx = canvas.getContext('2d');
-
-        // setup canvas:
-        set_canvas(cam, canvas, ctx);
-
-
         // Initial new Cube:
         var cube = new Cube(1,1,1,0,0,-5,0,0);
         var objects = [cube];
+        var rendered = false;
+
+        function update_size(){
+                console.log("im here");
+                // try to get window width/height on load
+                var w = window.innerWidth; // this doesn't work in sphinx
+                // create listener for window resize:
+                // sphinx ONLY
+                if (document.getElementById('camera')!==null){
+                    var page = document.getElementById('camera');
+                    console.log("sphinx page width: ", page.offsetWidth);
+                    // width is set by browser, height is set by camera
+                    canvas.width = page.offsetWidth;
+                    canvas.height = offsetHeight;
+                }else{
+                    // width is set by browser, height is set by camera
+                    canvas.width = offsetWidth;
+                    canvas.height = offsetHeight;
+                    if (w >= 800){
+                        canvas.width = 800;
+                    }else{
+                        canvas.width = 0.8*w;
+                    }
+                }
+                // setup canvas:
+                set_canvas(cam, canvas, ctx);
+                if (rendered)
+                    render(objects, cam, ctx, canvas.width, canvas.height);
+        }
+
+        update_size();
+
+        // todo: retain old cube..
+        window.addEventListener('resize', update_size);
+
+
+
+
+
         // update html page:
         update_page(cam, cube);
 
@@ -707,6 +715,7 @@ TODO:
 
         // First render
         render(objects, cam, ctx, canvas.width, canvas.height);
+        rendered = true;
 
         // Events
         var mousedown = false;
