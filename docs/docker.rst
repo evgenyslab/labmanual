@@ -6,13 +6,19 @@ Docker
 # TODO
 ------
 
-- How to attach local dir to docker container?
-- How to run container in background?
-- How to make custom image using dockerfile?
-- How to connect to running container from multiple host terminals?
+- How to attach local dir to docker container? [use -v]
+- How to run container in background? [need to have some process in foreground, then `docker run -d`]
+- How to make custom image using dockerfile? [`docker build ...`]
+- How to clone private repo in build process?
+  - can give container ssh keys, use `--squash` command to squash layers during install
+  - if ssh can't be used, may need to make shell script to run multi-stage build + commit output
+- How to connect to running container from multiple host terminals? [`docker exec -it container_name bash/zsh`]
 
 - how to work to save files with container if its removed? what is a typical workflow?
-- how to delete contrains from local?
+  - can commit container to an image using `docker commit container_name ...`
+
+- how to delete contrains from local? [`docker container rm container_name`]
+
 - how to set where local containers are stored?
 - how to interface data into/out of container?
 - how to communicate between two containers on the same machine?
