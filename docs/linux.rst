@@ -189,11 +189,11 @@ Python tools:
 	# install virtualenv:
 	sudo -H pip install virtualenv
 
-    # install imagemagick for Pillow backend in Mint:
-    sudo apt-get install imagemagick
+  # install imagemagick for Pillow backend in Mint:
+  sudo apt-get install imagemagick
 
-    $ install python3-tk for matplot lib
-    sudo apt-get install python3-tk
+  $ install python3-tk for matplot lib
+  sudo apt-get install python3-tk
 
 
 Aliases
@@ -209,11 +209,6 @@ Install vim:
 
 	sudo apt-get update
 	sudo apt-get install vim
-	nano ~/.vimrc
-	# install powerline for vim:
-	sudo pip install powerline-status
-	# find install location:
-	pip show powerline-status # THIS WILL BE USED FOR powerline plugin in VIM
 
 install vundle
 `````````````````
