@@ -67,6 +67,7 @@ RUN useradd -m user \
 
 # install npx:
 RUN npm install -g npx
+RUN npm install -g msgpack msgpack-lite browserify
 
 # set up zsh:
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
