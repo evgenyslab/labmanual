@@ -13,6 +13,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    :numbered:
    :caption: Contents:
 
+   home
    macOS
    linux
    docker

@@ -123,10 +123,7 @@ Log and Out for changes to take effect
 	# Change zsh theme to agnoster:
 	# open zshrc:
 	nano ~/.zshrc
-	# Change line:
-	ZSH_THEME="russlebobby"
-	# to:
-	ZSH_THEME="agnoster"
+	# I've been liking robbyrussell theme... so we'll keep it.
 
 
 to remove username from bash prompt, add the following
@@ -183,9 +180,6 @@ Python tools:
 
 	sudo apt-get install python3-pip
 
-	# Alias pip3 (if necessary): [This may need to be added to zshrc]
-	alias pip=$(which pip3)
-
 	# install virtualenv:
 	sudo -H pip install virtualenv
 
@@ -194,12 +188,6 @@ Python tools:
 
   $ install python3-tk for matplot lib
   sudo apt-get install python3-tk
-
-
-Aliases
-``````````
-
-Best to define aliases in `~/.zshrc`
 
 
 Install vim:
@@ -269,6 +257,7 @@ Add the following to ~/.vimrc:
 	" see :h vundle for more details or wiki for FAQ
 	" Put your non-Plugin stuff after this line
 	" Powerline stuff: [NOTE: NEED TO MAKE SURE THIS IS CORRECT PLACE!]
+	set encoding=utf-8
 	set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 	set t_Co=256
 	set expandtab
