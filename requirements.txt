@@ -11,5 +11,7 @@ ipython
 sphinx
 sphinx_rtd_theme
 breathe
+flask
+websockets
 # torch
 # torchvision

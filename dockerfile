@@ -72,7 +72,7 @@ RUN npm install -g npx
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 # add prompt notice that you are in docker/screen:
-Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT="%B%F{red}(DOCKER[%b%f%B%F{green}SCREEN%b%f%B%F{red}])%b%f $PROMPT"\" \nelse \n\tPROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" \nfi" >> /root/.zshrc
+Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT=\"%B%F{red}(DOCKER[%b%f%B%F{green}SCREEN%b%f%B%F{red}])%b%f \$PROMPT\" \nelse\n\tPROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" \nfi" >> /root/.zshrc
 
 
 # Screen shell link:
@@ -82,6 +82,6 @@ RUN echo "shell \"/usr/bin/zsh\"" >> /etc/screenrc
 COPY requirements.txt /tmp/requirements.txt
 
 # copy over requirements & install to system python
-#RUN cd /tmp && pip3 install -r requirements.txt
+RUN cd /tmp && pip3 install -r requirements.txt
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_dev"]
