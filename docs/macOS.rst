@@ -13,6 +13,9 @@ macOS - 10.15 Catelina
 - add alias in :code:`~/.zshrc` :code:`alias activate="source ./venv/bin/activate`
 - create :code:`~/.vimrc` and add :code:`set nu \r syntax on`
 
+- install GTEST
+- install docker
+
 Tips & Tricks
 -------------
 
