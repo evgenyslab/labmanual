@@ -37,6 +37,7 @@ RUN apt-get update \
       screen \
       zsh \
       vim \
+      npm \
       python \
       python-pip \
       python3-pip \
@@ -64,16 +65,15 @@ RUN ( \
 RUN useradd -m user \
   && yes password | passwd user
 
+# install npx:
+RUN npm install -g npx
 
 # set up zsh:
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 # add prompt notice that you are in docker:
-#RUN echo "PROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" " >> /root/.zshrc
-Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT=\"%B%F{red}(DOCKER[{green}SCREEN{red}])%b%f \$PROMPT\" \nelse \n\tPROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" \nfi" >> /root/.zshrc
+Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT="%B%F{red}(DOCKER[%b%f%B%F{green}SCREEN%b%f%B%F{red}])%b%f $PROMPT"\" \nelse \n\tPROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" \nfi" >> /root/.zshrc
 
-
-RUN echo "export LC_ALL=\"en_US.UTF-8\" ">> /root/.zshrc
 
 # Screen shell link:
 RUN echo "shell \"/usr/bin/zsh\"" >> /etc/screenrc
