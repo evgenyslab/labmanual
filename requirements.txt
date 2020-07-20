@@ -1,2 +1,15 @@
+numpy
+cython
+opencv-python
+msgpack==1.0.0
+matplotlib
+mpld3
+pandas
+pillow
+jupyterlab
+ipython
 sphinx
 sphinx_rtd_theme
+breathe
+# torch
+# torchvision
