@@ -71,7 +71,7 @@ RUN npm install -g npx
 # set up zsh:
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
-# add prompt notice that you are in docker:
+# add prompt notice that you are in docker/screen:
 Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT="%B%F{red}(DOCKER[%b%f%B%F{green}SCREEN%b%f%B%F{red}])%b%f $PROMPT"\" \nelse \n\tPROMPT=\"%B%F{red}(DOCKER)%b%f \$PROMPT \" \nfi" >> /root/.zshrc
 
 
