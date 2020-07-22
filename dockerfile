@@ -6,7 +6,7 @@
 #
 #   Latest:
 #   docker build -t dev/development-env -f dockerfile .
-#   docker run -d --cap-add sys_ptrace -p127.0.0.1:2222:22 -p8888:8888 --name dev en/development-env:0.1
+#   docker run -d --cap-add sys_ptrace -p127.0.0.1:2224:22 -p8890:8890 -p8889:8889 --name dev2 en/dev:0.2
 #
 # Access the image remotely:
 #   docker exec -it <container_name> zsh
@@ -46,6 +46,7 @@ RUN apt-get update \
       libxext6 \
       libxrender-dev \
       zlib1g-dev \
+      libturbojpeg \
   && apt-get clean
 
 # Finalize gtest install:
@@ -84,6 +85,24 @@ RUN echo "shell \"/usr/bin/zsh\"" >> /etc/screenrc
 COPY requirements.txt /tmp/requirements.txt
 
 # copy over requirements & install to system python
-RUN cd /tmp && pip3 install -r requirements.txt
+RUN cd /tmp && pip3 install -r requirements.txt && rm requirements.txt
+
+# remote visualization backend install...
+RUN cd /tmp && \
+    git clone https://github.com/evgenyslab/webSockets.git && \
+    cd webSockets && \
+    git checkout dev && \
+    git submodule update --init --recursive && \
+    python3 setup.py install && \
+    cd .. && rm -rf webSockets
+
+# Install remote visualizer
+RUN cd /tmp && \
+    git clone https://github.com/evgenyslab/remoteImageVisualizer.git riv && \
+    cd riv && \
+    git checkout v0.1 && \
+    python3 setup.py install && \
+    cd .. && rm -rf riv
+
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_dev"]

@@ -13,5 +13,6 @@ sphinx_rtd_theme
 breathe
 flask
 websockets
+PyTurboJPEG
 # torch
 # torchvision
