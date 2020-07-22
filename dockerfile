@@ -45,6 +45,7 @@ RUN apt-get update \
       libsm6 \
       libxext6 \
       libxrender-dev \
+      zlib1g-dev \
   && apt-get clean
 
 # Finalize gtest install:
