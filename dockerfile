@@ -37,7 +37,6 @@ RUN apt-get update \
       screen \
       zsh \
       vim \
-      npm \
       python \
       python-pip \
       python3-pip \
