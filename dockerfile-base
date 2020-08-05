@@ -44,7 +44,13 @@ RUN apt-get update \
       libturbojpeg \
       libssl-dev \
       libuv-dev \
+      libsm6 \
+      libxext6 \
+      libxrender-dev \
   && apt-get clean
+  
+# NOTE: libsm6 libxext6 libxrender-dev are needed for cv2 to be imported correctly :(
+
 
 # Finalize gtest install:
 RUN cd /usr/src/gtest \
