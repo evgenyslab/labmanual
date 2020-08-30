@@ -3,8 +3,8 @@
 Linux
 =================
 
-Setup
------
+Overview
+--------
 
 - Linux Mint
 - Python
@@ -91,16 +91,25 @@ Terminal Stuffs
 	sudo passwd
 
 	## Install git:
-	sudo apt-get install git-core
-	sudo apt-get install cmake build-essential
-
-	## install oh-my-zsh:
-	sudo apt-get install zsh
-	# change shell to zsh:
-	chsh -s $(which zsh)
-
-	# install utilities
-	sudo apt install htop screen
+	sudo apt-get install git-core \
+			cmake \
+			build-essential \
+			vim \
+			zsh \
+			htop \
+			screen \
+			python3-pip \
+			imagemagick \
+			python3-tk \
+			libgtest-dev \
+			zlib1g-dev \
+			libturbojpeg \
+			libssl-dev \
+			libuv-dev \
+			libsm6 \
+			libxext6 \
+			libxrender-dev \
+			openssh-client
 
 
 If getting a :code:`PAM permission` error, or a :code:`which zsh invalid command`
@@ -118,14 +127,6 @@ At this point, may want to log in/out for some settings to take hold.
 
 Log and Out for changes to take effect
 
-.. code-block:: bash
-
-	# Change zsh theme to agnoster:
-	# open zshrc:
-	nano ~/.zshrc
-	# I've been liking robbyrussell theme... so we'll keep it.
-
-
 to remove username from bash prompt, add the following
 to the bottom of `.zshrc` file:
 
@@ -137,21 +138,6 @@ to the bottom of `.zshrc` file:
 	if [[ $EUID == 0 ]]; then
 		PROMPT="%B%F{red}root%b%f $PROMPT"
 	fi
-
-
-
-
-To install fonts theme to support built-in powerline:
-
-.. code-block:: bash
-
-	git clone https://github.com/powerline/fonts.git --depth=1
-	cd fonts
-	./install.sh
-	cd ..
-	rm -rf fonts
-
-set font to Droid Sans Mono Power
 
 
 OPTIONALLY: Linking zsh from local user to superuser:\
@@ -169,36 +155,28 @@ Git stuff
 .. code-block:: bash
 
 	# setup credential helper:
-	sudo apt-get install libgnome-keyring-dev
-	sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring
-	git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+	git config --global credential.helper store
+
+
+GTest
+`````
+.. code-block:: bash
+
+	cd /usr/src/gtest
+	cmake CMakeLists.txt
+	make
+	cp *.a /usr/lib
 
 
 Python tools:
 ````````````````
 .. code-block:: bash
 
-	sudo apt-get install python3-pip
-
 	# install virtualenv:
 	sudo -H pip install virtualenv
 
-  # install imagemagick for Pillow backend in Mint:
-  sudo apt-get install imagemagick
 
-  $ install python3-tk for matplot lib
-  sudo apt-get install python3-tk
-
-
-Install vim:
-```````````````
-
-.. code-block:: bash
-
-	sudo apt-get update
-	sudo apt-get install vim
-
-install vundle
+Vim & Vundle
 `````````````````
 
 .. code-block:: bash
