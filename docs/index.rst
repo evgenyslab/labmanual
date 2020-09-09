@@ -16,6 +16,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    home
    macOS
    linux
+   linux_server
    docker
    aws
    projects

@@ -6,6 +6,44 @@ Python Development
 This guide outlines my approach for python development and methodologies used.
 
 
+NUMPY CHEET SHEET
+-----------------
+
+.. code-block:: bash
+
+	import numpy as np
+
+	# Input is a set of object points for N objects, M, points:
+	# N x [3xM]
+	arr = [
+	    [111, 112, 113, 121, 122, 123, 131, 132, 133, 141, 142, 143],
+	    [211, 212, 213, 221, 222, 223, 231, 232, 233, 241, 242, 243],
+	    [311, 312, 313, 321, 322, 323, 331, 332, 333, 341, 342, 343],
+	    [411, 412, 413, 421, 422, 423, 431, 432, 433, 441, 442, 443],
+	    [511, 512, 513, 521, 522, 523, 531, 532, 533, 541, 542, 543]
+	]
+
+	# Create array:
+	A = np.array(arr)
+
+	N = 5
+	M = 4
+	D = 3  # 2D or 3D
+
+	# convert into more useful shape:
+	# N x M x 3
+	B = A.reshape([-1, M, D])
+	# Conver to something more friendly for R*B multiplacations:
+	# N x 3 x M:
+	B = B.swapaxes(1,2)
+	# create Rotation Matrix (axis swap):
+	R = np.array([[0, 1 ,0],
+	             [1, 0, 0],
+	             [0, 0, 1]])
+	# apply:
+	np.matmul(R, B)
+
+
 TODOs
 -------
 
@@ -15,7 +53,7 @@ Create alias for quick activation of virtual environment in local directory:
 .. code-block:: bash
 
 	alias activate="source .venv/bin/activate"
-	
+
 - [ ] python project structure
 - [ ] using setup.py to install python models
 
@@ -24,7 +62,7 @@ Create alias for quick activation of virtual environment in local directory:
 - [ ] development with Jupyterlab
 
   - [ ] remote development - using ssh forwarding
-  
+
 - [ ] development with pycharm
 
 - [ ] remote development and debugging over ssh
@@ -100,4 +138,3 @@ Virtual Environment Script
 	echo -e "${GREEN}Installing python packages...${NC}"
 	pip -q install -r requirements.txt
 	echo -e "${GREEN}Virtual Environment Install Complete! use 'source .venv/bin/activate' to enable!${NC}"
-

@@ -137,6 +137,8 @@ to the bottom of `.zshrc` file:
 
 	if [[ $EUID == 0 ]]; then
 		PROMPT="%B%F{red}root%b%f $PROMPT"
+	else
+	  PROMPT="%B%F{green}user%b%f $PROMPT"
 	fi
 
 
