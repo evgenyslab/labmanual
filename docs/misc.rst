@@ -12,11 +12,11 @@ In the case of remote development, it may be beneficial to mount the remote's de
 path on the local computer, use a local file editor to make and save changes, and then
 compile and run remotely.
 
-In linux, to mount a remote directory from a remote machine, use :code:`ssfs`:
+In linux, to mount a remote directory from a remote machine, use :code:`sshfs`:
 
 .. code-block:: bash
 
-	sudo apt-get install ssfs
+	sudo apt-get install sshfs
 
 Then, it is neccesary to create a local directory into which the remote will mount:
 
@@ -24,7 +24,7 @@ Then, it is neccesary to create a local directory into which the remote will mou
 
 	mkdir /my/local/mount/point
 
-Finally, use :code:`ssfs` to mount the remote directory into the newly created local:
+Finally, use :code:`sshfs` to mount the remote directory into the newly created local:
 
 .. code-block:: bash
 
@@ -57,7 +57,14 @@ Source: [|ref_00|].
 GDB Remote Debugging C++
 ------------------------
 
-ipsum
+TODO:
+
+- go to build location of executible
+- make sure to build with debug
+- run `gdb myexecutible` to open gdb interface
+- then, to set break point, use ``?
+- to run with debug use `-r arg1 arg2...`
+- on segfault/etc, use `bt` to back trace where the failure occured
 
 
 
