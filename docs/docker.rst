@@ -6,6 +6,8 @@ Docker
 # TODO
 ------
 
+- Remote Docker development with Clion/Pycharm -> can do
+
 - How to attach local dir to docker container? [use -v]
 - How to run container in background? [need to have some process in foreground, then `docker run -d`]
 - How to make custom image using dockerfile? [`docker build ...`]
@@ -14,8 +16,6 @@ Docker
   - if ssh can't be used, may need to make shell script to run multi-stage build + commit output
 - How to connect to running container from multiple host terminals? [`docker exec -it container_name bash/zsh`]
 
-- how to work to save files with container if its removed? what is a typical workflow?
-  - can commit container to an image using `docker commit container_name ...`
 
 - how to delete contrains from local? [`docker container rm container_name`]
 
@@ -25,6 +25,9 @@ Docker
 - How to pipe connection from container to host (i.e. run jupyterlab in
   container and GUI in host)
 
+- example multi stage build with tag (private repo / no keys)
+  - how to work to save files with container if its removed? what is a typical workflow?
+    - can commit container to an image using `docker commit container_name ...`
 
 Installation
 ---------------
@@ -42,7 +45,9 @@ Ubuntu
 macOS
 `````````
 
-<todo>
+Install Docker on mac using provided instructions:
+
+https://docs.docker.com/docker-for-mac/install/
 
 Usage
 --------
@@ -174,13 +179,6 @@ return errors:
 	jupyterlab --ip=0.0.0.0 --allow-root
 
 
-Useful Containers
---------------------
-
-- Machine learning (maybe for amazon, with cuda support?)
-- Webdev (react / flask)
-- python dev
-- ROS + dev
 
 References
 -----------
