@@ -138,6 +138,15 @@ Building & running:
   docker build -t en/dev_base:0.1 -f dockerfile .
   docker run -d --gpus all --name dev en/dev_base:0.1
 
+TODO: add docker file fo GPU-enabled container with pytorch & validation
+
+TODO: add example how to map server docker to local machine by port forwarding
+
+TODO: Resolve sleep issue on completly headless system (debugged with var/log/syslog)
+->https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/
+check with: $ systemctl status sleep.target
+disable with $ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 
 .. |ref_00| raw:: html
 
