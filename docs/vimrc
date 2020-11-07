@@ -1,0 +1,75 @@
+" Vimrc Configuration
+"
+"
+
+
+" be IMproved, retuired
+set nocompatible              " be iMproved, required
+" required
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" PUGINS BELOW
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Git Pluging:
+Plugin 'tpope/vim-fugitive'
+" File Explorer:
+Plugin 'preservim/nerdtree'
+" Git info at bottom of file
+Plugin 'itchyny/lightline.vim'
+" Gruvbox color scheme:
+Plugin 'morhetz/gruvbox'
+" Surround - auto paranthesis, etc:
+Plugin 'tpope/vim-surround'
+" fzf finder
+Plugin 'junegunn/fzf.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Turn on numners:
+set nu
+
+" Syntax Highlight:
+syntax on
+
+" Tab settings:
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" for lightline
+set laststatus=2
+
+" Set scrolling to be centered
+set scrolloff=999
+" highlight current line number
+set cursorline
+" Set gruvbox color mode:
+set background=dark
+
+" Turn of swp files:
+set noswapfile
+
+" Set color scheme:
+autocmd vimenter * ++nested colorscheme gruvbox
+
+" lightline add branch
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" Automatically open NERDTree
+au VimEnter * NERDTree

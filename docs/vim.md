@@ -8,7 +8,7 @@
 - exit
 - nerdtree
 - git integration
-- how to use command line?
+- how to use command line? -> use different tab or window. Do not use with VIM
 - how to use tabs
 - what plug in has good find?
 - plugin for completion
@@ -35,18 +35,27 @@ Commands: [Insert | command]
 - delete word backwards
 - delete word forwads
 - delete without going into insert?
-- select block with n lines
-- continuous select
+- select block with n lines -> visual block select using `crtl v`
+- continuous select -
 - copy selection
 - paste selection
-- undo: [command] 'u'
+- undo: [command] `u` -> [insert mode] `^u`
+- shift down half a page: `ctrl d`
+- shift half a page up: ``
+- Delete Word in INSERT mode: `ctrl w`
+- [Normal mode] Insert Line above: `O`, below `o`, can do `#O` or `#o` for # number of lines
+
+To copy, go into visual mode with 'v' and select lines,
+
+to copy selected lines into buffer use `y` and paste with `p`
 
 
 NERDtree:
 - shift from NERDTree to file? ctrl+w,l to move to left view, ctrl+w,h to move to right, crtl+w,w flip-flop
-- change root to selected folder: 'cd' -> this changes the current dir,
+- change root to selected folder: `C`
 - how to change root folder in nerdtree view?
 - how to open nerdtree in every tab?
+- Show hidden files: `SHIFT i`
 
 vimrc
 ```
