@@ -1,7 +1,28 @@
 # Vim Guide
 
-- (install in config guide)
-- vundle/ plug in managmenet
+1. Install vundle:
+
+    TODO
+
+2. Copy vimrc into ~/.vimrc
+
+3. Install plugins
+
+USAGE
+
+MODES: NORMAL | INSERT | COMMAND | VISUAL
+
+NORMAL mode -> key combinations execute actions
+
+COMMAND mode -> pressing `:` in normal mode and typing command in command line
+
+INSERT mode -> typing text into file
+
+VISUAL mode -> selection/highlighting mode
+
+All modes pivot through NORMAL mode, however there are multiple methods to enter VISUAL and INSERT modes from NORMAL mode.
+
+| COMMAND | 
 
 - shortcuts in insert or other mode?
 - entry
@@ -21,10 +42,10 @@
 
 Commands: [Insert | command]
 - nertree go into folder?
-- open in new tab?
+- open in new tab? [`:tabnew <file>`]
 - move to next tab? [gt] [:tabn, :tabnext]
 - move to prev tab? [gT] [:tabp, :tabprev]
-- move to first tab?
+- move to first tab? [:ta
 - move to last tab?
 - comment in any mode?
 - move to end of word?
@@ -32,7 +53,7 @@ Commands: [Insert | command]
 - move to end of line
 - move to start of line
 - move up/down page
-- delete word backwards
+- delete word backwards `^w`
 - delete word forwads
 - delete without going into insert?
 - select block with n lines -> visual block select using `crtl v`
@@ -40,9 +61,8 @@ Commands: [Insert | command]
 - copy selection
 - paste selection
 - undo: [command] `u` -> [insert mode] `^u`
-- shift down half a page: `ctrl d`
-- shift half a page up: ``
-- Delete Word in INSERT mode: `ctrl w`
+- shift down half a page: `^d`
+- shift half a page up: `^u`
 - [Normal mode] Insert Line above: `O`, below `o`, can do `#O` or `#o` for # number of lines
 
 To copy, go into visual mode with 'v' and select lines,
@@ -51,63 +71,10 @@ to copy selected lines into buffer use `y` and paste with `p`
 
 
 NERDtree:
-- shift from NERDTree to file? ctrl+w,l to move to left view, ctrl+w,h to move to right, crtl+w,w flip-flop
+- shift from NERDTree to file? `^w,l` to move to left view, `^w,h` to move to right, crtl+w,w flip-flop
 - change root to selected folder: `C`
 - how to change root folder in nerdtree view?
 - how to open nerdtree in every tab?
 - Show hidden files: `SHIFT i`
 
-vimrc
-```
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'preservim/nerdtree'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-set nu
-syntax on
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-```
