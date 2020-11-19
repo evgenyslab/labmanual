@@ -49,6 +49,11 @@ To create tar archive:
 	# to recombine:
 	cat tarFileName.tar.gz.part* > tarFileName.tar.gz
 
+Local app install
+---------------------
+Application executibles can be installed by placing a sh script to launch the application
+under `$HOME/.local/bin`, this will be visible to the current user.
+
 Sphinx & GitHub Pages
 ---------------------
 
