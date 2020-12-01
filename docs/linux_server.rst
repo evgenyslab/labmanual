@@ -43,6 +43,10 @@ in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
       python3-pip \
 
   wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+  
+  # change the shell:
+  chsh -s $(which zsh)
+  # todo.. ln -s the oh my zsh folder from user to root...
 
 
 Add the following to zshrc:
