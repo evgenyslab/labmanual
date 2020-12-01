@@ -67,6 +67,8 @@ Commands: [Insert | command]
 
 To copy, go into visual mode with 'v' and select lines,
 
+To copy to clipboard in Host, after VISUAL seleection, use `"*y` to yank.
+
 to copy selected lines into buffer use `y` and paste with `p`
 
 
