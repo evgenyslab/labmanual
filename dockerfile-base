@@ -81,6 +81,9 @@ Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT=\"%B%F{red}(DOCKER[%b%f%B%F
 # Screen shell link:
 RUN echo "shell \"/usr/bin/zsh\"" >> /etc/screenrc
 
+# update pip:
+RUN pip3 install --upgrade pip
+
 # pip install requirements:
 COPY requirements.txt /tmp/requirements.txt
 
