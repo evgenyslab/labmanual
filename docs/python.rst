@@ -138,3 +138,26 @@ Virtual Environment Script
 	echo -e "${GREEN}Installing python packages...${NC}"
 	pip -q install -r requirements.txt
 	echo -e "${GREEN}Virtual Environment Install Complete! use 'source .venv/bin/activate' to enable!${NC}"
+
+
+
+SOME THOUGHTS about python wrapping:
+
+- when creating C++ cython wrapped application, should build be called
+  followed by setup.py, or should setup.py do its own build? 
+  I suspect the order of events will affect the library install... i.e.
+  a static library might be correctly link, but shared might not.
+
+- I think all used libraries in c++ code need to be defined in 
+  setup.py's `library` list.
+
+- if a c++ cmake has shared library as part of the install, it 
+  needs to be installed into `/lib` for python to locate it.
+
+- Two possible use cases - C++ is installed for c++ library use, then
+  python wrapping is added on top and installed into specific 
+  python environment, wherein python folder has its own cmakelist 
+  and is used as a subdirectory in c++ cmake list, OR
+  C++ and python are treated separately, and python's setup.py 
+  calls the compilation itself (would work with static libs), in that case
+  no c++ libraries are made available for C++ work.
