@@ -26,6 +26,9 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-surround'
 " fzf finder
 Plugin 'junegunn/fzf.vim'
+" Docker syntax highlight:
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
