@@ -1,18 +1,18 @@
 .. Comment
 
-macOS - 10.15 Catelina
-======================
+macOS Configuration
+===================
 
 - install `Brew <https://brew.sh/>`_
 - install `oh-my-zsh <https://ohmyz.sh/>`_
-- install brew cmake :code:`cmake install brew` (may need change some ownership here and there)
+- install brew cmake :code:`brew install cmake` (may need change some ownership here and there)
 - install brew python: :code:`brew install python`
 - confirm default python is brew's not system ?
 - install virtualenvs: :code:`sudo -H pip3 install virtualenv`
+- install macvim :code:`brew install macvim`
 - add alias in :code:`~/.zshrc` :code:`alias mkvenv="virtualenv -p $(which python3) .venv`
 - add alias in :code:`~/.zshrc` :code:`alias activate="source ./venv/bin/activate`
-- create :code:`~/.vimrc` and add :code:`set nu \r syntax on`
-
+- add alias in :code:`~/.zshrc` :code:`alias vim="mvim -v"`
 - install GTEST
 - install docker
 
