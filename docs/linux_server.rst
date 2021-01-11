@@ -6,6 +6,24 @@ Linux Server
 Overview
 --------
 
+#. OS Installation
+#. OS Configuration
+#. Nvidia GPU Driver Install
+#. Docker Installation w/ GPU Drivers
+#. Docker Image Building
+#. Running Docker Image w/ GPU support
+#. Remote Development with Jupiter-lab
+#. Remote Development with PyCharm
+
+OS Installtion
+--------------
+
+
+ipsum
+
+Caveats
+```````
+
 Cannot Install Ubuntu 20.04 server without ethernet.
 
 Trying fresh install, update, upgrade, nmcli install + config.
@@ -29,6 +47,16 @@ Trying fresh install, update, upgrade, nmcli install + config.
 in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
 :code:8.8.8.8:
 
+Resolve sleep issue on completly headless system (debugged with var/log/syslog)
+->https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/
+check with: $ systemctl status sleep.target
+disable with $ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+
+
+OS Configuration
+----------------
+
 
 .. code-block:: bash
 
@@ -43,7 +71,7 @@ in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
       python3-pip \
 
   wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-  
+
   # change the shell:
   chsh -s $(which zsh)
   # todo.. ln -s the oh my zsh folder from user to root...
@@ -58,6 +86,10 @@ Add the following to zshrc:
   else
           PROMPT="%B%F{green}$HOST%b%f $PROMPT"
   fi
+
+
+Nvidia Driver Installation
+--------------------------
 
 
 Get GPU hw info:
@@ -77,6 +109,15 @@ Get Nvidia drivers:
   nvidia-smi
 
 
+Docker Installation
+-------------------
+
+[TODO: add xref to docker install]
+
+Docker GPU Configuration
+------------------------
+
+
 to get docker to use GPUs: [|ref_00|]
 
 .. code-block:: bash
@@ -93,63 +134,118 @@ to get docker to use GPUs: [|ref_00|]
   sudo systemctl stop docker
   sudo systemctl start docker
 
-Create Container:
+
+Docker Image Build
+------------------
+
+[TODO: add docker xref]
+
+The provided docker images (in dockerfiles dir) have minimal necessary
+builds for python3-based development using pytorch and either ssh
+development (with jetbrains tools), or jupyterlab.
+
+Building:
 
 .. code-block:: bash
 
-  FROM nvidia/cuda:10.2-base-ubuntu18.04
+    # Base nvidia-gpu container with pytoch:
+    docker build -t nvidia-gpu-base -f nvidia-gpu-base .
 
-  RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y ssh \
-        build-essential \
-        gcc \
-        g++ \
-        gdb \
-        git \
-        clang \
-        cmake \
-        rsync \
-        tar \
-        python \
-        python-pip \
-        python3-pip \
-    && apt-get clean
+    # Jupyterlab build:
+    docker build -t nvidia-gpu-jupyter -f nvidia-gpu-jupyter .
 
-  RUN ( \
-        echo 'LogLevel DEBUG2'; \
-        echo 'PermitRootLogin yes'; \
-        echo 'PasswordAuthentication yes'; \
-        echo 'Subsystem sftp /usr/lib/openssh/sftp-server'; \
-      ) > /etc/ssh/sshd_dev \
-      && mkdir /run/sshd
-
-    RUN useradd -m user \
-      && yes password | passwd user
-
-    # Update pip:
-    RUN pip install --upgrade pip && \
-        pip3 install --upgrade pip
-
-  RUN pip3 install numpy ipython torch torchvision
-
-  CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_dev"]
+    # Remote SSH development build:
+    docker build -t nvidia-gpu-ssh -f nvidia-gpu-ssh .
 
 
-Building & running:
+Docker Image Running
+--------------------
+
+Two images can run, either jupyter, or ssh deveopment.
+
+JUPYTER
+```````
+
+To nvidia-gpu-enabled docker container and develop remotely, firstly,
+on the server-side, run the docker container and map any necessary
+data folders to the container:
 
 .. code-block:: bash
 
-  docker build -t en/dev_base:0.1 -f dockerfile .
-  docker run -d --gpus all --name dev en/dev_base:0.1
+    # Emphasis on --gpus all 
+    docker run -d --gpus all -p 8888:8888 -v /path/to/Data:/tmp/Data --name dev-gpu nvidia-gpu-jupyter:latest
 
-TODO: add docker file fo GPU-enabled container with pytorch & validation
 
-TODO: add example how to map server docker to local machine by port forwarding
+This will run a docker instance with the Jupyter Lab running in the
+:code:`/tmp`
+directory (at IP 0.0.0.0) and mapping docker's 8888 port to the server's
+8888 port.
 
-TODO: Resolve sleep issue on completly headless system (debugged with var/log/syslog)
-->https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/
-check with: $ systemctl status sleep.target
-disable with $ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+Once the container is running, to get the access token, on the server,
+run:
+
+.. code-block:: bash
+
+    docker logs dev-gpu  # or the corresponding name of the container
+
+This will print out the stdout of the container and will reveal Jupyter's
+access token.
+
+At this point, the Jupyterlab instance can be checked on the server
+by using :code:`wget localhost:8888`, which will download an :code:`index.html` file in the current directory.
+
+To access the Jupterlab on the working machine (laptop, etc), two
+options are possible:
+
+#. Open browser and navigate to :code:`<server_ip>:8888`
+#. Port forward the server's :code:`8888` port to your machine's desired port with
+
+    .. code-block:: bash
+
+        ssh -N -f -L localhost:8888:localhost:8888 server_username@server_ip
+
+        then open browser and navigate to :code:`localhost:8888`
+
+
+Note: shutting down jupyter from the web interface will close the
+container as well!
+
+SSH-Remote Development (Jetbrains)
+``````````````````````````````````
+
+In server, run the container:
+
+.. code-block:: bash
+
+    docker run -d --gpus all --cap-add sys_ptrace -p127.0.0.1:2222:22 -v /home/en/Data:/tmp/Data --name dev-gpu nvidia-gpu-ssh
+
+
+On local machine, port forward a local port to the server's 2222 port:
+
+.. code-block:: bash
+
+    ssh -N -f -L localhost:3333:localhost:2222 server_username@server_ip
+
+Now, in pycharm, a new ssh environment can be added on :code:`localhost` 
+:code:`port:3333` with credentials `user:password`.
+
+
+Verify Cuda
+```````````
+
+To verify cuda is running, in jupyter block or pycharm console, run one or
+both of the following:
+
+.. code-block:: bash
+
+    # access container command:
+    !nvidia-smi
+
+    # get through torch:
+    import torch
+    torch.cuda.device_count()
+    torch.cude.get_device_name(0)
+
 
 
 .. |ref_00| raw:: html
