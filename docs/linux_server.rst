@@ -15,11 +15,9 @@ Overview
 #. Remote Development with Jupiter-lab
 #. Remote Development with PyCharm
 
-OS Installtion
---------------
+OS Installation
+---------------
 
-
-ipsum
 
 Caveats
 ```````
@@ -87,6 +85,8 @@ Add the following to zshrc:
           PROMPT="%B%F{green}$HOST%b%f $PROMPT"
   fi
 
+Need to install samba utilities
+Mounting SMB drive...
 
 Nvidia Driver Installation
 --------------------------
@@ -172,7 +172,7 @@ data folders to the container:
 
 .. code-block:: bash
 
-    # Emphasis on --gpus all 
+    # Emphasis on --gpus all
     docker run -d --gpus all -p 8888:8888 -v /path/to/Data:/tmp/Data --name dev-gpu nvidia-gpu-jupyter:latest
 
 
@@ -226,7 +226,7 @@ On local machine, port forward a local port to the server's 2222 port:
 
     ssh -N -f -L localhost:3333:localhost:2222 server_username@server_ip
 
-Now, in pycharm, a new ssh environment can be added on :code:`localhost` 
+Now, in pycharm, a new ssh environment can be added on :code:`localhost`
 :code:`port:3333` with credentials `user:password`.
 
 
