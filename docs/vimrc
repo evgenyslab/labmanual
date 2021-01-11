@@ -26,9 +26,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-surround'
 " fzf finder
 Plugin 'junegunn/fzf.vim'
-" Docker syntax highlight:
-Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +42,9 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" set old regex engine due to slow syntax:
+set re=1
 
 " for lightline
 set laststatus=2
