@@ -7,3 +7,9 @@ pandas
 pillow
 jupyterlab
 ipython
+PyTurboJPEG
+flask
+scikit-learn
+umap-learn
+plotly
+seaborn

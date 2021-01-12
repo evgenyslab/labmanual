@@ -7,6 +7,7 @@ macOS Configuration
 - install `oh-my-zsh <https://ohmyz.sh/>`_
 - install brew cmake :code:`brew install cmake` (may need change some ownership here and there)
 - install brew python: :code:`brew install python`
+- consider pyenv installation to provide python version control, then link the version control to the mkvenv script
 - confirm default python is brew's not system ?
 - install virtualenvs: :code:`sudo -H pip3 install virtualenv`
 - install macvim :code:`brew install macvim`
