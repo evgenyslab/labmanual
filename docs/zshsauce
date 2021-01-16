@@ -5,7 +5,19 @@
 #
 #
 
-alias mkvenv="virtualenv -p $(which python3) .venv"
+# Aliasing auto python virtual environment creating using `mkvenv`
+# that relies on pyenv installation of python3.8:
+
+# determine if pyenv is installed
+if ! command -v pyenv &> /dev/null
+then
+    echo "pyenv is not installed, reverting to system python"
+        export USING_PYTHON=$(which python3)
+    exit
+    else
+        export USING_PYTHON=$(pyenv which python3)
+fi
+
 alias activate="source .venv/bin/activate"
 # MAC only:
 if [ "$(uname)" == "Darwin" ]; then
@@ -14,10 +26,10 @@ fi
 
 # may want to remove the below:
 # Part of GTEST install
-# export CPLUS_INCLUDE_PATH="/usr/local/include"
-# export LIBRARY_PATH="/usr/local/lib"
+export CPLUS_INCLUDE_PATH="/usr/local/include"
+export LIBRARY_PATH="/usr/local/lib"
 
 # Part of Pyenv install:
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
