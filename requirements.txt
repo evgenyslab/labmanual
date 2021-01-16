@@ -2,7 +2,7 @@ numpy
 cython
 sphinx
 sphinx-rtd-theme
-# sphinxcontrib-remoteliteralinclude
+sphinxext-remoteliteralinclude
 breathe
 beautifulsoup4
 opencv-python
