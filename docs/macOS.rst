@@ -1,69 +1,197 @@
 .. Comment
 
+    # with overline, for parts
+    * with overline, for chapters
+    =, for sections
+    -, for subsections
+    ^, for subsubsections
+    “, for paragraphs
+
 macOS Configuration
 ===================
 
-- install `Brew <https://brew.sh/>`_
-- install `oh-my-zsh <https://ohmyz.sh/>`_
-- install brew cmake :code:`brew install cmake` (may need change some ownership here and there)
-- install brew python: :code:`brew install python`
-- consider pyenv installation to provide python version control, then link the version control to the mkvenv script
-- confirm default python is brew's not system ?
-- install virtualenvs: :code:`brew install virtualenv`
-- install pyenv https://github.com/pyenv/pyenv#homebrew-on-macos
-- install macvim :code:`brew install macvim`
-- Add Sauce to ZSH file:
-  - :code:`wget <saucyPath> -O ->> ~/.zshrc` that will add:
-    - add alias in :code:`~/.zshrc` :code:`alias mkvenv="virtualenv -p $(which python3) .venv`
-    - add alias in :code:`~/.zshrc` :code:`alias activate="source ./venv/bin/activate`
-    - add alias in :code:`~/.zshrc` :code:`alias vim="mvim -v"`
+The macOS is built on a linux-like system, however, unlike common linux distros,
+it is missing a package manager (i.e. :code:`apt`). 
+
+
+Install Brew
+------------
+
+Thus, the first step of setting up a mac for development is the installation
+of a packagement tool, namely, :code:`homebrew`, or :code:`brew`. The installation
+can be found on the |xref_brew|  website.
+
+Install Packages
+----------------
+
+Once brew is installed, the following packages can be installed:
 
 .. code-block:: bash
 
-    # determine if pyenv is installed
-    if ! command -v pyenv &> /dev/null
-    then
-        echo "pyenv is not installed, reverting to system python"
-            export USING_PYTHON=$(which python3)
-        exit
-        else
-            export USING_PYTHON=$(pyenv which python3)
-    fi
+   # Update Brew
+   brew update
+
+   # Install zsh
+   brew install zsh
+
+   # Install macvim
+   brew install macvim
+
+   # Install cmake
+   brew install cmake
+
+   # Install python
+   brew install python
+
+   # Install pyenv (for python versions)
+   brew install pyenv 
+
+   # Install virtualenv for python
+   brew install virtualenv
 
 
 
+Configure Packages
+------------------
 
-- install GTEST
-- install docker
+The following section provides information, guidance and some reasoning
+behind various component configurations.
+
+Pyenv
+^^^^^
+
+Pyenv post installation configuration can be found |xref_pyenv_conf|.
+
+ZSH
+^^^
+
+The first part of configuring :code:`zsh` is to install
+:code:`Oh My Zsh`: |xref_ohmyzsh_install|. 
+
+Next step would be to set up the :code:`~/.zshrc` file. There
+are many ways to configure the file, the following is an 
+example of what I have appended to mine, along with some 
+descriptive information for my items.
+
+Note, I am using :code:`robbyrussell` theme.
+
+.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce
+ 
+This can be quickly added to your :code:`~/.zshrc` using the following command:
+
+.. code-block:: bash
+
+    `wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O ->> ~/.zshrc` 
 
 
-TODO:
+VIM
+^^^
 
-- Look into vtop (requires NPM) - NPM install?
-- look into fzf (fuzzy finder in terminal)
-- VIM configuration (as layers)
-  -> I want to learn this and configure as replacement for atom.
-  -> what packages?
-  -> what commands?
-  -> find?
-  -> find in dir?
-  -> replace?
--
+Vim is a terminal editor that is very portable. My take on the configuration of vim
+can be found |xref_vim_config|.
+
+
+
+Supplementary Packages
+----------------------
+
+The following packages are not available through |xref_brew| at the 
+moment, and thus warrant their own section.
+
+Docker
+^^^^^^
+
+|xref_docker| is an OS-level virtualization platform for running applications.
+It is useful for development and running applications of different languages
+and ensures the underlying OS is configured for the application.
+
+For more information about docker, see the page |xref_docker_lab|.
+  
+To install Docker for Mac, following the instructions on the |xref_docker_install| 
+page.
+
+
+GTest
+^^^^^
+
+GTest is a C++ test-suite developed by Google.
+
+The installation instructions for macOS can be found |xref_gtest_install|.
+
+The installation requires updating :code:`~/.zshrc` file.
+
 
 Tips & Tricks
 -------------
 
-use :code:`mdls` command to retrieve meta data on any file, useful for scripting file renaming. If the command returns :code:`(null)` it means spotlight search needs to be rebuilt on the drive using :code:`sudo mdutil -E /Drive`.
+The following tips and tricks are accumulated over time.
+
+:code:`MDLS` File Inspection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :code:`mdls` command can be used to retrieve meta data on 
+any file, useful for scripting file renaming.
 
 
--> TODO: remote development with a linux parallels image using ssh:
+If the command returns :code:`(null)` it means spotlight search 
+needs to be rebuilt on the drive using :code:`sudo mdutil -E /Drive`.
 
-Seems like with parallels, I only need to use port forwarding from host to parallels since
-parallels is on an IP:
 
-ssh -N -f -L localhost:2220:localhost:22 en@192.168.1.201
-^ this maps remote 2220 to local 22 port
+Remote Parallels
+^^^^^^^^^^^^^^^^
 
-Then in jetbrains clion - set up remote env
+The standard |xref_parallels| installation does not provide
+command line tools and integrations, however, that does not 
+mean that we cannot :code:`ssh` into a linux image that is 
+installed and running.
 
-wherein parallels image is sitting on a LAN IP
+In my image configurations, I use the default network adaptor
+to expose the Parallels image to my network and allow it to
+dynamically receive an IP on my local network. 
+
+Then, I can simply install and use :code:`openssh` to 
+remote log into the virtual machine.
+
+This is also useful for remote development methods as 
+described in |xref_remote_development|. 
+
+
+
+.. comment: REFERENCES
+
+.. |xref_brew| raw:: html
+
+    <a href="http://brew.sh/" target="_blank">Brew</a>
+
+.. |xref_ohmyzsh_install| raw:: html
+
+    <a href="https://ohmyz.sh/#install" target="_blank">Oh My ZSH</a>
+
+.. |xref_pyenv_conf| raw:: html
+
+    <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>
+
+.. |xref_vim_config| raw:: html
+
+    <a href="https://evgenyslab.github.io/labmanual/vim.html" target="_blank">HERE</a>
+
+.. |xref_docker_lab| raw:: html
+
+    <a href="https://evgenyslab.github.io/labmanual/docker.html" target="_blank">Docker</a>
+
+.. |xref_docker| raw:: html
+
+    <a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a>
+
+.. |xref_docker_install| raw:: html
+
+    <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a>
+
+.. |xref_gtest_install| raw:: html
+
+    <a href="" target="_blank">GTest Installation</a>
+
+.. |xref_parallels| raw:: html
+
+    <a href="https://www.parallels.com/" target="_blank">Parallels</a>
+
