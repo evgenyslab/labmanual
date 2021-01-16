@@ -1,6 +1,8 @@
 numpy
 cython
 sphinx
+sphinx-rtd-theme
+# sphinxcontrib-remoteliteralinclude
 breathe
 beautifulsoup4
 opencv-python
