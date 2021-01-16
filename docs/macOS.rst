@@ -9,11 +9,30 @@ macOS Configuration
 - install brew python: :code:`brew install python`
 - consider pyenv installation to provide python version control, then link the version control to the mkvenv script
 - confirm default python is brew's not system ?
-- install virtualenvs: :code:`sudo -H pip3 install virtualenv`
+- install virtualenvs: :code:`brew install virtualenv`
+- install pyenv https://github.com/pyenv/pyenv#homebrew-on-macos
 - install macvim :code:`brew install macvim`
-- add alias in :code:`~/.zshrc` :code:`alias mkvenv="virtualenv -p $(which python3) .venv`
-- add alias in :code:`~/.zshrc` :code:`alias activate="source ./venv/bin/activate`
-- add alias in :code:`~/.zshrc` :code:`alias vim="mvim -v"`
+- Add Sauce to ZSH file:
+  - :code:`wget <saucyPath> -O ->> ~/.zshrc` that will add:
+    - add alias in :code:`~/.zshrc` :code:`alias mkvenv="virtualenv -p $(which python3) .venv`
+    - add alias in :code:`~/.zshrc` :code:`alias activate="source ./venv/bin/activate`
+    - add alias in :code:`~/.zshrc` :code:`alias vim="mvim -v"`
+
+.. code-block:: bash
+
+    # determine if pyenv is installed
+    if ! command -v pyenv &> /dev/null
+    then
+        echo "pyenv is not installed, reverting to system python"
+            export USING_PYTHON=$(which python3)
+        exit
+        else
+            export USING_PYTHON=$(pyenv which python3)
+    fi
+
+
+
+
 - install GTEST
 - install docker
 
