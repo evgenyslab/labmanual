@@ -1,5 +1,8 @@
 numpy
 cython
+sphinx
+breathe
+beautifulsoup4
 opencv-python
 msgpack==1.0.0
 matplotlib
