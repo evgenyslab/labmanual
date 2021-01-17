@@ -78,7 +78,7 @@ Installing from USB
 
 
 Installing Packages
-------------------
+-------------------
 
 Use the following to install all dependencies and base applications on the 
 fresh linux install.

@@ -78,7 +78,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    :caption: Contents:
 
    home
-   OSConfigurations
+   osconfigs/OSConfigurations
    macOS
    linux
    linux_server
