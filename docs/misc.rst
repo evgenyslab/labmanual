@@ -3,6 +3,15 @@
 Miscellaneous Guides
 ====================
 
+
++------------+------------+-----------+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   |           |
+|            | more info  | column 3  |
++------------+------------+-----------+
+
+
 Ipsum
 
 Mount Remote Directory Locally in Linux
@@ -67,7 +76,7 @@ TODO:
 - go to build location of executible
 - make sure to build with debug
 - run `gdb myexecutible` to open gdb interface
-- then, to set break point, use ``?
+- then, to set break point, use \`\`?
 - to run with debug use `-r arg1 arg2...`
 - on segfault/etc, use `bt` to back trace where the failure occured
 
