@@ -1,7 +1,18 @@
 .. Comment
 
+    # with overline, for parts
+    * with overline, for chapters
+    =, for sections
+    -, for subsections
+    ^, for subsubsections
+    “, for paragraphs
+
+
+
+#########
 Labmanual
-======================
+#########
+
 
 The purpose of this page is to provide information and insight into the
 my computing configuration, lessons learned, and preferences in
