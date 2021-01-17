@@ -22,7 +22,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'itchyny/lightline.vim'
 " Gruvbox color scheme:
 Plugin 'morhetz/gruvbox'
-" Surround - auto paranthesis, etc:
+" Surround - Auto replacements of brackets, quotes, etc:
 Plugin 'tpope/vim-surround'
 " fzf finder
 Plugin 'junegunn/fzf.vim'
@@ -36,6 +36,16 @@ set nu
 
 " Syntax Highlight:
 syntax on
+
+" Auto-closing brackets:
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap ` ``<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 " Tab settings:
 set expandtab
