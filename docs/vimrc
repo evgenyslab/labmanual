@@ -75,4 +75,6 @@ let g:lightline = {
       \ }
 
 " Automatically open NERDTree
-au VimEnter * NERDTree
+" au VimEnter * NERDTree
+" Map NERDTree toggle to ctrl-n:
+map <silent> <C-n> :NERDTreeToggle<CR>
