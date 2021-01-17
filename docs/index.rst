@@ -8,7 +8,7 @@
     HOME
         High level info about this pages
     
-    CONFIGURATIONS
+    OSCONFIGURATIONS
         What is the purpose of the config? what am I trying to solve?
    
         Common
@@ -36,11 +36,12 @@
         C++
             ?
         Python
-            virtual envs
             python versions
+            virtual envs
             IDE
             non-IDE
             Jupyter
+            Troubles with Conda/ python path; ros, etc
 
         JS
             ?
@@ -55,6 +56,15 @@
             Remote - Docker
             Remote - OS
 
+        Knowledgebase
+            Development
+                VIM
+                OPENCV
+                PYTHON
+            CAMERA
+
+            .. Math/science/etc
+
 
 
 LAB MANUAL
@@ -68,6 +78,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    :caption: Contents:
 
    home
+   OSConfigurations
    macOS
    linux
    linux_server
