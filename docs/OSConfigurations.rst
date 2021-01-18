@@ -51,12 +51,7 @@ coming from macOS.
 Installing from USB
 -------------------
 
-#. Download Image from `Official 18.04 Image <http://releases.ubuntu.com/18.04/>`_,
-   or, using :code:`wget`:
-
-    .. code-block:: bash
-
-        wget http://releases.ubuntu.com/18.04/ubuntu-18.04.3-desktop-amd64.iso
+#. Download Image from `Linux Mint Download Page <https://linuxmint.com/edition.php?id=284">`_,
 
 #. `Use Balena Etcher tool <https://www.balena.io/etcher/>`_ to create
    USB install media.
@@ -97,8 +92,11 @@ fresh linux install.
         git-core \
         cmake \
         build-essential \
+        gdb \
         vim \
         openssh-client \
+        sshfs \
+        cifs-utils \
         zsh \
         vtop \
         screen \
@@ -282,6 +280,24 @@ mv cv2.XXX.so cv2.so
 
 Linux Server
 ============
+
+The linux server installation and configuration is almost identical to 
+the standard  linux mint installation, with some slight changes to 
+account for lack of :code:`X` or, running headless.
+
+The major caveat of installing a headless linux version is that 
+there is not really a clean to do it without some monitor or 
+visual feedback, since visual feedback is needed to verify choices and 
+selctions.
+
+I've been using the :code:`Ubuntu Server` image for headless installations.
+This OS has been proven to work stabily in the environments I require.
+
+The installation image can be found at the `Ubuntu Server 
+Download Page <https://ubuntu.com/download/server#downloads">`_,
+
+To install from USB, see :ref:`OSConfigurations:Installing from USB`
+
 
 
 
