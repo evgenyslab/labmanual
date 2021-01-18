@@ -303,3 +303,49 @@ To install from USB, see :ref:`OSConfigurations:Installing from USB`
 
 macOS
 =====
+
+
+
+TIPS & TRIX
+===========
+
+The following are general tips and tricks picked up over time
+that are inevitabily partitially forgotten.
+
+Copy Through SSH Tunnel
+-----------------------
+
+In a situation where a file needs to go from :code:`A <--> B <--> C`, 
+it is desired not to double copy through :code:`B`. 
+
+To facilitate a simpler transaction, use SSH port tunneling to copy
+directly :code:`A <--> C`.
+
+For this example, A will be receiving end (user-end) and :code:`C` will be 
+remote source/destination.
+
+#. On :code:`A`, create ssh tunnel through :code:`B` to :code:`C` using:
+
+   .. code-block:: bash
+
+        ssh -L 12321:hostC:22 userB@hostB
+
+   Where :code:`12321` is a randomly selected available port, 
+   :code:`hostC` is the IP address of :code:`C` that is known
+   to :code:`B`, :code:`userB` is the username at :code:`B`, 
+   and finally, :code:`hostB` is the IP of :code:`B`.
+
+   Note, this will open a remote connection in the current 
+   terminal to :code:`B`. To run this in the backaground, add 
+   :code:`cat -` [TODO: test]
+
+#. On :code:`A`, then run the :code:`scp` command with a port designation:
+
+   .. code-block:: bash
+
+        scp -P userC@127.0.0.1:/path/to.file /local/destination
+
+   Note, the source/destinations can be changed based on the required
+   transfer direction.
+   
+
