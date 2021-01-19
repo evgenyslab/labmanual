@@ -29,7 +29,9 @@
             Package-configs
             Tips & tricks
         Tips & Tricks
+            SSH port forwarding (xref to jupyterlab)
             SSH Tunnel coping
+            
 
 
     Development Approaches
@@ -44,6 +46,9 @@
             IDE
             non-IDE
             Jupyter
+                local
+                remote
+                docker /+ remote
             Troubles with Conda/ python path; ros, etc
 
         JS

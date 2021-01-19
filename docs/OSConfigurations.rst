@@ -293,11 +293,41 @@ selctions.
 I've been using the :code:`Ubuntu Server` image for headless installations.
 This OS has been proven to work stabily in the environments I require.
 
-The installation image can be found at the `Ubuntu Server 
-Download Page <https://ubuntu.com/download/server#downloads">`_,
+The installation image can be found at the |xref_userver_dl|. 
+
+.. |xref_userver_dl| raw:: html
+
+        <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
+        page</a>
+
 
 To install from USB, see :ref:`OSConfigurations:Installing from USB`
 
+
+Tips & Tricks
+-------------
+
+Some systems have auto sleep enabled by default as a system service. 
+This may not be desirable for systems that should stay awake for 
+remote work.
+
+It is possible to check :code:`/var/log/syslog` to see if :code:`sleep.taget`
+is triggered after period of inactivity.
+
+To disable the automatic sleep and hybernate services, use:
+
+.. code-block:: bash
+
+    # Inspect:
+    systemctly status sleep.target
+    # Disable: 
+    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+|xref_source00|
+
+.. |xref_source00| raw:: html
+
+    <a href="https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/" target="_blank">ref</a>
 
 
 
@@ -312,8 +342,65 @@ TIPS & TRIX
 The following are general tips and tricks picked up over time
 that are inevitabily partitially forgotten.
 
-Copy Through SSH Tunnel
+
+Linux :code:`systemctl`
 -----------------------
+
+TODO: useage
+
+Linux Startup Service
+---------------------
+
+TODO: how to create linux startup service
+
+- create startup script/application
+- create a :code:`.service` file, put it in :code:`etc/systemd/system/` [TODO add example from 
+  other service for how it looks / breaks down]
+- make the :code:`.service` file, call your script/application
+- put your script/application in :code:`/etc/` directory (as part of install process,
+  same with :code:`.service` file)
+- in install process, run :code:`chmod +x` on the script/application
+- in install process, run :code:`chmod +664` on the :code:`.service` file
+  
+
+Executibles
+-----------
+
+To make files executible, especially bash/shell scripts, change the file
+access control:
+
+.. code-block:: bash
+
+   # Change access:
+   chmod +x myfile.sh
+   # Run the file:
+   ./myfile.sh
+
+
+SSH Port Forwarding
+-------------------
+
+SSH port forwarding enables you to tunnel traffic on a specific port
+from one device to another:
+
+.. code-block:: bash
+
+    [TODO]
+    
+This is very helpful in applications wherein a headless device needs
+to send information over a port to remote device with a UI, best example
+of this use case is running :code:`Jupyterlab` on a remote/docker device
+and porting webui to local machine. See |xref_jupyter_remote| for
+more information.
+
+.. |xref_jupyter_remote| raw:: html
+
+    <a href="" target="_blank">HERE</a>
+
+
+
+SCP (Copy)) Through SSH Tunnel
+------------------------------
 
 In a situation where a file needs to go from :code:`A <--> B <--> C`, 
 it is desired not to double copy through :code:`B`. 
@@ -336,8 +423,7 @@ remote source/destination.
    and finally, :code:`hostB` is the IP of :code:`B`.
 
    Note, this will open a remote connection in the current 
-   terminal to :code:`B`. To run this in the backaground, add 
-   :code:`cat -` [TODO: test]
+   terminal to :code:`B`. 
 
 #. On :code:`A`, then run the :code:`scp` command with a port designation:
 
