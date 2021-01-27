@@ -40,7 +40,11 @@
         Choice of language, considations or os
         C++
             ?
+            Template Projec
+                docs, cmake, readme, install reqs
         Python
+            Template Project
+                docs, setup, req, readme - package, init
             python versions
             virtual envs
             IDE
@@ -53,6 +57,9 @@
 
         JS
             ?
+
+        Databaases
+            postgress/etc
 
         Local vs Remote
             Methods per language
