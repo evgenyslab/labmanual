@@ -8,6 +8,20 @@
 
 3. Install plugins
 
+- open terminal `:term`, to open it in bottom: `:below terminal`
+- to set terminal height: `crtl-w 10 _` will set height to 10,
+- to nagivate in terminal use `ctrl-w N` then use regular
+vim motion control, use `a` and `i` to return to normal 
+operation
+- for more info see [here](https://vi.stackexchange.com/questions/514/how-do-i-change-the-current-splits-width-and-height)
+- Maybe map bottom termnial to shortcut to turn it on/off?
+
+Copying to clipboard:
+
+- select text in visual mode, copy with `"*yy"`
+- paste from clipboard use `"*p"` in normal mode
+
+
 USAGE
 
 MODES: NORMAL | INSERT | COMMAND | VISUAL
