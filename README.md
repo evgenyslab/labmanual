@@ -1,6 +1,8 @@
-# [Lab Manual](https://evgenyslab.github.io/labmanual/)
+# LAB MANUAL 
 
-# [Camera Demo](https://evgenyslab.github.io/labmanual/camera.html)
+[Lab Manual](https://evgenyslab.github.io/labmanual/)
+
+## [Camera Demo](https://evgenyslab.github.io/labmanual/camera.html)
 
 TODO:
  - [ ] Info on Sphinx / Doxygen integration for gh-pages, and non gh-pages repo
