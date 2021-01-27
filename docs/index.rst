@@ -93,6 +93,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    :caption: Contents:
 
    home
+   readme
    OSConfigurations
    macOS
    linux_server
