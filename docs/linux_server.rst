@@ -157,6 +157,10 @@ Building:
     # Remote SSH development build:
     docker build -t nvidia-gpu-ssh -f nvidia-gpu-ssh .
 
+**NOTE**: Two I've added two extra dockerfiles with :code:`-dev-` in the middle,
+one for :code:`nvidia-gpu-dev-base` and one for :code:`nvidia-gpu-dev-ssh`. These
+files use the :code:`cudnn7` and development base images that should provide
+access to :code:`nvcc` compiler and *nvidia* headers.
 
 Docker Image Running
 --------------------
