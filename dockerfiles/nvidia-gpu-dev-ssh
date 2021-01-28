@@ -1,0 +1,16 @@
+FROM nvidia-gpu-dev-base
+
+# this is for remote ssh development:
+RUN ( \
+    echo 'LogLevel DEBUG2'; \
+    echo 'PermitRootLogin yes'; \
+    echo 'PasswordAuthentication yes'; \
+    echo 'Subsystem sftp /usr/lib/openssh/sftp-server'; \
+  ) > /etc/ssh/sshd_dev \
+  && mkdir /run/sshd
+
+RUN useradd -m user \
+  && yes password | passwd user
+
+CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_dev"]
+
