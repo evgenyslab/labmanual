@@ -264,6 +264,11 @@ mv cv2.XXX.so cv2.so
 Linux Server
 ============
 
+**ISSUES TO RESOLVE**
+
+- [ ] docker loses containers / images on restart; seems to be known issue
+- [ ] docker can't link gpu after restart, seems to be fixed with :code:`sudo systemctl docker stop` / start
+
 The linux server installation and configuration is almost identical to 
 the standard  linux mint installation, with some slight changes to 
 account for lack of :code:`X` or, running headless.
@@ -394,10 +399,23 @@ Building:
     # Remote SSH development build:
     docker build -t nvidia-gpu-ssh -f nvidia-gpu-ssh .
 
-**NOTE**: Two I've added two extra dockerfiles with :code:`-dev-` in the middle,
+NOTES
+^^^^^
+
+I've added two extra dockerfiles with :code:`-dev-` in the middle,
 one for :code:`nvidia-gpu-dev-base` and one for :code:`nvidia-gpu-dev-ssh`. These
 files use the :code:`cudnn7` and development base images that should provide
 access to :code:`nvcc` compiler and *nvidia* headers.
+
+I've noticed my server machine has troubles auto-starting docker service on 
+reboot, running:
+
+.. code-block:: bash
+
+   sudo systemctl stop docker
+   sudo systemctl start docker
+
+fixes the issue, however I will have to dig in further to identify the root cause
 
 Docker Image Running
 --------------------
@@ -405,7 +423,7 @@ Docker Image Running
 Two images can run, either jupyter, or ssh deveopment.
 
 JUPYTER
-```````
+^^^^^^^
 
 To nvidia-gpu-enabled docker container and develop remotely, firstly,
 on the server-side, run the docker container and map any necessary
@@ -452,7 +470,7 @@ Note: shutting down jupyter from the web interface will close the
 container as well!
 
 SSH-Remote Development (Jetbrains)
-``````````````````````````````````
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In server, run the container:
 
@@ -472,7 +490,7 @@ Now, in pycharm, a new ssh environment can be added on :code:`localhost`
 
 
 Verify Cuda
-```````````
+-----------
 
 To verify cuda is running, in jupyter block or pycharm console, run one or
 both of the following:
