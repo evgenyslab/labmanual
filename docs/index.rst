@@ -96,7 +96,6 @@ This is the lab manual, a resource for all things setup related and navigation.
    readme
    OSConfigurations
    macOS
-   linux_server
    docker
    aws
    projects
