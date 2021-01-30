@@ -68,6 +68,18 @@ Sphinx & GitHub Pages
 
 Source: [|ref_00|].
 
+IMPORTANT NOTE: github uses jekyll to generate pages, however, standard
+sphinx doc structure has a :code:`_static` folder generate with 
+all css and js files. When Github tried to compile the site with 
+:code:`jekyll`, files/folders with :code:`_` are ignored. 
+
+**THEREFORE** when using the gh-pages branch side-by-side repo config
+as per the instructions in the ref, it is important to add :code:`.nojekyll` 
+in the root directory. This allows style sheets and js to work correctly.
+
+**FOLLOW UP** I'll look into hosting the docs right from main repo,
+gh-pages seems to be able to support that now, could be very useful!
+
 GDB Remote Debugging C++
 ------------------------
 
