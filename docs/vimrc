@@ -18,6 +18,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " File Explorer:
 Plugin 'preservim/nerdtree'
+" Taglist for faster navigation:
+Plugin 'taglist.vim'
 " Git info at bottom of file
 Plugin 'itchyny/lightline.vim'
 " Gruvbox color scheme:
@@ -88,3 +90,9 @@ let g:lightline = {
 " au VimEnter * NERDTree
 " Map NERDTree toggle to ctrl-n:
 map <silent> <C-n> :NERDTreeToggle<CR>
+
+" Map C-, to open a terminal in a split below
+map <silent> to :below terminal<CR>
+" Map C-. to close split below
+map <silent> tq :below close<CR>
+
