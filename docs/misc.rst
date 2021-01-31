@@ -80,6 +80,34 @@ in the root directory. This allows style sheets and js to work correctly.
 **FOLLOW UP** I'll look into hosting the docs right from main repo,
 gh-pages seems to be able to support that now, could be very useful!
 
+Drawio w/ Sphinx
+^^^^^^^^^^^^^^^^
+
+see: https://pypi.org/project/sphinxcontrib-drawio/
+
+To get this to work, need to make sure :code:`sphinxcontrib-drawio` to
+the extensions in :code:`conf.py` for docs.
+
+Then, need to add the application executible for sphinx to render
+the drawing by adding :code:`drawio_binary_path='/path/to/app'`
+in the :code:`conf.py` configuraiton file.
+
+Then, Images can be rendered and exported using a modified image
+directive.
+
+Note, drawio page id can be used to specify which page of the 
+diagram to export.
+
+The drawio diagrams can be stored in a relative location to source,
+during document compilation, drawio will be used to render the image
+and place it in appropriate folder under html build directory.
+
+.. drawio-figure:: art/diagram00.drawio
+   :format: png
+
+   An example diagram
+
+
 GDB Remote Debugging C++
 ------------------------
 

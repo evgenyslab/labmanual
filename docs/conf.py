@@ -32,9 +32,12 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx_rtd_theme',
     'sphinxext.remoteliteralinclude',
+    'sphinxcontrib.drawio',
         ]
 
 autosectionlabel_prefix_document = True
+
+drawio_binary_path = '/Applications/draw.io.app/Contents/MacOS/draw.io'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
