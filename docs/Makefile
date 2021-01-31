@@ -5,8 +5,8 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = .
-BUILDDIR      = ../../
+SOURCEDIR     = source
+BUILDDIR      = .
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -14,11 +14,25 @@ help:
 
 .PHONY: help Makefile
 
+GenerateDoxygen:
+
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-# update the git repo
-push:
-	cd $(BUILDDIR)/html; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+	touch $(BUILDDIR)/.nojekyll
+	touch $(BUILDDIR)/html/.nojekyll
+	if [[ -f Doxyfile ]] ; \
+	then \
+	echo "Doxyfile Found, Generating Doxygen" && \
+	doxygen && \
+	rm -rf $(BUILDDIR)/html/doxygen && \
+	mkdir $(BUILDDIR)/html/doxygen && \
+	cp -R doxygen/html/* $(BUILDDIR)/html/doxygen ; \
+	else \
+	echo "Doxyfile Not found"; \
+	fi 
+   	 
+	
+	

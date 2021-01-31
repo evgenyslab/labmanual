@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7. Python Development &mdash; LAB Manual  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/drawio.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. OpenCV" href="opencv.html" />
+    <link rel="prev" title="6. Projects" href="projects.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LAB Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">1. Labmanual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OSConfigurations.html">2. OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macOS.html">3. macOS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">4. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Python Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-cheet-sheet">7.1. NUMPY CHEET SHEET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todos">7.2. TODOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-remote">7.3. Jupyter remote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-environment-script">7.4. Virtual Environment Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">10. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">12. Camera</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LAB Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>Python Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-development">
+<h1><span class="section-number">7. </span>Python Development<a class="headerlink" href="#python-development" title="Permalink to this headline">¶</a></h1>
+<p>This guide outlines my approach for python development and methodologies used.</p>
+<div class="section" id="numpy-cheet-sheet">
+<h2><span class="section-number">7.1. </span>NUMPY CHEET SHEET<a class="headerlink" href="#numpy-cheet-sheet" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import numpy as np
+
+<span class="c1"># Input is a set of object points for N objects, M, points:</span>
+<span class="c1"># N x [3xM]</span>
+<span class="nv">arr</span> <span class="o">=</span> <span class="o">[</span>
+    <span class="o">[</span><span class="m">111</span>, <span class="m">112</span>, <span class="m">113</span>, <span class="m">121</span>, <span class="m">122</span>, <span class="m">123</span>, <span class="m">131</span>, <span class="m">132</span>, <span class="m">133</span>, <span class="m">141</span>, <span class="m">142</span>, <span class="m">143</span><span class="o">]</span>,
+    <span class="o">[</span><span class="m">211</span>, <span class="m">212</span>, <span class="m">213</span>, <span class="m">221</span>, <span class="m">222</span>, <span class="m">223</span>, <span class="m">231</span>, <span class="m">232</span>, <span class="m">233</span>, <span class="m">241</span>, <span class="m">242</span>, <span class="m">243</span><span class="o">]</span>,
+    <span class="o">[</span><span class="m">311</span>, <span class="m">312</span>, <span class="m">313</span>, <span class="m">321</span>, <span class="m">322</span>, <span class="m">323</span>, <span class="m">331</span>, <span class="m">332</span>, <span class="m">333</span>, <span class="m">341</span>, <span class="m">342</span>, <span class="m">343</span><span class="o">]</span>,
+    <span class="o">[</span><span class="m">411</span>, <span class="m">412</span>, <span class="m">413</span>, <span class="m">421</span>, <span class="m">422</span>, <span class="m">423</span>, <span class="m">431</span>, <span class="m">432</span>, <span class="m">433</span>, <span class="m">441</span>, <span class="m">442</span>, <span class="m">443</span><span class="o">]</span>,
+    <span class="o">[</span><span class="m">511</span>, <span class="m">512</span>, <span class="m">513</span>, <span class="m">521</span>, <span class="m">522</span>, <span class="m">523</span>, <span class="m">531</span>, <span class="m">532</span>, <span class="m">533</span>, <span class="m">541</span>, <span class="m">542</span>, <span class="m">543</span><span class="o">]</span>
+<span class="o">]</span>
+
+<span class="c1"># Create array:</span>
+<span class="nv">A</span> <span class="o">=</span> np.array<span class="o">(</span>arr<span class="o">)</span>
+
+<span class="nv">N</span> <span class="o">=</span> <span class="m">5</span>
+<span class="nv">M</span> <span class="o">=</span> <span class="m">4</span>
+<span class="nv">D</span> <span class="o">=</span> <span class="m">3</span>  <span class="c1"># 2D or 3D</span>
+
+<span class="c1"># convert into more useful shape:</span>
+<span class="c1"># N x M x 3</span>
+<span class="nv">B</span> <span class="o">=</span> A.reshape<span class="o">([</span>-1, M, D<span class="o">])</span>
+<span class="c1"># Conver to something more friendly for R*B multiplacations:</span>
+<span class="c1"># N x 3 x M:</span>
+<span class="nv">B</span> <span class="o">=</span> B.swapaxes<span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="c1"># create Rotation Matrix (axis swap):</span>
+<span class="nv">R</span> <span class="o">=</span> np.array<span class="o">([[</span><span class="m">0</span>, <span class="m">1</span> ,0<span class="o">]</span>,
+             <span class="o">[</span><span class="m">1</span>, <span class="m">0</span>, <span class="m">0</span><span class="o">]</span>,
+             <span class="o">[</span><span class="m">0</span>, <span class="m">0</span>, <span class="m">1</span><span class="o">]])</span>
+<span class="c1"># apply:</span>
+np.matmul<span class="o">(</span>R, B<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todos">
+<h2><span class="section-number">7.2. </span>TODOs<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h2>
+<p>Create alias for quick activation of virtual environment in local directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">activate</span><span class="o">=</span><span class="s2">&quot;source .venv/bin/activate&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>[ ] python project structure</p></li>
+<li><p>[ ] using setup.py to install python models</p>
+<ul>
+<li><p>[ ] installing custom python modules into virtual environments</p></li>
+</ul>
+</li>
+<li><p>[ ] development with Jupyterlab</p>
+<ul>
+<li><p>[ ] remote development - using ssh forwarding</p></li>
+</ul>
+</li>
+<li><p>[ ] development with pycharm</p></li>
+<li><p>[ ] remote development and debugging over ssh</p></li>
+</ul>
+</div>
+<div class="section" id="jupyter-remote">
+<h2><span class="section-number">7.3. </span>Jupyter remote<a class="headerlink" href="#jupyter-remote" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Make sure host device has ssh enabled, if using Ubuntu:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install openssh-server
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>setup local jupyter notebook on host device:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ jupyter notebook --no-browser --port<span class="o">=</span><span class="m">8889</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>on local machine, run ssh tunneling into host machine with remapping ports:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh -N -f -L localhost:8888:localhost:8889 host_machine_username@host_machine_ip
+$ ssh -N -f -L localhost:8888:localhost:8889 user@192.168.0.111
+</pre></div>
+</div>
+<p>4. to access the notebook on the remote machine (i.e. mac), in browser navigate to:
+<code class="code docutils literal notranslate"><span class="pre">localhost:8888</span></code></p>
+<p>There may be a password/token required, to view it, look at the ssh’ed session
+in (2) that is running the jupyter notebook, it will provide the token.</p>
+<ol class="arabic simple" start="5">
+<li><p>Connection may be rejected on local side if the port has not been properly closed.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Can investigate to ses which PID is using the port with:</span>
+lsof -it:8888
+<span class="c1"># This will return the PID of the process using the port. This process can be killed with:</span>
+lsof -it:8888 xargs <span class="nb">kill</span> -9
+</pre></div>
+</div>
+</div>
+<div class="section" id="virtual-environment-script">
+<h2><span class="section-number">7.4. </span>Virtual Environment Script<a class="headerlink" href="#virtual-environment-script" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># setup some colors:</span>
+<span class="nv">BLACK</span><span class="o">=</span><span class="s1">&#39;\033[0;30m&#39;</span>
+<span class="nv">RED</span><span class="o">=</span><span class="s1">&#39;\033[0;31m&#39;</span>
+<span class="nv">GREEN</span><span class="o">=</span><span class="s1">&#39;\033[0;32m&#39;</span>
+<span class="nv">YELLOW</span><span class="o">=</span><span class="s1">&#39;\033[0;33m&#39;</span>
+<span class="nv">BLUE</span><span class="o">=</span><span class="s1">&#39;\033[0;34m&#39;</span>
+<span class="nv">PURPLE</span><span class="o">=</span><span class="s1">&#39;\033[0;35m&#39;</span>
+<span class="nv">CYAN</span><span class="o">=</span><span class="s1">&#39;\033[0;36m&#39;</span>
+<span class="nv">NC</span><span class="o">=</span><span class="s1">&#39;\033[0m&#39;</span> <span class="c1"># No Color</span>
+
+<span class="nv">var</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">/.venv&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">var</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Virtaul environment exists</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">Removing existing environment...</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&quot;</span>
+        rm -r <span class="si">${</span><span class="nv">var</span><span class="si">}</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">YELLOW</span><span class="si">}</span><span class="s2">Environment removed!</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+        <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Virtaul environment does not exists</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYAN</span><span class="si">}</span><span class="s2">Creating new PYTHON3 virtual environment in </span><span class="si">${</span><span class="nv">var</span><span class="si">}${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&quot;</span>
+virtualenv -p /usr/bin/python3 <span class="si">${</span><span class="nv">var</span><span class="si">}</span>
+<span class="nb">source</span> <span class="si">${</span><span class="nv">var</span><span class="si">}</span>/bin/activate
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Installing python packages...</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&quot;</span>
+pip -q install -r requirements.txt
+<span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">GREEN</span><span class="si">}</span><span class="s2">Virtual Environment Install Complete! use &#39;source .venv/bin/activate&#39; to enable!</span><span class="si">${</span><span class="nv">NC</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>SOME THOUGHTS about python wrapping:</p>
+<ul class="simple">
+<li><p>when creating C++ cython wrapped application, should build be called
+followed by setup.py, or should setup.py do its own build?
+I suspect the order of events will affect the library install… i.e.
+a static library might be correctly link, but shared might not.</p></li>
+<li><p>I think all used libraries in c++ code need to be defined in
+setup.py’s <cite>library</cite> list.</p></li>
+<li><p>if a c++ cmake has shared library as part of the install, it
+needs to be installed into <cite>/lib</cite> for python to locate it.</p></li>
+<li><p>Two possible use cases - C++ is installed for c++ library use, then
+python wrapping is added on top and installed into specific
+python environment, wherein python folder has its own cmakelist
+and is used as a subdirectory in c++ cmake list, OR
+C++ and python are treated separately, and python’s setup.py
+calls the compilation itself (would work with static libs), in that case
+no c++ libraries are made available for C++ work.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="opencv.html" class="btn btn-neutral float-right" title="8. OpenCV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="projects.html" class="btn btn-neutral float-left" title="6. Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Evgeny.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

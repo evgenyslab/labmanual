@@ -1,0 +1,775 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. OS Configurations &mdash; LAB Manual  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/drawio.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. macOS Configuration" href="macOS.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LAB Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">1. Labmanual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. OS Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-from-usb">2.1.1. Installing from USB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages">2.1.2. Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-packages">2.1.3. Configuring Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zsh">2.1.3.1. ZSH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git">2.1.3.2. GIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gtest">2.1.3.3. GTest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyenv">2.1.3.4. Pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vim">2.1.3.5. Vim</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-specifics">2.1.4. Hardware-Specifics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lenovo-wacom-tablets">2.1.4.1. Lenovo-Wacom Tablets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#find-a-new-home">2.1.5. FIND A NEW HOME</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-server">2.2. Linux Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2.1. Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nvidia-driver-installation">2.2.2. Nvidia Driver Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-installation">2.2.3. Docker Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-gpu-configuration">2.2.4. Docker GPU Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-image-build">2.2.5. Docker Image Build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notes">2.2.5.1. NOTES</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-image-running">2.2.6. Docker Image Running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#jupyter">2.2.6.1. JUPYTER</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-remote-development-jetbrains">2.2.6.2. SSH-Remote Development (Jetbrains)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-cuda">2.2.7. Verify Cuda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caveats">2.2.8. Caveats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-tricks">2.2.9. Tips &amp; Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">2.3. macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-trix">2.4. TIPS &amp; TRIX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux-systemctl">2.4.1. Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-startup-service">2.4.2. Linux Startup Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executibles">2.4.3. Executibles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-port-forwarding">2.4.4. SSH Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scp-copy-through-ssh-tunnel">2.4.5. SCP (Copy)) Through SSH Tunnel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macOS.html">3. macOS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">4. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">7. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">10. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">12. Camera</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LAB Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>OS Configurations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/OSConfigurations.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="os-configurations">
+<h1><span class="section-number">2. </span>OS Configurations<a class="headerlink" href="#os-configurations" title="Permalink to this headline">¶</a></h1>
+<p>General Information HERE</p>
+<div class="section" id="linux">
+<h2><span class="section-number">2.1. </span>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p>I’ve been running <a href="https://linuxmint.com/" target="_blank">Linux Mint</a>  over the last couple of years, and have
+so far preferred it to <a href="https://ubuntu.com/" target="_blank">Ubuntu</a>  distributions. I have also tried
+<a href="https://elementary.io/" target="_blank">Elementary OS</a> which had a nice UI, however, the inner workings of the
+networking did not fit my needs, and the UI was not comparable enough
+coming from macOS.</p>
+<div class="section" id="installing-from-usb">
+<h3><span class="section-number">2.1.1. </span>Installing from USB<a class="headerlink" href="#installing-from-usb" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Download Image from <a class="reference external" href="https://linuxmint.com/edition.php?id=284&quot;">Linux Mint Download Page</a>,</p></li>
+<li><p><a class="reference external" href="https://www.balena.io/etcher/">Use Balena Etcher tool</a> to create
+USB install media.</p></li>
+<li><p>Insert USB key into target hardware, enter boot menu with one of <code class="code docutils literal notranslate"><span class="pre">F2</span> <span class="pre">|</span> <span class="pre">F12</span> <span class="pre">|</span> <span class="pre">del</span></code> keys.
+Then, during installation options, choose “something else” option when
+prompted to erase or install beside existing OS.</p></li>
+<li><p>Partition the Harddrive using the following approximate Scheme:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>One EFI partition with 100-500mb</p></li>
+<li><p>One ext4 called ‘/’ for root OS ~ 15-30gb</p></li>
+<li><p>One ext4 called ‘/home’ for all data ~ 30+gb</p></li>
+<li><p>one swap ~1-4gb</p></li>
+</ul>
+</div></blockquote>
+<p>This approach relies on placing the OS on its own partition and
+separating the <code class="code docutils literal notranslate"><span class="pre">home</span></code> directory from anything that is
+application / OS specific.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-packages">
+<h3><span class="section-number">2.1.2. </span>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h3>
+<p>Use the following to install all dependencies and base applications on the
+fresh linux install.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## updates &amp; upgrades:</span>
+sudo apt-get update
+sudo apt-get upgrade
+
+<span class="c1">## create new su account:</span>
+sudo passwd
+
+<span class="c1">## Install git:</span>
+sudo apt-get install <span class="se">\</span>
+    git-core <span class="se">\</span>
+    cmake <span class="se">\</span>
+    build-essential <span class="se">\</span>
+    gdb <span class="se">\</span>
+    vim <span class="se">\</span>
+    openssh-client <span class="se">\</span>
+    sshfs <span class="se">\</span>
+    cifs-utils <span class="se">\</span>
+    zsh <span class="se">\</span>
+    vtop <span class="se">\</span>
+    screen <span class="se">\</span>
+    imagemagick <span class="se">\</span>
+    python3-pip <span class="se">\</span>
+    python3-virtualenv <span class="se">\</span>
+    python3-tk <span class="se">\</span>
+    libgtest-dev <span class="se">\</span>
+    zlib1g-dev <span class="se">\</span>
+    libturbojpeg <span class="se">\</span>
+    libssl-dev <span class="se">\</span>
+    libuv-dev <span class="se">\</span>
+    libsm6 <span class="se">\</span>
+    libxext6 <span class="se">\</span>
+    libxrender-dev
+
+<span class="c1">## Change the shell to zsh:</span>
+chsh -s <span class="sb">`</span>which zsh<span class="sb">`</span>
+</pre></div>
+</div>
+<p><strong>Troubleshooting:</strong></p>
+<blockquote>
+<div><p>If getting a <code class="code docutils literal notranslate"><span class="pre">PAM</span> <span class="pre">permission</span></code> error, or a <code class="code docutils literal notranslate"><span class="pre">which</span> <span class="pre">zsh</span> <span class="pre">invalid</span> <span class="pre">command</span></code>
+errror, most likely culprit is that <code class="code docutils literal notranslate"><span class="pre">/etc/passwd</span></code> is set to:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:</span> <span class="pre">which</span> <span class="pre">zsh</span></code> this should be changed to:
+<code class="code docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/usr/bin/zsh</span></code></p>
+</div></blockquote>
+<p>Log and Out for changes to take effect</p>
+</div>
+<div class="section" id="configuring-packages">
+<h3><span class="section-number">2.1.3. </span>Configuring Packages<a class="headerlink" href="#configuring-packages" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zsh">
+<h4><span class="section-number">2.1.3.1. </span>ZSH<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h4>
+<p>First step is to set zsh to use <code class="code docutils literal notranslate"><span class="pre">Oh</span> <span class="pre">my</span> <span class="pre">zsh</span></code>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get Oh My Zsh:</span>
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - <span class="p">|</span> zsh
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>TIP:</strong> to remove username from bash prompt, add the following
+to the bottom of <cite>.zshrc</cite> file:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="nv">$EUID</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{red}root%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+  <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{green}user%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>TIP:</strong> to link zsh from local user to superuser by linking
+<code class="code docutils literal notranslate"><span class="pre">$HOME/username/.oh-my-zsh</span></code> and <code class="code docutils literal notranslate"><span class="pre">$HOME/username/.zshrc</span></code> to
+<code class="code docutils literal notranslate"><span class="pre">/root/.oh-my-zsh</span></code> and <code class="code docutils literal notranslate"><span class="pre">/root/.zshrc</span></code>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ln -s <span class="nv">$HOME</span>/.oh-my-zsh /root/.oh-my-zsh
+sudo ln -s <span class="nv">$HOME</span>/.zshrc /root/.zshrc
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="git">
+<h4><span class="section-number">2.1.3.2. </span>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h4>
+<p>Use the following to enable git credential helper (
+note, this may not be supported by github in near
+future):</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup credential helper:</span>
+git config --global credential.helper store
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="gtest">
+<h4><span class="section-number">2.1.3.3. </span>GTest<a class="headerlink" href="#gtest" title="Permalink to this headline">¶</a></h4>
+<p>Finalize the GTEST install by linking the compiled libraries:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /usr/src/gtest
+cmake CMakeLists.txt
+make
+cp *.a /usr/lib
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="pyenv">
+<h4><span class="section-number">2.1.3.4. </span>Pyenv<a class="headerlink" href="#pyenv" title="Permalink to this headline">¶</a></h4>
+<p>Install <code class="code docutils literal notranslate"><span class="pre">pyenv</span></code> using the guide provided <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>.</p>
+</div>
+<div class="section" id="vim">
+<h4><span class="section-number">2.1.3.5. </span>Vim<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h4>
+<p>To finalize VIM configuration, add <code class="code docutils literal notranslate"><span class="pre">Vundle</span></code> Package to VIM:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once installed, in <code class="code docutils literal notranslate"><span class="pre">vim</span></code> use <code class="code docutils literal notranslate"><span class="pre">:PluginInstall</span></code> to install all plugins.</p>
+<p>[TODO: xref to vim guide]</p>
+</div>
+</div>
+<div class="section" id="hardware-specifics">
+<h3><span class="section-number">2.1.4. </span>Hardware-Specifics<a class="headerlink" href="#hardware-specifics" title="Permalink to this headline">¶</a></h3>
+<p>This section is meant to capture hardware specific configuraitons I’ve encountered.</p>
+<div class="section" id="lenovo-wacom-tablets">
+<h4><span class="section-number">2.1.4.1. </span>Lenovo-Wacom Tablets<a class="headerlink" href="#lenovo-wacom-tablets" title="Permalink to this headline">¶</a></h4>
+<p>Note that for the Lenovo X1 Thinkpad with Wacom tablet, I was able to install Linux mint natively with VM player W10 edition. To get pen input to work correctly (namely, OneNote in W10), VM needs to provide control to linux for wacom pen input AND its best to disable the touch capability of the wacom tablet:</p>
+<p>see: <a href="https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3" target="_blank"> HERE </a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xsetwacom --list devices
+<span class="c1"># prints out device list... there should be a touch</span>
+
+<span class="c1"># disable finger touch:</span>
+xsetwacom --set <span class="s2">&quot;Wacom Intuos Pro M Finger touch&quot;</span> Touch off
+
+<span class="c1"># confirm:</span>
+xsetwacom --get <span class="s2">&quot;Wacom Intuos Pro M Finger touch&quot;</span> Touch off
+</pre></div>
+</div>
+<p>This way, in the VM, windows (and host Linux) will only react to pen input, meaning that in OneNote you will not get the pen marking up the page from your palm.</p>
+</div>
+</div>
+<div class="section" id="find-a-new-home">
+<h3><span class="section-number">2.1.5. </span>FIND A NEW HOME<a class="headerlink" href="#find-a-new-home" title="Permalink to this headline">¶</a></h3>
+<p>[TODO: move to development-python notes]
+A note on virutal environmnets:</p>
+<p>When copying a virutal environment, the <cite>~/activate</cite> script stores the absolute path to the virtual env, thus need to modify this when creating a copy!</p>
+<p>## Useful python packages:
+pip install numpy
+scikit-learn
+opencv-python
+opencv-utils
+imutils
+matplotlib
+moviepy</p>
+<p># If using ROS with opencv in Python
+If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros’s installtion.</p>
+<p>To fix this issue, do the following:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">cv</span> <span class="pre">~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/</span>
+<span class="pre">`</span></code>
+here, rename the weird cv2.XXX.so to cv2.so:
+<code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">mv</span> <span class="pre">cv2.XXX.so</span> <span class="pre">cv2.so</span>
+<span class="pre">`</span></code></p>
+</div>
+</div>
+<div class="section" id="linux-server">
+<h2><span class="section-number">2.2. </span>Linux Server<a class="headerlink" href="#linux-server" title="Permalink to this headline">¶</a></h2>
+<p><strong>ISSUES TO RESOLVE</strong></p>
+<ul class="simple">
+<li><p>[ ] docker loses containers / images on restart; seems to be known issue</p></li>
+<li><p>[ ] docker can’t link gpu after restart, seems to be fixed with <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">docker</span> <span class="pre">stop</span></code> / start</p></li>
+</ul>
+<p>The linux server installation and configuration is almost identical to
+the standard  linux mint installation, with some slight changes to
+account for lack of <code class="code docutils literal notranslate"><span class="pre">X</span></code> or, running headless.</p>
+<p>The major caveat of installing a headless linux version is that
+there is not really a clean to do it without some monitor or
+visual feedback, since visual feedback is needed to verify choices and
+selctions.</p>
+<p>I’ve been using the <code class="code docutils literal notranslate"><span class="pre">Ubuntu</span> <span class="pre">Server</span></code> image for headless installations.
+This OS has been proven to work stabily in the environments I require.</p>
+<p>The installation image can be found at the <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
+page</a>.</p>
+<p>To install from USB, see <a class="reference internal" href="#installing-from-usb"><span class="std std-ref">Installing from USB</span></a></p>
+<div class="section" id="id1">
+<h3><span class="section-number">2.2.1. </span>Installing Packages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install git-core <span class="se">\</span>
+    cmake <span class="se">\</span>
+    hwinfo <span class="se">\</span>
+    build-essential <span class="se">\</span>
+    vim <span class="se">\</span>
+    zsh <span class="se">\</span>
+    htop <span class="se">\</span>
+    screen <span class="se">\</span>
+    libbz2-dev <span class="se">\</span>
+    librealine6-dev <span class="se">\</span>
+    libsqlite3-dev <span class="se">\</span>
+    python3-pip <span class="se">\</span>
+
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - <span class="p">|</span> zsh
+
+<span class="c1"># change the shell:</span>
+chsh -s <span class="k">$(</span>which zsh<span class="k">)</span>
+<span class="c1"># todo.. ln -s the oh my zsh folder from user to root...</span>
+</pre></div>
+</div>
+<p>Add the following to zshrc:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="nv">$EUID</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{red}root@</span><span class="nv">$HOST</span><span class="s2">%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+        <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{green}</span><span class="nv">$HOST</span><span class="s2">%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>Need to install samba utilities
+Mounting SMB drive…</p>
+</div>
+<div class="section" id="nvidia-driver-installation">
+<h3><span class="section-number">2.2.2. </span>Nvidia Driver Installation<a class="headerlink" href="#nvidia-driver-installation" title="Permalink to this headline">¶</a></h3>
+<p>Get GPU hw info:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hwinfo --gfxcard --short
+</pre></div>
+</div>
+<p>Get Nvidia drivers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt search nvidia-driver
+sudo apt-get install nvidia-driver-450-server
+
+<span class="c1"># confirm with:</span>
+nvidia-smi
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-installation">
+<h3><span class="section-number">2.2.3. </span>Docker Installation<a class="headerlink" href="#docker-installation" title="Permalink to this headline">¶</a></h3>
+<p>[TODO: add xref to docker install]</p>
+</div>
+<div class="section" id="docker-gpu-configuration">
+<h3><span class="section-number">2.2.4. </span>Docker GPU Configuration<a class="headerlink" href="#docker-gpu-configuration" title="Permalink to this headline">¶</a></h3>
+<p>to get docker to use GPUs: [<a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>]</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install runtime:</span>
+curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey <span class="p">|</span> sudo apt-key add -
+<span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
+curl -s -L https://nvidia.github.io/nvidia-container-runtime/<span class="nv">$distribution</span>/nvidia-container-runtime.list <span class="p">|</span><span class="se">\</span>
+    sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+sudo apt-get update
+sudo apt-get install nvidia-container-runtime
+
+<span class="c1"># restart docker service:</span>
+sudo systemctl stop docker
+sudo systemctl start docker
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-image-build">
+<h3><span class="section-number">2.2.5. </span>Docker Image Build<a class="headerlink" href="#docker-image-build" title="Permalink to this headline">¶</a></h3>
+<p>[TODO: add docker xref]</p>
+<p>The provided docker images (in dockerfiles dir) have minimal necessary
+builds for python3-based development using pytorch and either ssh
+development (with jetbrains tools), or jupyterlab.</p>
+<p>Building:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Base nvidia-gpu container with pytoch:</span>
+docker build -t nvidia-gpu-base -f nvidia-gpu-base .
+
+<span class="c1"># Jupyterlab build:</span>
+docker build -t nvidia-gpu-jupyter -f nvidia-gpu-jupyter .
+
+<span class="c1"># Remote SSH development build:</span>
+docker build -t nvidia-gpu-ssh -f nvidia-gpu-ssh .
+</pre></div>
+</div>
+<div class="section" id="notes">
+<h4><span class="section-number">2.2.5.1. </span>NOTES<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<p>I’ve added two extra dockerfiles with <code class="code docutils literal notranslate"><span class="pre">-dev-</span></code> in the middle,
+one for <code class="code docutils literal notranslate"><span class="pre">nvidia-gpu-dev-base</span></code> and one for <code class="code docutils literal notranslate"><span class="pre">nvidia-gpu-dev-ssh</span></code>. These
+files use the <code class="code docutils literal notranslate"><span class="pre">cudnn7</span></code> and development base images that should provide
+access to <code class="code docutils literal notranslate"><span class="pre">nvcc</span></code> compiler and <em>nvidia</em> headers.</p>
+<p>I’ve noticed my server machine has troubles auto-starting docker service on
+reboot, running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl stop docker
+sudo systemctl start docker
+</pre></div>
+</div>
+<p>fixes the issue, however I will have to dig in further to identify the root cause</p>
+</div>
+</div>
+<div class="section" id="docker-image-running">
+<h3><span class="section-number">2.2.6. </span>Docker Image Running<a class="headerlink" href="#docker-image-running" title="Permalink to this headline">¶</a></h3>
+<p>Two images can run, either jupyter, or ssh deveopment.</p>
+<div class="section" id="jupyter">
+<h4><span class="section-number">2.2.6.1. </span>JUPYTER<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h4>
+<p>To nvidia-gpu-enabled docker container and develop remotely, firstly,
+on the server-side, run the docker container and map any necessary
+data folders to the container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Emphasis on --gpus all</span>
+docker run -d --gpus all -p <span class="m">8888</span>:8888 -v /path/to/Data:/tmp/Data --name dev-gpu nvidia-gpu-jupyter:latest
+</pre></div>
+</div>
+<p>This will run a docker instance with the Jupyter Lab running in the
+<code class="code docutils literal notranslate"><span class="pre">/tmp</span></code>
+directory (at IP 0.0.0.0) and mapping docker’s 8888 port to the server’s
+8888 port.</p>
+<p>Once the container is running, to get the access token, on the server,
+run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker logs dev-gpu  <span class="c1"># or the corresponding name of the container</span>
+</pre></div>
+</div>
+<p>This will print out the stdout of the container and will reveal Jupyter’s
+access token.</p>
+<p>At this point, the Jupyterlab instance can be checked on the server
+by using <code class="code docutils literal notranslate"><span class="pre">wget</span> <span class="pre">localhost:8888</span></code>, which will download an <code class="code docutils literal notranslate"><span class="pre">index.html</span></code> file in the current directory.</p>
+<p>To access the Jupterlab on the working machine (laptop, etc), two
+options are possible:</p>
+<ol class="arabic">
+<li><p>Open browser and navigate to <code class="code docutils literal notranslate"><span class="pre">&lt;server_ip&gt;:8888</span></code></p></li>
+<li><p>Port forward the server’s <code class="code docutils literal notranslate"><span class="pre">8888</span></code> port to your machine’s desired port with</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -N -f -L localhost:8888:localhost:8888 server_username@server_ip
+
+<span class="k">then</span> open browser and navigate to :code:<span class="sb">`</span>localhost:8888<span class="sb">`</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Note: shutting down jupyter from the web interface will close the
+container as well!</p>
+</div>
+<div class="section" id="ssh-remote-development-jetbrains">
+<h4><span class="section-number">2.2.6.2. </span>SSH-Remote Development (Jetbrains)<a class="headerlink" href="#ssh-remote-development-jetbrains" title="Permalink to this headline">¶</a></h4>
+<p>In server, run the container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --gpus all --cap-add sys_ptrace -p127.0.0.1:2222:22 -v /home/en/Data:/tmp/Data --name dev-gpu nvidia-gpu-ssh
+</pre></div>
+</div>
+<p>On local machine, port forward a local port to the server’s 2222 port:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -N -f -L localhost:3333:localhost:2222 server_username@server_ip
+</pre></div>
+</div>
+<p>Now, in pycharm, a new ssh environment can be added on <code class="code docutils literal notranslate"><span class="pre">localhost</span></code>
+<code class="code docutils literal notranslate"><span class="pre">port:3333</span></code> with credentials <cite>user:password</cite>.</p>
+</div>
+</div>
+<div class="section" id="verify-cuda">
+<h3><span class="section-number">2.2.7. </span>Verify Cuda<a class="headerlink" href="#verify-cuda" title="Permalink to this headline">¶</a></h3>
+<p>To verify cuda is running, in jupyter block or pycharm console, run one or
+both of the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># access container command:</span>
+!nvidia-smi
+
+<span class="c1"># get through torch:</span>
+import torch
+torch.cuda.device_count<span class="o">()</span>
+torch.cude.get_device_name<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="caveats">
+<h3><span class="section-number">2.2.8. </span>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h3>
+<p>It seems like cannot Install Ubuntu 20.04 server without ethernet.</p>
+<p>Trying fresh install, update, upgrade, nmcli install + config.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install network-manager
+nmcli d wifi list
+nmcli d connect MY_SSID password MY_SSID_PASSWORD
+
+nmcli connection edit MY_SSID
+$ &gt; <span class="nb">set</span> ipv4.addresses <span class="m">192</span>.168.1.22/24
+$ &gt; <span class="nb">set</span> ipv4.gateway <span class="m">192</span>.168.1.1
+$ &gt; <span class="nb">set</span> ipv4.dns <span class="m">8</span>.8.8.8,8.8.4.4
+$ &gt; save
+$ &gt; quit
+
+reboot
+</pre></div>
+</div>
+<p>in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
+:code:8.8.8.8:</p>
+</div>
+<div class="section" id="tips-tricks">
+<h3><span class="section-number">2.2.9. </span>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h3>
+<p>Some systems have auto sleep enabled by default as a system service.
+This may not be desirable for systems that should stay awake for
+remote work.</p>
+<p>It is possible to check <code class="code docutils literal notranslate"><span class="pre">/var/log/syslog</span></code> to see if <code class="code docutils literal notranslate"><span class="pre">sleep.taget</span></code>
+is triggered after period of inactivity.</p>
+<p>To disable the automatic sleep and hybernate services, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect:</span>
+systemctly status sleep.target
+<span class="c1"># Disable:</span>
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+</pre></div>
+</div>
+<p><a href="https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/" target="_blank">ref</a></p>
+</div>
+</div>
+<div class="section" id="macos">
+<h2><span class="section-number">2.3. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="tips-trix">
+<h2><span class="section-number">2.4. </span>TIPS &amp; TRIX<a class="headerlink" href="#tips-trix" title="Permalink to this headline">¶</a></h2>
+<p>The following are general tips and tricks picked up over time
+that are inevitabily partitially forgotten.</p>
+<div class="section" id="linux-systemctl">
+<h3><span class="section-number">2.4.1. </span>Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code><a class="headerlink" href="#linux-systemctl" title="Permalink to this headline">¶</a></h3>
+<p>TODO: useage</p>
+</div>
+<div class="section" id="linux-startup-service">
+<h3><span class="section-number">2.4.2. </span>Linux Startup Service<a class="headerlink" href="#linux-startup-service" title="Permalink to this headline">¶</a></h3>
+<p>TODO: how to create linux startup service</p>
+<ul class="simple">
+<li><p>create startup script/application</p></li>
+<li><p>create a <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, put it in <code class="code docutils literal notranslate"><span class="pre">etc/systemd/system/</span></code> [TODO add example from
+other service for how it looks / breaks down]</p></li>
+<li><p>make the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, call your script/application</p></li>
+<li><p>put your script/application in <code class="code docutils literal notranslate"><span class="pre">/etc/</span></code> directory (as part of install process,
+same with <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file)</p></li>
+<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> on the script/application</p></li>
+<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+664</span></code> on the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file</p></li>
+</ul>
+</div>
+<div class="section" id="executibles">
+<h3><span class="section-number">2.4.3. </span>Executibles<a class="headerlink" href="#executibles" title="Permalink to this headline">¶</a></h3>
+<p>To make files executible, especially bash/shell scripts, change the file
+access control:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change access:</span>
+chmod +x myfile.sh
+<span class="c1"># Run the file:</span>
+./myfile.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh-port-forwarding">
+<h3><span class="section-number">2.4.4. </span>SSH Port Forwarding<a class="headerlink" href="#ssh-port-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>SSH port forwarding enables you to tunnel traffic on a specific port
+from one device to another:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>TODO<span class="o">]</span>
+</pre></div>
+</div>
+<p>This is very helpful in applications wherein a headless device needs
+to send information over a port to remote device with a UI, best example
+of this use case is running <code class="code docutils literal notranslate"><span class="pre">Jupyterlab</span></code> on a remote/docker device
+and porting webui to local machine. See <a href="" target="_blank">HERE</a> for
+more information.</p>
+</div>
+<div class="section" id="scp-copy-through-ssh-tunnel">
+<h3><span class="section-number">2.4.5. </span>SCP (Copy)) Through SSH Tunnel<a class="headerlink" href="#scp-copy-through-ssh-tunnel" title="Permalink to this headline">¶</a></h3>
+<p>In a situation where a file needs to go from <code class="code docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;--&gt;</span> <span class="pre">B</span> <span class="pre">&lt;--&gt;</span> <span class="pre">C</span></code>,
+it is desired not to double copy through <code class="code docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<p>To facilitate a simpler transaction, use SSH port tunneling to copy
+directly <code class="code docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;--&gt;</span> <span class="pre">C</span></code>.</p>
+<p>For this example, A will be receiving end (user-end) and <code class="code docutils literal notranslate"><span class="pre">C</span></code> will be
+remote source/destination.</p>
+<ol class="arabic">
+<li><p>On <code class="code docutils literal notranslate"><span class="pre">A</span></code>, create ssh tunnel through <code class="code docutils literal notranslate"><span class="pre">B</span></code> to <code class="code docutils literal notranslate"><span class="pre">C</span></code> using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -L <span class="m">12321</span>:hostC:22 userB@hostB
+</pre></div>
+</div>
+<p>Where <code class="code docutils literal notranslate"><span class="pre">12321</span></code> is a randomly selected available port,
+<code class="code docutils literal notranslate"><span class="pre">hostC</span></code> is the IP address of <code class="code docutils literal notranslate"><span class="pre">C</span></code> that is known
+to <code class="code docutils literal notranslate"><span class="pre">B</span></code>, <code class="code docutils literal notranslate"><span class="pre">userB</span></code> is the username at <code class="code docutils literal notranslate"><span class="pre">B</span></code>,
+and finally, <code class="code docutils literal notranslate"><span class="pre">hostB</span></code> is the IP of <code class="code docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<p>Note, this will open a remote connection in the current
+terminal to <code class="code docutils literal notranslate"><span class="pre">B</span></code>.</p>
+</li>
+<li><p>On <code class="code docutils literal notranslate"><span class="pre">A</span></code>, then run the <code class="code docutils literal notranslate"><span class="pre">scp</span></code> command with a port designation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp -P userC@127.0.0.1:/path/to.file /local/destination
+</pre></div>
+</div>
+<p>Note, the source/destinations can be changed based on the required
+transfer direction.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="macOS.html" class="btn btn-neutral float-right" title="3. macOS Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="readme.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Evgeny.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

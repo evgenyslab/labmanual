@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5. AWS &mdash; LAB Manual  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/drawio.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Projects" href="projects.html" />
+    <link rel="prev" title="4. Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LAB Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">1. Labmanual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OSConfigurations.html">2. OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macOS.html">3. macOS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">4. Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#todo">5.1. TODO:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-table-of-contents">5.1.1. OVERVIEW - Table of Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-aws">5.2. Getting Started with AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-aws-account">5.2.1. Create AWS Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-iam-user">5.2.2. Create IAM User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-iam-user-using-aws-cli">5.2.3. Create IAM User USING AWS CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-ec2">5.3. Getting Started with EC2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-vpc">5.3.1. Create a VPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-security-group">5.3.2. Create a Security Group</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aws-security-group-creation">5.3.2.1. AWS Security Group Creation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#key-pair">5.3.3. Key Pair</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cli-tools-install">5.4. AWS CLI Tools Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cli-usage">5.5. AWS CLI Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#queries">5.5.1. Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-instance">5.5.2. Launching Instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attaching-s3-s3-buckets-required">5.5.3. Attaching S3 (S3 buckets required)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terminating-instance">5.5.4. Terminating Instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-cli-queries">5.5.5. AWS CLI Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-cli-launching-ec2-instance">5.5.6. AWS CLI Launching EC2 Instance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#choose-ami-image-id">5.5.6.1. Choose AMI Image ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-or-choose-key-pair">5.5.6.2. Create or Choose Key Pair</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">7. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">10. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">12. Camera</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LAB Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>AWS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/aws.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws">
+<h1><span class="section-number">5. </span>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="todo">
+<h2><span class="section-number">5.1. </span>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>AWS account setup</p></li>
+<li><p>EC2 instance setup</p></li>
+<li><p>Link EC2 to S3 bucket (give access to EC2 to R/W from S3)</p></li>
+</ul>
+<p>Use docker in EC2 Instance
+Create EC2 instance with docker contrainer (can this interface with S3?)
+developing jpyterlab in docker AML container remotely
+piping jupyterlap to local computer / ipad (development)</p>
+<div class="section" id="overview-table-of-contents">
+<h3><span class="section-number">5.1.1. </span>OVERVIEW - Table of Contents<a class="headerlink" href="#overview-table-of-contents" title="Permalink to this headline">¶</a></h3>
+<p>Part 2: [2.0 Getting Started with AWS](#20-getting-started-with-aws)
+- 2.1 Account setup Root
+- 2.2 IAM account setup
+- 2.2b IAM account setup with CLI <strong>todo: link to 5.x?</strong></p>
+<p>Part 3: [3.0 Getting Started with EC2](#30-getting-started-with-ec2)
+- 3.1 Create a VPC network
+- 3.2 Create a Security Group
+- 3.2 Create a Key-Pair
+- Everything needed to prep, launch and remote into EC2 instance
+- Configuration and launching, &amp; terminating an EC2 instance from web-portal</p>
+<p>Part 4: [4.0 AWS CLI Tools Install](#40-aws-cli-tools-install)
+- How to install the AWS CLI python tools locally
+- This provides command line access to AWS</p>
+<p>Part 5: [5.0 AWS CLI Usage](#50-aws-cli-Usage)
+- How to use AWS CLI tools to query AWS Account
+- Steps to gather necessary information and launch EC2 instances
+- <strong>TODO</strong> link S3 bucket to EC2 instance
+- how to terminate instance
+- Tool specific instructions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>IAM account creation</p></li>
+<li><p>Key-Pair Creation</p></li>
+<li><p>VPC Creation</p></li>
+<li><p>Security Group Creation</p></li>
+</ul>
+</div></blockquote>
+<p>Part 6: [6.0 EC2 Usage](#60-ec2-usage)
+- <strong>TODO</strong>
+- SSH into instance
+- how to launch a docker image
+- how to mount s3 storage</p>
+</div>
+</div>
+<div class="section" id="getting-started-with-aws">
+<h2><span class="section-number">5.2. </span>Getting Started with AWS<a class="headerlink" href="#getting-started-with-aws" title="Permalink to this headline">¶</a></h2>
+<p>The first part of getting started with AWS is creating an AWS account. After
+the account has been created, it is recommended to create a second, ‘sub’
+account which will be used to access all services. This second account is
+isolated from the billing account.</p>
+<p>Once a root-administrative account is created, it will be used for billing
+purposes and root control of all AWS activity. To separate developer(s) from
+accessing billing information, it is necessary to create Identity and Access
+Managment (IAM) accounts that limit access.</p>
+<div class="section" id="create-aws-account">
+<h3><span class="section-number">5.2.1. </span>Create AWS Account<a class="headerlink" href="#create-aws-account" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>To create an AWS account, follow [THIS Guide](<a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/</a>)</p></li>
+<li><p>(OPTIONAL) It is recommended to create an account alias that will make it</p></li>
+</ol>
+<p>easier to log into the AWS portal, see [THIS Guide](<a class="reference external" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html</a>)</p>
+</div>
+<div class="section" id="create-iam-user">
+<h3><span class="section-number">5.2.2. </span>Create IAM User<a class="headerlink" href="#create-iam-user" title="Permalink to this headline">¶</a></h3>
+<p>To create an IAM account with Admin access and add them to an ‘Administrators’
+group, follow [THIS guide](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user</a>)</p>
+</div>
+<div class="section" id="create-iam-user-using-aws-cli">
+<h3><span class="section-number">5.2.3. </span>Create IAM User USING AWS CLI<a class="headerlink" href="#create-iam-user-using-aws-cli" title="Permalink to this headline">¶</a></h3>
+<p><strong>TODO</strong></p>
+</div>
+</div>
+<div class="section" id="getting-started-with-ec2">
+<h2><span class="section-number">5.3. </span>Getting Started with EC2<a class="headerlink" href="#getting-started-with-ec2" title="Permalink to this headline">¶</a></h2>
+<p>Once a root billing account has been created, and an IAM account has been
+created, it is possible to now create and configure all the necessary
+back-end tools in order to successfully launch an AWS EC2 instance. In order
+to launch an EC2 instance, the following is required:</p>
+<p><strong>[A VPC network](#31-create-a-vpc)</strong>
+- This will provide a Virtual Private Cloud network in which to launch the
+instance</p>
+<p><strong>[A Security Group](#32-create-a-security-group)</strong>
+- This will provide a inbound and outbound connection rules for internet
+access and SSH access</p>
+<p><strong>[Key Pair]()</strong>
+- This will provide a key pair for remote SSH connection</p>
+<div class="section" id="create-a-vpc">
+<h3><span class="section-number">5.3.1. </span>Create a VPC<a class="headerlink" href="#create-a-vpc" title="Permalink to this headline">¶</a></h3>
+<p>Follow [THIS Guide](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-vpc">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-vpc</a>) to create a VPC.</p>
+<p>The VPC defines a Virtual Private Cloud into which an EC2 instance can be
+launched. One default VPC could be created that is _region_ specific.</p>
+<p>The VPC will be used later to address the subnet when creating an EC2 instance
+using the AWS CLI.</p>
+<p><strong>NOTE</strong> VPC must have DNS Hostnames set to YES!</p>
+<p><strong>todo: ref to create a vpc through cli</strong></p>
+</div>
+<div class="section" id="create-a-security-group">
+<h3><span class="section-number">5.3.2. </span>Create a Security Group<a class="headerlink" href="#create-a-security-group" title="Permalink to this headline">¶</a></h3>
+<p>Follow [THIS Guide](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group</a>) to create a security group.</p>
+<p>The security groups define inbound and outbound connections allowed to an EC2
+instance.
+The important bit about these groups is the inbound IP -&gt; this allows your
+public IP to access the EC2 to which the security group is made.</p>
+<p>It is important that the security group is created in the correct region.
+The group can be made using the online interface, or the AWS interface.</p>
+<div class="section" id="aws-security-group-creation">
+<h4><span class="section-number">5.3.2.1. </span>AWS Security Group Creation<a class="headerlink" href="#aws-security-group-creation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The Security group region needs to match the Key-Pair region</p></li>
+<li><p>what are the considerations (region + IP)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="key-pair">
+<h3><span class="section-number">5.3.3. </span>Key Pair<a class="headerlink" href="#key-pair" title="Permalink to this headline">¶</a></h3>
+<p>Follow [THIS Guide](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair</a>) to create a key pair.</p>
+<p>A key-pair made, must be downloaded as .pem file and used when SSH’ing into
+Instance. A created key can only be downloaded once. The key can be created
+through the web portal.</p>
+<p>The key pair provides access to whichever service it is attached to.</p>
+<p>The key-pair region needs to match the Security Group Region.</p>
+</div>
+</div>
+<div class="section" id="aws-cli-tools-install">
+<h2><span class="section-number">5.4. </span>AWS CLI Tools Install<a class="headerlink" href="#aws-cli-tools-install" title="Permalink to this headline">¶</a></h2>
+<p>ipsum</p>
+</div>
+<div class="section" id="aws-cli-usage">
+<h2><span class="section-number">5.5. </span>AWS CLI Usage<a class="headerlink" href="#aws-cli-usage" title="Permalink to this headline">¶</a></h2>
+<p>To launch an instance from bash, need to use AWS CLI tools, which are python
+tools.</p>
+<div class="section" id="queries">
+<h3><span class="section-number">5.5.1. </span>Queries<a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="launching-instance">
+<h3><span class="section-number">5.5.2. </span>Launching Instance<a class="headerlink" href="#launching-instance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="attaching-s3-s3-buckets-required">
+<h3><span class="section-number">5.5.3. </span>Attaching S3 (S3 buckets required)<a class="headerlink" href="#attaching-s3-s3-buckets-required" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="terminating-instance">
+<h3><span class="section-number">5.5.4. </span>Terminating Instance<a class="headerlink" href="#terminating-instance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="aws-cli-queries">
+<h3><span class="section-number">5.5.5. </span>AWS CLI Queries<a class="headerlink" href="#aws-cli-queries" title="Permalink to this headline">¶</a></h3>
+<p>ipsum</p>
+<ul class="simple">
+<li><p>Get running instances <cite>aws ec2 desrcibe-isntances</cite></p></li>
+<li><p>get key pairs <cite>aws ec2 describe-key-pairs</cite></p></li>
+<li><p>security groups <cite>aws ec2 describe-security-groups</cite></p></li>
+<li><p>IAM users <cite>aws iam get-users</cite></p></li>
+<li><p>VPCs <cite>aws ec2 describe-vpcs</cite> / subnets -&gt; <cite>aws ec2 describe-subnets</cite></p></li>
+</ul>
+</div>
+<div class="section" id="aws-cli-launching-ec2-instance">
+<h3><span class="section-number">5.5.6. </span>AWS CLI Launching EC2 Instance<a class="headerlink" href="#aws-cli-launching-ec2-instance" title="Permalink to this headline">¶</a></h3>
+<p>What is needed to launch an instance? [THIS](<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html#launching-instances">https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-instances.html#launching-instances</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aws ec2 run-instances --image-id &lt;ami-xxxxxxxx&gt; --count <span class="m">1</span> --instance-type t2.micro --key-name &lt;MyKeyPair&gt; --security-group-ids &lt;sg-903004f8&gt; --subnet-id &lt;subnet-6e7f829e&gt;
+</pre></div>
+</div>
+<p><strong>NOTE</strong> Tried to run the above; but cannot connect, even though it is running
+there seems to be no public DNS -&gt; need to enable Auto-assign Public IP when Launching
+since vpc has DNS hostname resolution</p>
+<p>At least the following 4 <cite>&lt;&gt;</cite> things:
+1. AMI image ID
+2. Key Pair
+3. security group ID (note, this will define the inbound IPs allowed to access the instance)
+4. Subnet ID (this is taken from the VPC)
+5. Need</p>
+<div class="section" id="choose-ami-image-id">
+<h4><span class="section-number">5.5.6.1. </span>Choose AMI Image ID<a class="headerlink" href="#choose-ami-image-id" title="Permalink to this headline">¶</a></h4>
+<p>The AMI image ID describes which EC2 base instance to launch. <strong>TODO</strong> How does this work with AMIDL docker images?</p>
+<p>The basic free-tier amazon linux image ID is:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>ami-00c03f7f7f2ec15c3</p>
+</div></blockquote>
+</div>
+<div class="section" id="create-or-choose-key-pair">
+<h4><span class="section-number">5.5.6.2. </span>Create or Choose Key Pair<a class="headerlink" href="#create-or-choose-key-pair" title="Permalink to this headline">¶</a></h4>
+<p>To create a Key using the aws cli tools [ref](<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html#creating-a-key-pair">https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html#creating-a-key-pair</a>):
+.. code-block:: bash</p>
+<blockquote>
+<div><p>aws ec2 create-key-pair –key-name &lt;KeyPairName&gt; –query ‘KeyMaterial’ –output text &gt; &lt;pathToSaveAndNameKeyPair&gt;.pem
+# allow execution of key:
+chmod +x &lt;pathToSaveAndNameKeyPair&gt;.pem</p>
+</div></blockquote>
+<p>Inputs:
+1. KeyPairName -&gt; name of the key
+2. Save Path+Name.pem of the key locally.</p>
+<p>All made Keys can be queried with the <cite>aws ec2 describe-key-pairs</cite> command. If the local key is available, it can be used.</p>
+<p>### 3) Security Group ID
+The security group ID is taken from the defined security group.</p>
+<p># 6.0 EC2 Usage</p>
+<p>## 6.1 Launching Instances</p>
+<p>### 6.1.1 Using AWS Console</p>
+<p>### 6.1.2 Using AWS CLI</p>
+<p>## 6.2 Attaching S3 Storage
+[ref](<a class="reference external" href="https://cloudkul.com/blog/mounting-s3-bucket-linux-ec2-instance/">https://cloudkul.com/blog/mounting-s3-bucket-linux-ec2-instance/</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get update
+</pre></div>
+</div>
+<p>To SSH into the instance, make sure it is:
+1. Running (using aws cli-&gt;add instructions <cite>aws ec2 instance-describe</cite>)
+2. You have the keyPair locally available in <cite>.pem</cite> file
+3. Run the Command:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>ssh -i &lt;path_to_key_pair.pem&gt; ec2-user&#64;&lt;instance_id&gt;</p>
+</div></blockquote>
+<p># Creating S3</p>
+<p>S3 is Amazon Simple storage. It can be linked to an EC2 instance.</p>
+<p># Unsorted</p>
+<p>STEP 1: [Setting up with Amazon EC2](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html</a>)
+- AWS account
+- IAM Admin user [Administrator] (this separates the user from account owner billing info etc)
+- Create account alias
+- Create key-pair
+- save .pem file locally to use later for SSH connection to EC2 instance
+- Q: In [create security group](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-base-security-group</a>)
+, the inbound SSH IP is set to match the current computer; however,
+this might change, how to ensure I can connect for different locations around the world?</p>
+<ul class="simple">
+<li><p>Q: what about using AWS CLI? -&gt; can use CLI to launch and manage instances; not sure about setting security groups &amp; config; but probably</p></li>
+</ul>
+<p>STEP 2: [Getting Started with Amazon EC2 Linux](<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html</a>)
+(AWS CONSOLE)
+- Remeber to attach the security group created in the STEP 1
+- once instance is launched, use (THIS)[<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html</a>) guide for connection]
+- Confirmed this work! - just remeber to set security groups correctly, will now close and clean up, then try with awscli
+- to clean up use [THIS]() guide</p>
+<p>STEP 2: COMMAND LINE:
+[AWS CLI tool Install](<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html">https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html</a>)
+-&gt; Used pip3 on macOS; seems to work first shot, next is [awscli config](<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html</a>)
+–&gt; create Administrator access keys
+–&gt; use keys to fill <cite>aws configure</cite> with us-east-2 region and ‘json’</p>
+<p>[AWS CLI tools](<a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2.html</a>)</p>
+<p>&lt;TODO&gt; Update instructions with more input…</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="projects.html" class="btn btn-neutral float-right" title="6. Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="docker.html" class="btn btn-neutral float-left" title="4. Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Evgeny.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

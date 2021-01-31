@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Docker &mdash; LAB Manual  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/drawio.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. AWS" href="aws.html" />
+    <link rel="prev" title="3. macOS Configuration" href="macOS.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LAB Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="home.html">1. Labmanual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OSConfigurations.html">2. OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macOS.html">3. macOS Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#todo">4.1. # TODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">4.2. Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu">4.2.1. Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macos">4.2.2. macOS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">4.3. Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">4.3.1. Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#images-storage">4.4. Images Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tags">4.4.1. TAGS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#from-dockerfile">4.5. From dockerfile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jupyterlab">4.5.1. JupyterLab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">4.6. References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">7. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">10. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">12. Camera</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LAB Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>Docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker">
+<h1><span class="section-number">4. </span>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="todo">
+<h2><span class="section-number">4.1. </span># TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Remote Docker development with Clion/Pycharm -&gt; can do</p></li>
+<li><p>How to attach local dir to docker container? [use -v]</p></li>
+<li><p>How to run container in background? [need to have some process in foreground, then <cite>docker run -d</cite>]</p></li>
+<li><p>How to make custom image using dockerfile? [<cite>docker build …</cite>]</p></li>
+<li><p>How to clone private repo in build process?
+- can give container ssh keys, use <cite>–squash</cite> command to squash layers during install
+- if ssh can’t be used, may need to make shell script to run multi-stage build + commit output</p></li>
+<li><p>How to connect to running container from multiple host terminals? [<cite>docker exec -it container_name bash/zsh</cite>]</p></li>
+<li><p>how to delete contrains from local? [<cite>docker container rm container_name</cite>]</p></li>
+<li><p>how to set where local containers are stored?</p></li>
+<li><p>how to interface data into/out of container?</p></li>
+<li><p>how to communicate between two containers on the same machine?</p></li>
+<li><p>How to pipe connection from container to host (i.e. run jupyterlab in
+container and GUI in host)</p></li>
+<li><p>example multi stage build with tag (private repo / no keys)
+- how to work to save files with container if its removed? what is a typical workflow?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>can commit container to an image using <cite>docker commit container_name …</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><span class="section-number">4.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu">
+<h3><span class="section-number">4.2.1. </span>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install docker docker.io
+<span class="c1"># set permissions (make sure $USER is set correctly)</span>
+sudo usermod -a -G docker <span class="nv">$USER</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="macos">
+<h3><span class="section-number">4.2.2. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>Install Docker on mac using provided instructions:</p>
+<p><a class="reference external" href="https://docs.docker.com/docker-for-mac/install/">https://docs.docker.com/docker-for-mac/install/</a></p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2><span class="section-number">4.3. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basics">
+<h3><span class="section-number">4.3.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### List Docker CLI commands</span>
+docker
+docker container --help
+
+<span class="c1">## Display Docker version and info</span>
+docker --version
+docker version
+docker info
+
+<span class="c1">## Pull an image</span>
+docker pull &lt;imagename&gt;
+
+<span class="c1">## Execute Docker image</span>
+docker run hello-world
+
+<span class="c1">## Run image with consol access:</span>
+docker run -it &lt;image&gt;
+<span class="c1">## Run + map local directory to container (allows changes in both):</span>
+docker run -v /local/folder:/container/folder -it &lt;image&gt;
+
+<span class="c1">## Connect to existing contrainer from separate terminal</span>
+
+<span class="c1">## List Docker images</span>
+docker image ls
+
+<span class="c1">## List Docker containers (running, all, all in quiet mode)</span>
+docker container ls
+docker container ls --all
+docker container ls -aq
+
+<span class="c1">## View all active containers:</span>
+docker ps
+<span class="c1"># View all containers that were run:</span>
+docker ps -a
+
+
+<span class="c1">## Cleanup, remove active containers:</span>
+docker rm &lt;ID&gt;
+<span class="c1"># Delete all running containers:</span>
+docker rm <span class="k">$(</span>docker ps -a -q -f <span class="nv">status</span><span class="o">=</span>exited<span class="k">)</span>
+
+<span class="c1">## Get ID:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="images-storage">
+<h2><span class="section-number">4.4. </span>Images Storage<a class="headerlink" href="#images-storage" title="Permalink to this headline">¶</a></h2>
+<p>Docker in ubuntu stores the images in <cite>/var/lib/docker</cite> which means that
+the more images downloaded, the more space is used in <cite>/var/</cite>, however, if
+the partition for root is small, it is necessary to move the location of where
+images will be stored [ref](<a class="reference external" href="https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169">https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Using a symlink is another method to change image storage.
+
+**Caution - These steps depend on your current `/var/lib/docker` being an actual directory (not a symlink to another location).**
+
+Stop docker: service docker stop. Verify no docker process is running `ps faux`
+
+Double check docker really isn’t running. Take a look at the current docker directory: `ls /var/lib/docker/`
+
+Make a backup: `tar -zcC /var/lib docker &gt; yourPath/var_lib_docker-backup-$(date +%s).tar.gz`
+
+Move the `/var/lib/docker` directory to your new partition: `mv /var/lib/docker yourPath/docker`
+
+Make a symlink: `ln -s /mnt/pd0/docker yourPath/docker`
+
+Take a peek at the directory structure to make sure it looks like it did before the mv: `ls youtPath/docker/` (note the trailing slash to resolve the symlink)
+
+Start docker back up `service docker start`
+
+restart your containers
+</pre></div>
+</div>
+<div class="section" id="tags">
+<h3><span class="section-number">4.4.1. </span>TAGS<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<p>Docker tags are used to specify opetions for images:
+.. code-block:: bash</p>
+<blockquote>
+<div><p># latest ubuntu:
+docker run -it ubuntu
+# Now, run 18.04:
+docker run -it ubuntu:18.04</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="from-dockerfile">
+<h2><span class="section-number">4.5. </span>From dockerfile<a class="headerlink" href="#from-dockerfile" title="Permalink to this headline">¶</a></h2>
+<p>A docker image can be built from a docker file <a href="#id1"><span class="problematic" id="id2">**</span></a>in the current directory using:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>docker build –tag=image_name:tag .</p>
+</div></blockquote>
+<p>A docker file would look like this:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>FROM python:3
+WORKDIR /usr/src/app
+COPY requirements.txt ./
+RUN pip install –no-cache-dir -r requirements.txt</p>
+</div></blockquote>
+<div class="section" id="jupyterlab">
+<h3><span class="section-number">4.5.1. </span>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>When running a container that has jupyterlab, it is necessary to port-forward
+8888:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>docker run –it –rm -p 8888:8888</p>
+</div></blockquote>
+<p>where <cite>–it</cite> activates interactive shell, <cite>–rm</cite> removes container on exit,
+and <cite>-p</cite> exposes all ports in range.</p>
+<p>When using Jupyter Lab within a docker container, the command to call
+jupyer should include ip and root allowance, otherwise jupyterlab will
+return errors:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>jupyterlab –ip=0.0.0.0 –allow-root</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="references">
+<h2><span class="section-number">4.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[Docker](<a class="reference external" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a>)
+[Docker Tutorail](<a class="reference external" href="https://docker-curriculum.com/">https://docker-curriculum.com/</a>)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="aws.html" class="btn btn-neutral float-right" title="5. AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="macOS.html" class="btn btn-neutral float-left" title="3. macOS Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Evgeny.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

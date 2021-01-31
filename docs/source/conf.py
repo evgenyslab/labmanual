@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'LAB Manual'
-copyright = '2019, Evgeny'
+copyright = '2021, Evgeny'
 author = 'Evgeny Nuger'
 
 
