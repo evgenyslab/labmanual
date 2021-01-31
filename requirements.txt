@@ -3,6 +3,7 @@ cython
 sphinx
 sphinx-rtd-theme
 sphinxext-remoteliteralinclude
+sphinxcontrib-drawio
 m2r2
 breathe
 beautifulsoup4
