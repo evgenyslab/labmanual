@@ -10,9 +10,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+# This will add all folder in under source dir:
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
@@ -37,7 +38,10 @@ extensions = [
 
 autosectionlabel_prefix_document = True
 
+
+# TODO: add check for drawio app on different platforms...
 drawio_binary_path = '/Applications/draw.io.app/Contents/MacOS/draw.io'
+drawio_default_transparency = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

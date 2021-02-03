@@ -5,6 +5,10 @@ Python Development
 
 This guide outlines my approach for python development and methodologies used.
 
+.. drawio-figure:: art/diagram_ch2.drawio
+   :format: png
+
+   An example diagram
 
 NUMPY CHEET SHEET
 -----------------
