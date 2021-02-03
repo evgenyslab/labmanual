@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>7. Python Development &mdash; LAB Manual  documentation</title>
+  <title>9. Python Development &mdash; LAB Manual  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. OpenCV" href="../opencv.html" />
-    <link rel="prev" title="6. Projects" href="../projects.html" /> 
+    <link rel="next" title="10. PyTorch" href="pytorch.html" />
+    <link rel="prev" title="8. Projects" href="projects.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,24 +87,25 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../home.html">1. Labmanual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../OSConfigurations.html">2. OS Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../macOS.html">3. macOS Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docker.html">4. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../aws.html">5. AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../projects.html">6. Projects</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Python Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#numpy-cheet-sheet">7.1. NUMPY CHEET SHEET</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#todos">7.2. TODOs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jupyter-remote">7.3. Jupyter remote</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#virtual-environment-script">7.4. Virtual Environment Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/home.html">1. Labmanual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/OSConfigurations.html">2. OS Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/Development.html">3. Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/docker.html">4. Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/aws.html">5. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/opencv.html">6. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/misc.html">7. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">8. Projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Python Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-cheet-sheet">9.1. NUMPY CHEET SHEET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todos">9.2. TODOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-remote">9.3. Jupyter remote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-environment-script">9.4. Virtual Environment Script</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../opencv.html">8. OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pytorch.html">9. PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../misc.html">10. Miscellaneous Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../random.html">11. Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../camera.html">12. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">10. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">12. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">13. README: LAB MANUAL</a></li>
 </ul>
 
             
@@ -153,13 +154,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">7. </span>Python Development</li>
+      <li><span class="section-number">9. </span>Python Development</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/chapter2/python.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/chapter3/python.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,14 +174,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python-development">
-<h1><span class="section-number">7. </span>Python Development<a class="headerlink" href="#python-development" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Python Development<a class="headerlink" href="#python-development" title="Permalink to this headline">¶</a></h1>
 <p>This guide outlines my approach for python development and methodologies used.</p>
 <div class="figure align-default" id="id1">
 <img alt="../_images/diagram_ch2.png" class="drawio" src="../_images/diagram_ch2.png" />
 <p class="caption"><span class="caption-text">An example diagram</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="numpy-cheet-sheet">
-<h2><span class="section-number">7.1. </span>NUMPY CHEET SHEET<a class="headerlink" href="#numpy-cheet-sheet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>NUMPY CHEET SHEET<a class="headerlink" href="#numpy-cheet-sheet" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import numpy as np
 
 <span class="c1"># Input is a set of object points for N objects, M, points:</span>
@@ -216,7 +217,7 @@ np.matmul<span class="o">(</span>R, B<span class="o">)</span>
 </div>
 </div>
 <div class="section" id="todos">
-<h2><span class="section-number">7.2. </span>TODOs<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>TODOs<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h2>
 <p>Create alias for quick activation of virtual environment in local directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">activate</span><span class="o">=</span><span class="s2">&quot;source .venv/bin/activate&quot;</span>
 </pre></div>
@@ -238,7 +239,7 @@ np.matmul<span class="o">(</span>R, B<span class="o">)</span>
 </ul>
 </div>
 <div class="section" id="jupyter-remote">
-<h2><span class="section-number">7.3. </span>Jupyter remote<a class="headerlink" href="#jupyter-remote" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Jupyter remote<a class="headerlink" href="#jupyter-remote" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Make sure host device has ssh enabled, if using Ubuntu:</p></li>
 </ol>
@@ -273,7 +274,7 @@ lsof -it:8888 xargs <span class="nb">kill</span> -9
 </div>
 </div>
 <div class="section" id="virtual-environment-script">
-<h2><span class="section-number">7.4. </span>Virtual Environment Script<a class="headerlink" href="#virtual-environment-script" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Virtual Environment Script<a class="headerlink" href="#virtual-environment-script" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># setup some colors:</span>
 <span class="nv">BLACK</span><span class="o">=</span><span class="s1">&#39;\033[0;30m&#39;</span>
@@ -331,8 +332,8 @@ no c++ libraries are made available for C++ work.</p></li>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../opencv.html" class="btn btn-neutral float-right" title="8. OpenCV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../projects.html" class="btn btn-neutral float-left" title="6. Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pytorch.html" class="btn btn-neutral float-right" title="10. PyTorch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="projects.html" class="btn btn-neutral float-left" title="8. Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

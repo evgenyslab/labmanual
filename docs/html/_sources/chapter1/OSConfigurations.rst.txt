@@ -685,7 +685,7 @@ descriptive information for my items.
 
 Note, I am using :code:`robbyrussell` theme.
 
-.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce
+.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
  
 This can be quickly added to your :code:`~/.zshrc` using the following command:
 

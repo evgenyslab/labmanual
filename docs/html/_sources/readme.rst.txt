@@ -1,4 +1,4 @@
 .. Linked to repo Readme
 
-.. mdinclude:: ../README.md
+.. mdinclude:: ../../README.md
 

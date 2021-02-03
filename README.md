@@ -1,4 +1,4 @@
-# LAB MANUAL 
+# README: LAB MANUAL 
 
 [Lab Manual](https://evgenyslab.github.io/labmanual/)
 

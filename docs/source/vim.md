@@ -92,5 +92,6 @@ NERDtree:
 - how to change root folder in nerdtree view?
 - how to open nerdtree in every tab?
 - Show hidden files: `SHIFT i`
-
+- to open file in vertical split use `s`
+- to open file in horizontal split use `i`
 

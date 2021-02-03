@@ -100,20 +100,20 @@ This is the lab manual, a resource for all things setup related and navigation.
    :maxdepth: 1
    :numbered:
    :caption: Contents:
-
-   home
+   
+   chapter1/home
+   chapter1/OSConfigurations
+   chapter1/Development
+   chapter2/docker
+   chapter2/aws
+   chapter2/opencv
+   chapter2/misc
+   chapter3/projects
+   chapter3/python
+   chapter3/pytorch
+   chapter3/random
+   chapter3/camera
    readme
-   OSConfigurations
-   macOS
-   docker
-   aws
-   projects
-   chapter2/python
-   opencv
-   pytorch
-   misc
-   random
-   camera
 
 
 
