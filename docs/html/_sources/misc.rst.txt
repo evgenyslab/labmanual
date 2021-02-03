@@ -12,7 +12,19 @@ Miscellaneous Guides
 +------------+------------+-----------+
 
 
-Ipsum
+Doxygen Notes
+-------------
+
+To generate pdf output from doxygen, make sure to have latex output set,
+and then in latex directory run :code:`make`.
+
+Doxygen config items:
+
+- [ ] project name
+- [ ] inputs
+- [ ] adding directive to parse pyx files (see cython_examples)
+- [ ] generating UML class digrams
+- [ ] OS pre-reqs for linux/max
 
 Mount Remote Directory Locally in Linux
 ---------------------------------------
@@ -79,6 +91,8 @@ in the root directory. This allows style sheets and js to work correctly.
 
 **FOLLOW UP** I'll look into hosting the docs right from main repo,
 gh-pages seems to be able to support that now, could be very useful!
+
+TODO: Add conf.py info for relative paths!
 
 Drawio w/ Sphinx
 ^^^^^^^^^^^^^^^^

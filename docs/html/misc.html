@@ -93,18 +93,19 @@
 <li class="toctree-l1"><a class="reference internal" href="docker.html">4. Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">7. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2/python.html">7. Python Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">10. Miscellaneous Guides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mount-remote-directory-locally-in-linux">10.1. Mount Remote Directory Locally in Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linux-mac-splitting-tar-files">10.2. Linux / Mac Splitting TAR Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#local-app-install">10.3. Local app install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sphinx-github-pages">10.4. Sphinx &amp; GitHub Pages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#drawio-w-sphinx">10.4.1. Drawio w/ Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doxygen-notes">10.1. Doxygen Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mount-remote-directory-locally-in-linux">10.2. Mount Remote Directory Locally in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-mac-splitting-tar-files">10.3. Linux / Mac Splitting TAR Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-app-install">10.4. Local app install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sphinx-github-pages">10.5. Sphinx &amp; GitHub Pages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#drawio-w-sphinx">10.5.1. Drawio w/ Sphinx</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#gdb-remote-debugging-c">10.5. GDB Remote Debugging C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gdb-remote-debugging-c">10.6. GDB Remote Debugging C++</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="random.html">11. Random</a></li>
@@ -198,9 +199,21 @@ more info</p></td>
 </tr>
 </tbody>
 </table>
-<p>Ipsum</p>
+<div class="section" id="doxygen-notes">
+<h2><span class="section-number">10.1. </span>Doxygen Notes<a class="headerlink" href="#doxygen-notes" title="Permalink to this headline">¶</a></h2>
+<p>To generate pdf output from doxygen, make sure to have latex output set,
+and then in latex directory run <code class="code docutils literal notranslate"><span class="pre">make</span></code>.</p>
+<p>Doxygen config items:</p>
+<ul class="simple">
+<li><p>[ ] project name</p></li>
+<li><p>[ ] inputs</p></li>
+<li><p>[ ] adding directive to parse pyx files (see cython_examples)</p></li>
+<li><p>[ ] generating UML class digrams</p></li>
+<li><p>[ ] OS pre-reqs for linux/max</p></li>
+</ul>
+</div>
 <div class="section" id="mount-remote-directory-locally-in-linux">
-<h2><span class="section-number">10.1. </span>Mount Remote Directory Locally in Linux<a class="headerlink" href="#mount-remote-directory-locally-in-linux" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.2. </span>Mount Remote Directory Locally in Linux<a class="headerlink" href="#mount-remote-directory-locally-in-linux" title="Permalink to this headline">¶</a></h2>
 <p>In the case of remote development, it may be beneficial to mount the remote’s development
 path on the local computer, use a local file editor to make and save changes, and then
 compile and run remotely.</p>
@@ -219,7 +232,7 @@ compile and run remotely.</p>
 <p>Source: [<a href="https://www.tecmint.com/sshfs-mount-remote-linux-filesystem-directory-using-ssh/" target="_blank">ref</a>].</p>
 </div>
 <div class="section" id="linux-mac-splitting-tar-files">
-<h2><span class="section-number">10.2. </span>Linux / Mac Splitting TAR Files<a class="headerlink" href="#linux-mac-splitting-tar-files" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.3. </span>Linux / Mac Splitting TAR Files<a class="headerlink" href="#linux-mac-splitting-tar-files" title="Permalink to this headline">¶</a></h2>
 <p>To create tar archive:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># first tar the folder:</span>
 tar -cvzf tarFileName.tar.gz /Directory/To/Tar/*
@@ -233,12 +246,12 @@ cat tarFileName.tar.gz.part* &gt; tarFileName.tar.gz
 </div>
 </div>
 <div class="section" id="local-app-install">
-<h2><span class="section-number">10.3. </span>Local app install<a class="headerlink" href="#local-app-install" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.4. </span>Local app install<a class="headerlink" href="#local-app-install" title="Permalink to this headline">¶</a></h2>
 <p>Application executibles can be installed by placing a sh script to launch the application
 under <cite>$HOME/.local/bin</cite>, this will be visible to the current user.</p>
 </div>
 <div class="section" id="sphinx-github-pages">
-<h2><span class="section-number">10.4. </span>Sphinx &amp; GitHub Pages<a class="headerlink" href="#sphinx-github-pages" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.5. </span>Sphinx &amp; GitHub Pages<a class="headerlink" href="#sphinx-github-pages" title="Permalink to this headline">¶</a></h2>
 <p>Source: [<a href="https://daler.github.io/sphinxdoc-test/includeme.html" target="_blank">ref</a>].</p>
 <p>IMPORTANT NOTE: github uses jekyll to generate pages, however, standard
 sphinx doc structure has a <code class="code docutils literal notranslate"><span class="pre">_static</span></code> folder generate with
@@ -249,8 +262,9 @@ as per the instructions in the ref, it is important to add <code class="code doc
 in the root directory. This allows style sheets and js to work correctly.</p>
 <p><strong>FOLLOW UP</strong> I’ll look into hosting the docs right from main repo,
 gh-pages seems to be able to support that now, could be very useful!</p>
+<p>TODO: Add conf.py info for relative paths!</p>
 <div class="section" id="drawio-w-sphinx">
-<h3><span class="section-number">10.4.1. </span>Drawio w/ Sphinx<a class="headerlink" href="#drawio-w-sphinx" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.5.1. </span>Drawio w/ Sphinx<a class="headerlink" href="#drawio-w-sphinx" title="Permalink to this headline">¶</a></h3>
 <p>see: <a class="reference external" href="https://pypi.org/project/sphinxcontrib-drawio/">https://pypi.org/project/sphinxcontrib-drawio/</a></p>
 <p>To get this to work, need to make sure <code class="code docutils literal notranslate"><span class="pre">sphinxcontrib-drawio</span></code> to
 the extensions in <code class="code docutils literal notranslate"><span class="pre">conf.py</span></code> for docs.</p>
@@ -271,7 +285,7 @@ and place it in appropriate folder under html build directory.</p>
 </div>
 </div>
 <div class="section" id="gdb-remote-debugging-c">
-<h2><span class="section-number">10.5. </span>GDB Remote Debugging C++<a class="headerlink" href="#gdb-remote-debugging-c" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">10.6. </span>GDB Remote Debugging C++<a class="headerlink" href="#gdb-remote-debugging-c" title="Permalink to this headline">¶</a></h2>
 <p>TODO:</p>
 <ul class="simple">
 <li><p>go to build location of executible</p></li>

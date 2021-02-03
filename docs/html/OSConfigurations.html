@@ -91,7 +91,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. OS Configurations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linux</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installing-from-usb">2.1.1. Installing from USB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-packages">2.1.2. Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages">2.1.2. Installing Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker">2.1.2.1. Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#latex-doxygen">2.1.2.2. Latex &amp; Doxygen</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-packages">2.1.3. Configuring Packages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#zsh">2.1.3.1. ZSH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#git">2.1.3.2. GIT</a></li>
@@ -126,7 +130,27 @@
 <li class="toctree-l3"><a class="reference internal" href="#tips-tricks">2.2.9. Tips &amp; Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#macos">2.3. macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">2.3. macOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-brew">2.3.1. Install Brew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-packages">2.3.2. Install Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-packages">2.3.3. Configure Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.3.3.1. Pyenv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.3.3.2. ZSH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.3.3.3. VIM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#supplementary-packages">2.3.4. Supplementary Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2.3.4.1. Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.3.4.2. GTest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.3.5. Tips &amp; Tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mdls-file-inspection">2.3.5.1. <code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-parallels">2.3.5.2. Remote Parallels</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#tips-trix">2.4. TIPS &amp; TRIX</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#linux-systemctl">2.4.1. Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#linux-startup-service">2.4.2. Linux Startup Service</a></li>
@@ -141,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="docker.html">4. Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projects.html">6. Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">7. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2/python.html">7. Python Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opencv.html">8. OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytorch.html">9. PyTorch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">10. Miscellaneous Guides</a></li>
@@ -297,6 +321,49 @@ errror, most likely culprit is that <code class="code docutils literal notransla
 <code class="code docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/usr/bin/zsh</span></code></p>
 </div></blockquote>
 <p>Log and Out for changes to take effect</p>
+<div class="section" id="docker">
+<h4><span class="section-number">2.1.2.1. </span>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Docker</span>
+sudo apt-get install docker docker.io
+<span class="c1"># set permissions (make sure $USER is set correctly)</span>
+sudo usermod -a -G docker <span class="nv">$USER</span>
+<span class="c1"># reboot</span>
+sudo reboot -h now
+</pre></div>
+</div>
+</div>
+<div class="section" id="latex-doxygen">
+<h4><span class="section-number">2.1.2.2. </span>Latex &amp; Doxygen<a class="headerlink" href="#latex-doxygen" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Firstly Install Latex &amp; dependencies:</span>
+<span class="c1"># cd into temp folder:</span>
+<span class="nb">cd</span> ~/Downloads
+<span class="c1"># download the TexLive file:</span>
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+<span class="c1"># unpack:</span>
+tar -xvf install-tl-unx.tar.g
+<span class="nb">cd</span> install-tl-unx
+<span class="c1"># call installer:</span>
+sudo perl install-tl <span class="c1"># not sure if sudo should be called..</span>
+<span class="c1"># ^^^^ TAKES A LOOOOONG TIME!</span>
+<span class="c1"># add to path (in bashrc or zshrc)</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/texlive/2020/bin/x86_64-linux:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="c1"># test with:</span>
+latex small2e
+
+<span class="c1">## Next Install Ghostscript for file exporting:</span>
+<span class="c1"># install:</span>
+sudo apt-get install ghostscript
+<span class="c1"># test:</span>
+gs
+
+<span class="c1">## FINALLY Install Doxygen with graph generation support</span>
+<span class="c1"># install using ubuntu repo:</span>
+sudo apt-get install doxygen
+<span class="c1"># may need to install &#39;dot&#39; with:</span>
+sudo apt-get install graphviz
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="configuring-packages">
 <h3><span class="section-number">2.1.3. </span>Configuring Packages<a class="headerlink" href="#configuring-packages" title="Permalink to this headline">¶</a></h3>
@@ -645,6 +712,119 @@ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.ta
 </div>
 <div class="section" id="macos">
 <h2><span class="section-number">2.3. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+<p>The macOS is built on a linux-like system, however, unlike common linux distros,
+it is missing a package manager (i.e. <code class="code docutils literal notranslate"><span class="pre">apt</span></code>).</p>
+<div class="section" id="install-brew">
+<h3><span class="section-number">2.3.1. </span>Install Brew<a class="headerlink" href="#install-brew" title="Permalink to this headline">¶</a></h3>
+<p>Thus, the first step of setting up a mac for development is the installation
+of a packagement tool, namely, <code class="code docutils literal notranslate"><span class="pre">homebrew</span></code>, or <code class="code docutils literal notranslate"><span class="pre">brew</span></code>. The installation
+can be found on the <a href="http://brew.sh/" target="_blank">Brew</a>  website.</p>
+</div>
+<div class="section" id="install-packages">
+<h3><span class="section-number">2.3.2. </span>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h3>
+<p>Once brew is installed, the following packages can be installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update Brew</span>
+brew update
+
+<span class="c1"># Install zsh</span>
+brew install zsh
+
+<span class="c1"># Install macvim</span>
+brew install macvim
+
+<span class="c1"># Install cmake</span>
+brew install cmake
+
+<span class="c1"># Install python</span>
+brew install python
+
+<span class="c1"># Install pyenv (for python versions)</span>
+brew install pyenv
+
+<span class="c1"># Install virtualenv for python</span>
+brew install virtualenv
+
+<span class="c1"># Install MacTex for Latex Compilation:</span>
+brew install mactex
+
+<span class="c1"># Install doxygen:</span>
+brew install doxygen
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-packages">
+<h3><span class="section-number">2.3.3. </span>Configure Packages<a class="headerlink" href="#configure-packages" title="Permalink to this headline">¶</a></h3>
+<p>The following section provides information, guidance and some reasoning
+behind various component configurations.</p>
+<div class="section" id="id2">
+<h4><span class="section-number">2.3.3.1. </span>Pyenv<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Pyenv post installation configuration can be found <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>.</p>
+</div>
+<div class="section" id="id3">
+<h4><span class="section-number">2.3.3.2. </span>ZSH<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The first part of configuring <code class="code docutils literal notranslate"><span class="pre">zsh</span></code> is to install
+<code class="code docutils literal notranslate"><span class="pre">Oh</span> <span class="pre">My</span> <span class="pre">Zsh</span></code>: <a href="https://ohmyz.sh/#install" target="_blank">Oh My ZSH</a>.</p>
+<p>Next step would be to set up the <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file. There
+are many ways to configure the file, the following is an
+example of what I have appended to mine, along with some
+descriptive information for my items.</p>
+<p>Note, I am using <code class="code docutils literal notranslate"><span class="pre">robbyrussell</span></code> theme.</p>
+<p>This can be quickly added to your <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O -&gt;&gt; ~/.zshrc<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4><span class="section-number">2.3.3.3. </span>VIM<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Vim is a terminal editor that is very portable. My take on the configuration of vim
+can be found <a href="https://evgenyslab.github.io/labmanual/vim.html" target="_blank">HERE</a>.</p>
+</div>
+</div>
+<div class="section" id="supplementary-packages">
+<h3><span class="section-number">2.3.4. </span>Supplementary Packages<a class="headerlink" href="#supplementary-packages" title="Permalink to this headline">¶</a></h3>
+<p>The following packages are not available through <a href="http://brew.sh/" target="_blank">Brew</a> at the
+moment, and thus warrant their own section.</p>
+<div class="section" id="id5">
+<h4><span class="section-number">2.3.4.1. </span>Docker<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p><a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a> is an OS-level virtualization platform for running applications.
+It is useful for development and running applications of different languages
+and ensures the underlying OS is configured for the application.</p>
+<p>For more information about docker, see the page <a href="https://evgenyslab.github.io/labmanual/docker.html" target="_blank">Docker</a>.</p>
+<p>To install Docker for Mac, following the instructions on the <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a>
+page.</p>
+</div>
+<div class="section" id="id6">
+<h4><span class="section-number">2.3.4.2. </span>GTest<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>GTest is a C++ test-suite developed by Google.</p>
+<p>The installation instructions for macOS can be found <a href="" target="_blank">GTest Installation</a>.</p>
+<p>The installation requires updating <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">2.3.5. </span>Tips &amp; Tricks<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>The following tips and tricks are accumulated over time.</p>
+<div class="section" id="mdls-file-inspection">
+<h4><span class="section-number">2.3.5.1. </span><code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection<a class="headerlink" href="#mdls-file-inspection" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code docutils literal notranslate"><span class="pre">mdls</span></code> command can be used to retrieve meta data on
+any file, useful for scripting file renaming.</p>
+<p>If the command returns <code class="code docutils literal notranslate"><span class="pre">(null)</span></code> it means spotlight search
+needs to be rebuilt on the drive using <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mdutil</span> <span class="pre">-E</span> <span class="pre">/Drive</span></code>.</p>
+</div>
+<div class="section" id="remote-parallels">
+<h4><span class="section-number">2.3.5.2. </span>Remote Parallels<a class="headerlink" href="#remote-parallels" title="Permalink to this headline">¶</a></h4>
+<p>The standard <a href="https://www.parallels.com/" target="_blank">Parallels</a> installation does not provide
+command line tools and integrations, however, that does not
+mean that we cannot <code class="code docutils literal notranslate"><span class="pre">ssh</span></code> into a linux image that is
+installed and running.</p>
+<p>In my image configurations, I use the default network adaptor
+to expose the Parallels image to my network and allow it to
+dynamically receive an IP on my local network.</p>
+<p>Then, I can simply install and use <code class="code docutils literal notranslate"><span class="pre">openssh</span></code> to
+remote log into the virtual machine.</p>
+<p>This is also useful for remote development methods as
+described in <a href="#id8"><span class="problematic" id="id9">|xref_remote_development|</span></a>.</p>
+</div>
+</div>
 </div>
 <div class="section" id="tips-trix">
 <h2><span class="section-number">2.4. </span>TIPS &amp; TRIX<a class="headerlink" href="#tips-trix" title="Permalink to this headline">¶</a></h2>

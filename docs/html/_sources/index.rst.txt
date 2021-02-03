@@ -108,7 +108,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    docker
    aws
    projects
-   python
+   chapter2/python
    opencv
    pytorch
    misc
