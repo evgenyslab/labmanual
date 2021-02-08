@@ -1,0 +1,18 @@
+# Get ubuntu 18.04 image:
+FROM ubuntu:18.04
+
+# run update:
+RUN apt-get update
+
+# Install ssh with auto 'yes'
+RUN apt-get install -y ssh
+
+# Create dir for sshd to run:
+RUN mkdir /run/sshd
+
+# Clean:
+RUN apt-get clean
+
+# Run SSHD service without detaching
+# this will keep the image alive for us
+CMD ["/usr/sbin/sshd", "-D"]

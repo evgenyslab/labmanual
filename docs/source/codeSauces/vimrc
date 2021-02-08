@@ -49,6 +49,11 @@ inoremap ` ``<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+" Line Swapping with 'dx' and 'dw' commands in 
+" normal mode (C-up C-down doesnt work on mac ;)
+:nnoremap dw <Up>ddp<Up>
+:nnoremap dx ddp
+
 " Tab settings:
 set expandtab
 set tabstop=4

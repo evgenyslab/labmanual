@@ -36,12 +36,23 @@ extensions = [
     'sphinxcontrib.drawio',
         ]
 
+# Auto generate internal links on section labels;
+# WARNING: may not work well when labels repeat.
 autosectionlabel_prefix_document = True
 
+# Test for Drawio and link if available
+if os.path.isfile('/Applications/draw.io.app/Contents/MacOS/draw.io'): 
+    drawio_binary_path = '/Applications/draw.io.app/Contents/MacOS/draw.io'
+elif os.path.isfile():
+    drawio_binary_path = '/usr/bin/drawio'
+else:
+    drawio_binary_path = None
+    warnings.warn('Could not locate Drawio app')
 
-# TODO: add check for drawio app on different platforms...
-drawio_binary_path = '/Applications/draw.io.app/Contents/MacOS/draw.io'
-drawio_default_transparency = True
+if drawio_binary_path is not None:
+    # Drawio settings:
+    drawio_default_transparency = True
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

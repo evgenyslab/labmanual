@@ -91,25 +91,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../chapter1/OSConfigurations.html">2. OS Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter1/Development.html">3. Development</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Docker</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#todo">4.1. # TODO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">4.2. Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ubuntu">4.2.1. Ubuntu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#macos">4.2.2. macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-docker">4.1. What is Docker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-is-docker">4.2. Why is Docker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mechanics">4.3. Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-workflow">4.4. Docker Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-simple-linux">4.4.1. Example: Simple Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tips-and-tricks">4.4.1.1. Tips and Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">4.3. Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basics">4.3.1. Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-simple-python">4.4.2. Example: Simple Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#images-storage">4.4. Images Storage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tags">4.4.1. TAGS</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#from-dockerfile">4.5. From dockerfile</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#jupyterlab">4.5.1. JupyterLab</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#references">4.6. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supplementary-references">4.5. Supplementary References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS</a></li>
@@ -190,176 +183,208 @@
             
   <div class="section" id="docker">
 <h1><span class="section-number">4. </span>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="todo">
-<h2><span class="section-number">4.1. </span># TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p>Remote Docker development with Clion/Pycharm -&gt; can do</p></li>
-<li><p>How to attach local dir to docker container? [use -v]</p></li>
-<li><p>How to run container in background? [need to have some process in foreground, then <cite>docker run -d</cite>]</p></li>
-<li><p>How to make custom image using dockerfile? [<cite>docker build …</cite>]</p></li>
-<li><p>How to clone private repo in build process?
-- can give container ssh keys, use <cite>–squash</cite> command to squash layers during install
-- if ssh can’t be used, may need to make shell script to run multi-stage build + commit output</p></li>
-<li><p>How to connect to running container from multiple host terminals? [<cite>docker exec -it container_name bash/zsh</cite>]</p></li>
-<li><p>how to delete contrains from local? [<cite>docker container rm container_name</cite>]</p></li>
-<li><p>how to set where local containers are stored?</p></li>
-<li><p>how to interface data into/out of container?</p></li>
-<li><p>how to communicate between two containers on the same machine?</p></li>
-<li><p>How to pipe connection from container to host (i.e. run jupyterlab in
-container and GUI in host)</p></li>
-<li><p>example multi stage build with tag (private repo / no keys)
-- how to work to save files with container if its removed? what is a typical workflow?</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>can commit container to an image using <cite>docker commit container_name …</cite></p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
+<p>This guide provides some background on <code class="code docutils literal notranslate"><span class="pre">docker</span></code>,
+including example usages.</p>
+<div class="section" id="what-is-docker">
+<h2><span class="section-number">4.1. </span>What is Docker?<a class="headerlink" href="#what-is-docker" title="Permalink to this headline">¶</a></h2>
+<p>Docker is a software platform that provides
+OS-level virtualization-level as <em>containers</em>.</p>
+<p>The <em>containers</em> are running instances of <em>images</em>.</p>
+<p><em>Images</em> define the based operating system layer required
+for the container.</p>
+<p>Docker can be seen similar to a virtual machine
+service, essentially providing a framework for
+starting, running, maintaining, stopping, and
+removing OS-level applications.</p>
 </div>
-<div class="section" id="installation">
-<h2><span class="section-number">4.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ubuntu">
-<h3><span class="section-number">4.2.1. </span>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install docker docker.io
-<span class="c1"># set permissions (make sure $USER is set correctly)</span>
-sudo usermod -a -G docker <span class="nv">$USER</span>
+<div class="section" id="why-is-docker">
+<h2><span class="section-number">4.2. </span>Why is Docker?<a class="headerlink" href="#why-is-docker" title="Permalink to this headline">¶</a></h2>
+<p>To provide an os-agnostic virtualization layer for applications.</p>
+<p>With docker, creating <em>images</em> and running <em>containers</em> from
+images allows developers to write applications regardless
+of the host operating system.</p>
+<p><em>How?</em></p>
+<p>The developer specifies the required os-layer in the <em>image</em>
+definition, which can be done through a <em>dockerfile</em>. Then,
+docker takes care of the all the backend required to run a
+virtualization at an OS level and runs an instance of the
+<em>image</em> as a <em>container</em>.</p>
+<p>Docker is a very useful tool for providing an OS-abstraction,
+allowing developers to create images specifically for
+development environments, and deployment environments.</p>
+</div>
+<div class="section" id="mechanics">
+<h2><span class="section-number">4.3. </span>Mechanics<a class="headerlink" href="#mechanics" title="Permalink to this headline">¶</a></h2>
+<p><em>Image</em></p>
+<blockquote>
+<div><p>A definition of the os, os configuration and execution
+commands required by the developer.</p>
+<p>Docker hosts a repository of many base images that can
+be used as a basis for virtualization.</p>
+<p>An image can be defined through a <code class="code docutils literal notranslate"><span class="pre">dockerfile</span></code>
+which identifies the source os-image to use, and
+builds on with added commands, including creation
+of specific folders, downloading and installing packages
+and running scripts. Finally, the <code class="code docutils literal notranslate"><span class="pre">dockerfile</span></code>
+ends with an application entry point.</p>
+</div></blockquote>
+<p><em>Container</em></p>
+<blockquote>
+<div><p>A container is an instance of an <em>Image</em>. For example,
+a <code class="code docutils literal notranslate"><span class="pre">base-linux</span></code> image will be stored as a docker
+<code class="code docutils literal notranslate"><span class="pre">image</span></code>. Once a developer wants to create a running
+instance of the image, a <em>container</em> will be created
+that specifies the instance of the image, along with
+any folder mapping, network interfaces, gpu-linking, etc.</p>
+</div></blockquote>
+</div>
+<div class="section" id="docker-workflow">
+<h2><span class="section-number">4.4. </span>Docker Workflow<a class="headerlink" href="#docker-workflow" title="Permalink to this headline">¶</a></h2>
+<p>The general docker workflow consists of:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Identify the use-case, either development, deployment</p></li>
+<li><p>Pull image, or create image from <code class="code docutils literal notranslate"><span class="pre">dockerfile</span></code></p></li>
+<li><p>Instantiate image with required settings (network, folder
+mapping, etc)</p></li>
+<li><p>Do Work.</p></li>
+</ol>
+</div></blockquote>
+<p><strong>NOTE</strong>: creating a container will execute the docker file commands,
+thus if the final command of the container exits, the container
+will stop after completion of the last command.</p>
+<div class="section" id="example-simple-linux">
+<h3><span class="section-number">4.4.1. </span>Example: Simple Linux<a class="headerlink" href="#example-simple-linux" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we will create a simple <code class="code docutils literal notranslate"><span class="pre">dockerfile</span></code> with
+a base linux image, install some packages, run the image, and then
+enter the image and look around.</p>
+<p>First, create a file called <code class="code docutils literal notranslate"><span class="pre">dockerfile</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## 1. Create docker file:</span>
+touch dockerfile
 </pre></div>
 </div>
+<p>Next, open the docker file and fill in the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get ubuntu 18.04 image:</span>
+<span class="n">FROM</span> <span class="n">ubuntu</span><span class="p">:</span><span class="mf">18.04</span>
+
+<span class="c1"># run update:</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+
+<span class="c1"># Install ssh with auto &#39;yes&#39;</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">ssh</span>
+
+<span class="c1"># Create dir for sshd to run:</span>
+<span class="n">RUN</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">sshd</span>
+
+<span class="c1"># Clean:</span>
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">clean</span>
+
+<span class="c1"># Run SSHD service without detaching</span>
+<span class="c1"># this will keep the image alive for us</span>
+<span class="n">CMD</span> <span class="p">[</span><span class="s2">&quot;/usr/sbin/sshd&quot;</span><span class="p">,</span> <span class="s2">&quot;-D&quot;</span><span class="p">]</span>
+</pre></div>
 </div>
-<div class="section" id="macos">
-<h3><span class="section-number">4.2.2. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
-<p>Install Docker on mac using provided instructions:</p>
-<p><a class="reference external" href="https://docs.docker.com/docker-for-mac/install/">https://docs.docker.com/docker-for-mac/install/</a></p>
+<p>Save the file, then we can build the image using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker build -t ubuntu/base:1.0 -f base-linux .
+</pre></div>
 </div>
+<p>This command tells docker to build the <code class="code docutils literal notranslate"><span class="pre">base-linx</span></code> file from
+the current directory (<code class="code docutils literal notranslate"><span class="pre">.</span></code>), and tag it under base <code class="code docutils literal notranslate"><span class="pre">ubuntu</span></code>
+with tag <code class="code docutils literal notranslate"><span class="pre">base</span></code> and version <code class="code docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<p>Once the image is built, we can check the docker images by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker image ls
+<span class="c1"># this will return:</span>
+$ REPOSITORY     TAG     IMAGE ID    CREATED     SIZE
+$ ubuntu/base    <span class="m">1</span>.0     108hjkbas   ....        ...
+</pre></div>
 </div>
-<div class="section" id="usage">
-<h2><span class="section-number">4.3. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="basics">
-<h3><span class="section-number">4.3.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### List Docker CLI commands</span>
-docker
-docker container --help
-
-<span class="c1">## Display Docker version and info</span>
-docker --version
-docker version
-docker info
-
-<span class="c1">## Pull an image</span>
-docker pull &lt;imagename&gt;
-
-<span class="c1">## Execute Docker image</span>
-docker run hello-world
-
-<span class="c1">## Run image with consol access:</span>
-docker run -it &lt;image&gt;
-<span class="c1">## Run + map local directory to container (allows changes in both):</span>
-docker run -v /local/folder:/container/folder -it &lt;image&gt;
-
-<span class="c1">## Connect to existing contrainer from separate terminal</span>
-
-<span class="c1">## List Docker images</span>
-docker image ls
-
-<span class="c1">## List Docker containers (running, all, all in quiet mode)</span>
+<p>Herein, the image is created locally with an image ID.</p>
+<p>Once the image is created, we can instantiate a container from it
+that we can play around with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --name test_container ubuntu/base:1.0
+</pre></div>
+</div>
+<p>this will create an image and run it in detached mode.
+To confirm the image is up
+and running, you can do the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># get container report:</span>
 docker container ls
-docker container ls --all
-docker container ls -aq
-
-<span class="c1">## View all active containers:</span>
+<span class="c1"># ^ should return all active containers</span>
+<span class="c1"># Get status of exited containers:</span>
 docker ps
-<span class="c1"># View all containers that were run:</span>
-docker ps -a
-
-
-<span class="c1">## Cleanup, remove active containers:</span>
-docker rm &lt;ID&gt;
-<span class="c1"># Delete all running containers:</span>
-docker rm <span class="k">$(</span>docker ps -a -q -f <span class="nv">status</span><span class="o">=</span>exited<span class="k">)</span>
-
-<span class="c1">## Get ID:</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="images-storage">
-<h2><span class="section-number">4.4. </span>Images Storage<a class="headerlink" href="#images-storage" title="Permalink to this headline">¶</a></h2>
-<p>Docker in ubuntu stores the images in <cite>/var/lib/docker</cite> which means that
-the more images downloaded, the more space is used in <cite>/var/</cite>, however, if
-the partition for root is small, it is necessary to move the location of where
-images will be stored [ref](<a class="reference external" href="https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169">https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169</a>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Using a symlink is another method to change image storage.
-
-**Caution - These steps depend on your current `/var/lib/docker` being an actual directory (not a symlink to another location).**
-
-Stop docker: service docker stop. Verify no docker process is running `ps faux`
-
-Double check docker really isn’t running. Take a look at the current docker directory: `ls /var/lib/docker/`
-
-Make a backup: `tar -zcC /var/lib docker &gt; yourPath/var_lib_docker-backup-$(date +%s).tar.gz`
-
-Move the `/var/lib/docker` directory to your new partition: `mv /var/lib/docker yourPath/docker`
-
-Make a symlink: `ln -s /mnt/pd0/docker yourPath/docker`
-
-Take a peek at the directory structure to make sure it looks like it did before the mv: `ls youtPath/docker/` (note the trailing slash to resolve the symlink)
-
-Start docker back up `service docker start`
-
-restart your containers
+<p>If everything ran correctly, <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">container</span> <span class="pre">ls</span></code> should
+show you the running container you created. If the container is
+not listed, most likely it existed. To find exited containers,
+use the <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> command to list status of all recent
+containers.</p>
+<p>If you see your container in the <code class="code docutils literal notranslate"><span class="pre">ps</span></code> command, you can
+check the docker logs using <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span></code> to see what
+might have caused the container to exit.</p>
+<p><strong>Note</strong>, stopping and exiting containers will keep their
+names in docker’s memory, therefore, if a container is stopped,
+and a new container with the same name is desired, it is
+important to remove the stopped container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker container rm container_name
+<span class="c1"># Alternatively, use ID:</span>
+docker container rm ID
 </pre></div>
 </div>
-<div class="section" id="tags">
-<h3><span class="section-number">4.4.1. </span>TAGS<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
-<p>Docker tags are used to specify opetions for images:
-.. code-block:: bash</p>
-<blockquote>
-<div><p># latest ubuntu:
-docker run -it ubuntu
-# Now, run 18.04:
-docker run -it ubuntu:18.04</p>
-</div></blockquote>
+<p>With the linux container running, we can now enter the container
+and explore it like a regular ssh remote connection.</p>
+<p><strong>NOTE</strong> if the container runs an <code class="code docutils literal notranslate"><span class="pre">sshd</span></code> service natively,
+then ssh can be used to enter the container. HOWERVER, not all
+container run <code class="code docutils literal notranslate"><span class="pre">sshd</span></code> service, therefore, docker can be used
+to enter the container as command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it test_container bash
+</pre></div>
+</div>
+<p>As this point, you will enter the container into <code class="code docutils literal notranslate"><span class="pre">bash</span></code> with
+root access.</p>
+<p>Here, you can run <code class="code docutils literal notranslate"><span class="pre">apt-get</span></code>, or use the container as any
+linux OS.</p>
+<p>To stop the container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop the container:</span>
+docker container stop test_container
+
+<span class="c1"># Remove the container to avoid naming conflicts:</span>
+docker container rm test_container
+
+<span class="c1"># To remove the image:</span>
+docker image rm ID
+</pre></div>
+</div>
+<div class="section" id="tips-and-tricks">
+<h4><span class="section-number">4.4.1.1. </span>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h4>
+<p>When instantiating a container, you can identify which
+ports to map between the container and the host,
+select the network device, and map any local folders to
+the container.</p>
+<p>Mapping folders provides the container access to the host
+machine’s folders without copying data.</p>
+<p>Use the <code class="code docutils literal notranslate"><span class="pre">-p</span> <span class="pre">container_port:host_port</span></code> flag to map
+the network ports between the host and the container.</p>
+<p>Use the :code: <cite>-v /path/to/local/folder:/path/to/container/folder</cite>
+flag to map local folders to container folders.</p>
+<p>If the Nvidia-container runtime is installed and
+the host machine has gpus available for use, the gpus can
+be attached to the container using <code class="code docutils literal notranslate"><span class="pre">--gpus</span> <span class="pre">all</span></code>.</p>
+<p>Add the above flags to the <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command.</p>
 </div>
 </div>
-<div class="section" id="from-dockerfile">
-<h2><span class="section-number">4.5. </span>From dockerfile<a class="headerlink" href="#from-dockerfile" title="Permalink to this headline">¶</a></h2>
-<p>A docker image can be built from a docker file <a href="#id1"><span class="problematic" id="id2">**</span></a>in the current directory using:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>docker build –tag=image_name:tag .</p>
-</div></blockquote>
-<p>A docker file would look like this:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>FROM python:3
-WORKDIR /usr/src/app
-COPY requirements.txt ./
-RUN pip install –no-cache-dir -r requirements.txt</p>
-</div></blockquote>
-<div class="section" id="jupyterlab">
-<h3><span class="section-number">4.5.1. </span>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
-<p>When running a container that has jupyterlab, it is necessary to port-forward
-8888:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>docker run –it –rm -p 8888:8888</p>
-</div></blockquote>
-<p>where <cite>–it</cite> activates interactive shell, <cite>–rm</cite> removes container on exit,
-and <cite>-p</cite> exposes all ports in range.</p>
-<p>When using Jupyter Lab within a docker container, the command to call
-jupyer should include ip and root allowance, otherwise jupyterlab will
-return errors:
-.. code-block:: bash</p>
-<blockquote>
-<div><p>jupyterlab –ip=0.0.0.0 –allow-root</p>
-</div></blockquote>
+<div class="section" id="example-simple-python">
+<h3><span class="section-number">4.4.2. </span>Example: Simple Python<a class="headerlink" href="#example-simple-python" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we will use a <code class="code docutils literal notranslate"><span class="pre">jupyter-lab</span></code> docker image.
+We will pull the image using command line, instantiate it into a
+container, and then use Jupyter-lab on the host machine through a
+web browser.</p>
+<p>TODO.</p>
 </div>
 </div>
-<div class="section" id="references">
-<h2><span class="section-number">4.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[Docker](<a class="reference external" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a>)
-[Docker Tutorail](<a class="reference external" href="https://docker-curriculum.com/">https://docker-curriculum.com/</a>)</p>
+<div class="section" id="supplementary-references">
+<h2><span class="section-number">4.5. </span>Supplementary References<a class="headerlink" href="#supplementary-references" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
 </div>
 </div>
 
