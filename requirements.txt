@@ -5,6 +5,7 @@ sphinx-rtd-theme
 sphinxext-remoteliteralinclude
 sphinxcontrib-drawio
 m2r2
+pyg
 breathe
 beautifulsoup4
 opencv-python
@@ -20,3 +21,6 @@ scikit-learn
 umap-learn
 plotly
 seaborn
+# for tabl completion in Jupyterlab
+jedi==0.17.2
+psycopg2
