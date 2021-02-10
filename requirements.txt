@@ -5,7 +5,6 @@ sphinx-rtd-theme
 sphinxext-remoteliteralinclude
 sphinxcontrib-drawio
 m2r2
-pyg
 breathe
 beautifulsoup4
 opencv-python
