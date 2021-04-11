@@ -22,7 +22,14 @@ RUN pip install --upgrade pip && \
     pip3 install --upgrade pip
 
 # jedi version required for tab completion issue resolution
-RUN pip3 install jedi==0.17.2 numpy ipython torch torchvision jupyterlab
+RUN pip3 install jedi==0.17.2 \
+		 numpy \
+		 scikit-learn \
+		 pandas \
+		 ipython \ 
+		 torch \
+		 torchvision \
+		 jupyterlab 
 
 WORKDIR /tmp
 
