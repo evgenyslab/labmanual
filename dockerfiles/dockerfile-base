@@ -19,10 +19,11 @@
 #
 
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-RUN apt-get update \
-  && apt-get install -y ssh \
+RUN apt-get update
+
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y ssh \
       build-essential \
       gcc \
       g++ \
@@ -32,8 +33,6 @@ RUN apt-get update \
       cmake \
       rsync \
       tar \
-      htop \
-      tree \
       screen \
       zsh \
       vim \
@@ -43,7 +42,7 @@ RUN apt-get update \
       zlib1g-dev \
       libturbojpeg \
       libssl-dev \
-      libuv-dev \
+      libuv1-dev \
       libsm6 \
       libxext6 \
       libxrender-dev \
@@ -51,13 +50,9 @@ RUN apt-get update \
   
 # NOTE: libsm6 libxext6 libxrender-dev are needed for cv2 to be imported correctly :(
 
-
-# Finalize gtest install:
-RUN cd /usr/src/gtest \
-    && cmake CMakeLists.txt \
-    && make \
-    && cp *.a /usr/lib
-
+# to complete gtest install, need to go
+# to gtest folder, run cmake, make and
+# cp the files from lib to /usr/lib
 
 RUN ( \
     echo 'LogLevel DEBUG2'; \
@@ -82,13 +77,5 @@ Run echo "if [[ \$TERM == screen ]]; then \n\tPROMPT=\"%B%F{red}(DOCKER[%b%f%B%F
 RUN echo "shell \"/usr/bin/zsh\"" >> /etc/screenrc
 
 # update pip:
-RUN pip3 install --upgrade pip
-
-# pip install requirements:
-COPY requirements.txt /tmp/requirements.txt
-
-# copy over requirements & install to system python
-RUN cd /tmp && pip3 install -r requirements.txt && rm requirements.txt
-
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_dev"]

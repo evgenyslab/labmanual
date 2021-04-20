@@ -195,14 +195,48 @@ to the bottom of `.zshrc` file:
 GIT
 ^^^
 
-Use the following to enable git credential helper (
-note, this may not be supported by github in near
-future):
+Github has introduced new token and two-factor based 
+authorizations for cloning.
 
-    .. code-block:: bash
+Please follow |ref-gh-token|, or |ref-gl-token| to create
+and attach tokens to your projects.
 
-        # setup credential helper:
-        git config --global credential.helper store
+.. |ref-gh-token| raw:: html
+
+   <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">github's</a>
+
+
+.. |ref-gl-token| raw:: html
+
+   <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank">gitlab's</a>
+
+
+To remove existing credentials stored using git's 
+:code:`credential helper`, use the following:
+
+.. code-block:: bash
+
+   git config --global --unset credential.helper
+
+**NOTE** On a mac system, the keychain stores git's
+credentials, see |ref-mac-git|.
+
+.. |ref-mac-git| raw:: html
+
+   <a href="https://stackoverflow.com/questions/11067818/how-do-you-reset-the-stored-credentials-in-git-credential-osxkeychain/13421154#:~:text=Just%20go%20to%20Applications%20%2D%3E%20Utilties,password%20from%20with%20the%20app." target="_blank">here</a>
+
+**The following is deprecated for GitHub**
+
+.. code-block:: bash
+
+    Use the following to enable git credential helper (
+    note, this may not be supported by github in near
+    future):
+
+        .. code-block:: bash
+
+            # setup credential helper:
+            git config --global credential.helper store
 
 
 GTest
