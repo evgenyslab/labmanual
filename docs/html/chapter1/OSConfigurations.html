@@ -400,15 +400,28 @@ sudo ln -s <span class="nv">$HOME</span>/.zshrc /root/.zshrc
 </div>
 <div class="section" id="git">
 <h4><span class="section-number">2.1.3.2. </span>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h4>
-<p>Use the following to enable git credential helper (
-note, this may not be supported by github in near
-future):</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup credential helper:</span>
-git config --global credential.helper store
+<p>Github has introduced new token and two-factor based
+authorizations for cloning.</p>
+<p>Please follow <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">github's</a>, or <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank">gitlab's</a> to create
+and attach tokens to your projects.</p>
+<p>To remove existing credentials stored using git’s
+<code class="code docutils literal notranslate"><span class="pre">credential</span> <span class="pre">helper</span></code>, use the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global --unset credential.helper
 </pre></div>
 </div>
-</div></blockquote>
+<p><strong>NOTE</strong> On a mac system, the keychain stores git’s
+credentials, see <a href="https://stackoverflow.com/questions/11067818/how-do-you-reset-the-stored-credentials-in-git-credential-osxkeychain/13421154#:~:text=Just%20go%20to%20Applications%20%2D%3E%20Utilties,password%20from%20with%20the%20app." target="_blank">here</a>.</p>
+<p><strong>The following is deprecated for GitHub</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Use the following to <span class="nb">enable</span> git credential helper <span class="o">(</span>
+note, this may not be supported by github <span class="k">in</span> near
+future<span class="o">)</span>:
+
+    .. code-block:: bash
+
+        <span class="c1"># setup credential helper:</span>
+        git config --global credential.helper store
+</pre></div>
+</div>
 </div>
 <div class="section" id="gtest">
 <h4><span class="section-number">2.1.3.3. </span>GTest<a class="headerlink" href="#gtest" title="Permalink to this headline">¶</a></h4>
@@ -434,8 +447,13 @@ cp *.a /usr/lib
 </pre></div>
 </div>
 </div></blockquote>
+<p>To setup EN’s vim:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc -O ~/.vimrc
+</pre></div>
+</div>
+</div></blockquote>
 <p>Once installed, in <code class="code docutils literal notranslate"><span class="pre">vim</span></code> use <code class="code docutils literal notranslate"><span class="pre">:PluginInstall</span></code> to install all plugins.</p>
-<p>[TODO: xref to vim guide]</p>
 </div>
 </div>
 <div class="section" id="hardware-specifics">
@@ -770,6 +788,43 @@ are many ways to configure the file, the following is an
 example of what I have appended to mine, along with some
 descriptive information for my items.</p>
 <p>Note, I am using <code class="code docutils literal notranslate"><span class="pre">robbyrussell</span></code> theme.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Some ZSH sauce to add 
+# after oh-my-zsh file
+# 
+# Can be added with `wget &lt;url&gt; -O --&gt; ~/.zshrc`
+#
+#
+
+# Aliasing auto python virtual environment creating using `mkvenv`
+# that relies on pyenv installation of python3.8:
+
+# determine if pyenv is installed
+if ! command -v pyenv &amp;&gt; /dev/null
+then
+    echo &quot;pyenv is not installed, reverting to system python&quot;
+        export USING_PYTHON=$(which python3)
+    exit
+    else
+        export USING_PYTHON=$(pyenv which python3)
+fi
+
+alias activate=&quot;source .venv/bin/activate&quot;
+# MAC only:
+if [ &quot;$(uname)&quot; == &quot;Darwin&quot; ]; then
+    alias vim=&quot;mvim -v&quot;
+fi
+
+# may want to remove the below:
+# Part of GTEST install
+export CPLUS_INCLUDE_PATH=&quot;/usr/local/include&quot;
+export LIBRARY_PATH=&quot;/usr/local/lib&quot;
+
+# Part of Pyenv install:
+export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+
+</pre></div>
+</div>
 <p>This can be quickly added to your <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O -&gt;&gt; ~/.zshrc<span class="sb">`</span>
 </pre></div>
