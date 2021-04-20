@@ -26,6 +26,9 @@ RUN pip3 install jedi==0.17.2 \
 		 numpy \
 		 scikit-learn \
 		 pandas \
+		 scipy \
+		 pillow \
+	 	 matplotlib \
 		 ipython \ 
 		 torch \
 		 torchvision \
