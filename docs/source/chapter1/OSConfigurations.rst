@@ -271,9 +271,14 @@ To finalize VIM configuration, add :code:`Vundle` Package to VIM:
 
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+To setup EN's vim:
+
+    .. code-block:: bash
+
+        wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc -O ~/.vimrc
+
 Once installed, in :code:`vim` use :code:`:PluginInstall` to install all plugins.
 
-[TODO: xref to vim guide]
 
 
 Hardware-Specifics
