@@ -32,6 +32,7 @@ RUN pip3 install jedi==0.17.2 \
 		 ipython \ 
 		 torch \
 		 torchvision \
+         torchsummary \
 		 jupyterlab 
 
 WORKDIR /tmp
