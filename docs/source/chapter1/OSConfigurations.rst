@@ -392,7 +392,7 @@ Installing Packages
       htop \
       screen \
       libbz2-dev \
-      librealine6-dev \
+      libreadline6-dev \
       libsqlite3-dev \
       python3-pip \
 
