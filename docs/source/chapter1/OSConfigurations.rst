@@ -739,9 +739,13 @@ VIM
 ^^^
 
 Vim is a terminal editor that is very portable. My take on the configuration of vim
-can be found |xref_vim_config|.
+can be found **ADD XREF**.
 
+To setup EN's vim:
 
+    .. code-block:: bash
+
+        curl -O ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
 
 Supplementary Packages
 ----------------------
