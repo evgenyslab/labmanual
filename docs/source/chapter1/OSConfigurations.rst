@@ -745,7 +745,7 @@ To setup EN's vim:
 
     .. code-block:: bash
 
-        curl -O ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
+        curl -o ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
 
 Supplementary Packages
 ----------------------
