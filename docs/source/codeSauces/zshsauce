@@ -5,6 +5,10 @@
 #
 #
 
+# Part of Pyenv install:
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # Aliasing auto python virtual environment creating using `mkvenv`
 # that relies on pyenv installation of python3.8:
 
@@ -20,7 +24,7 @@ fi
 
 alias activate="source .venv/bin/activate"
 # MAC only:
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     alias vim="mvim -v"
 fi
 
@@ -29,7 +33,5 @@ fi
 export CPLUS_INCLUDE_PATH="/usr/local/include"
 export LIBRARY_PATH="/usr/local/lib"
 
-# Part of Pyenv install:
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+
 
