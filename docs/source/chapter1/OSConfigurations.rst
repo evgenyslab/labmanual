@@ -658,6 +658,8 @@ macOS
 The macOS is built on a linux-like system, however, unlike common linux distros,
 it is missing a package manager (i.e. :code:`apt`). 
 
+*Currently testing with Big Sur*
+
 
 Install Brew
 ------------
@@ -676,8 +678,8 @@ Once brew is installed, the following packages can be installed:
    # Update Brew
    brew update
 
-   # Install zsh
-   brew install zsh
+   # Install zsh --depracated, zsh native to mac
+   # brew install zsh
 
    # Install macvim
    brew install macvim
