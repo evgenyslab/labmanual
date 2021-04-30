@@ -13,6 +13,7 @@
 # This will add all folder in under source dir:
 import os
 import sys
+import warnings
 sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -43,7 +44,7 @@ autosectionlabel_prefix_document = True
 # Test for Drawio and link if available
 if os.path.isfile('/Applications/draw.io.app/Contents/MacOS/draw.io'): 
     drawio_binary_path = '/Applications/draw.io.app/Contents/MacOS/draw.io'
-elif os.path.isfile():
+elif os.path.isfile('/usr/bin/drawio'):
     drawio_binary_path = '/usr/bin/drawio'
 else:
     drawio_binary_path = None
