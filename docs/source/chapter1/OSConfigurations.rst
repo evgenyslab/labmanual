@@ -257,10 +257,6 @@ Pyenv
 
 Install :code:`pyenv` using the guide provided |xref_pyenv_conf|.
 
-.. |xref_pyenv_conf| raw:: html
-
-    <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>
-
 
 Vim
 ^^^
@@ -312,40 +308,38 @@ see: |ref000|.
 This way, in the VM, windows (and host Linux) will only react to pen input, meaning that in OneNote you will not get the pen marking up the page from your palm.
 
 
+.. comment
+
+    FIND A NEW HOME
+    ---------------
 
 
-FIND A NEW HOME
----------------
+    [TODO: move to development-python notes]
+    A note on virutal environmnets:
+
+    When copying a virutal environment, the `~/activate` script stores the absolute path to the virtual env, thus need to modify this when creating a copy!
 
 
-[TODO: move to development-python notes]
-A note on virutal environmnets:
+    ## Useful python packages:
+    pip install numpy
+    scikit-learn
+    opencv-python
+    opencv-utils
+    imutils
+    matplotlib
+    moviepy
 
-When copying a virutal environment, the `~/activate` script stores the absolute path to the virtual env, thus need to modify this when creating a copy!
+    # If using ROS with opencv in Python
+    If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros's installtion.
 
-
-## Useful python packages:
-pip install numpy
-scikit-learn
-opencv-python
-opencv-utils
-imutils
-matplotlib
-moviepy
-
-# If using ROS with opencv in Python
-If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros's installtion.
-
-To fix this issue, do the following:
-```bash
-cv ~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/
-```
-here, rename the weird cv2.XXX.so to cv2.so:
-```bash
-mv cv2.XXX.so cv2.so
-```
-
-
+    To fix this issue, do the following:
+    ```bash
+    cv ~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/
+    ```
+    here, rename the weird cv2.XXX.so to cv2.so:
+    ```bash
+    mv cv2.XXX.so cv2.so
+    ```
 
 Linux Server
 ============
@@ -353,7 +347,7 @@ Linux Server
 **ISSUES TO RESOLVE**
 
 - [ ] docker loses containers / images on restart; seems to be known issue
-- [ ] docker can't link gpu after restart, seems to be fixed with :code:`sudo systemctl docker stop` / start
+- [ ] docker can't link gpu after restart, seems to be fixed with :code:`sudo systemctl docker stop` / :code:`sudo systemctl docker start`
 
 The linux server installation and configuration is almost identical to 
 the standard  linux mint installation, with some slight changes to 
@@ -371,12 +365,15 @@ The installation image can be found at the |xref_userver_dl|.
 
 .. |xref_userver_dl| raw:: html
 
-        <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
-        page</a>
+    <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
+    page</a>
 
 
-To install from USB, see :ref:`OSConfigurations:Installing from USB`
+To install from USB, see |install_from_usb|.
 
+.. |install_from_usb| raw:: html
+
+    <a href="#installing-from-usb">Installing from USB</a>
 
 Installing Packages
 -------------------
@@ -437,16 +434,17 @@ Get Nvidia drivers:
   nvidia-smi
 
 
-Docker Installation
--------------------
-
-[TODO: add xref to docker install]
-
 Docker GPU Configuration
 ------------------------
 
+For Docker installation, see: |local_docker_xref|
 
-to get docker to use GPUs: [|ref_00|]
+.. |local_docker_xref| raw:: html
+
+   <a href="#docker">Docker Installation</a>
+
+
+To get docker to use GPUs: [|ref_00|]
 
 .. code-block:: bash
 
@@ -463,10 +461,12 @@ to get docker to use GPUs: [|ref_00|]
   sudo systemctl start docker
 
 
+.. |ref_00| raw:: html
+
+   <a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>
+
 Docker Image Build
 ------------------
-
-[TODO: add docker xref]
 
 The provided docker images (in dockerfiles dir) have minimal necessary
 builds for python3-based development using pytorch and either ssh
@@ -592,11 +592,6 @@ both of the following:
     torch.cude.get_device_name(0)
 
 
-
-.. |ref_00| raw:: html
-
-   <a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>
-
 Caveats
 -------
 
@@ -620,9 +615,8 @@ Trying fresh install, update, upgrade, nmcli install + config.
   reboot
 
 
-in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
-:code:8.8.8.8:
-
+in :code:`/etc/resolv.conf`: need to ensure nameserver is set to router IP, or
+:code:`8.8.8.8`:
 
 
 Tips & Tricks
@@ -702,6 +696,9 @@ Once brew is installed, the following packages can be installed:
    # Install doxygen:
    brew install doxygen
 
+   # Install drawio:
+   brew install drawio
+
 Configure Packages
 ------------------
 
@@ -727,12 +724,14 @@ descriptive information for my items.
 Note, I am using :code:`robbyrussell` theme.
 
 .. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
- 
+
+**NOTE**: the above is post-pyenv install! make sure not to duplicate...
+
 This can be quickly added to your :code:`~/.zshrc` using the following command:
 
 .. code-block:: bash
 
-    `wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O ->> ~/.zshrc` 
+    curl -o ~/.zshrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce 
 
 
 VIM
