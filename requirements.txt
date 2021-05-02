@@ -7,6 +7,7 @@ sphinxcontrib-drawio
 m2r2
 breathe
 beautifulsoup4
+boto3
 opencv-python
 msgpack==1.0.0
 matplotlib
