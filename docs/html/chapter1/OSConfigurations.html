@@ -90,88 +90,74 @@
 <li class="toctree-l1"><a class="reference internal" href="home.html">1. Labmanual</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. OS Configurations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linux</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-from-usb">2.1.1. Installing from USB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-packages">2.1.2. Installing Packages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#docker">2.1.2.1. Docker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#latex-doxygen">2.1.2.2. Latex &amp; Doxygen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-gui-mint">2.1.1. Linux-GUI: Mint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-from-usb">2.1.1.1. Installing from USB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-packages">2.1.1.2. Installing Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-packages">2.1.1.3. Configuring Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-specifics">2.1.1.4. Hardware-Specifics</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-packages">2.1.3. Configuring Packages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#zsh">2.1.3.1. ZSH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#git">2.1.3.2. GIT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gtest">2.1.3.3. GTest</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pyenv">2.1.3.4. Pyenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vim">2.1.3.5. Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-server">2.1.2. Linux Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">2.1.2.1. Installing Packages</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-specifics">2.1.4. Hardware-Specifics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lenovo-wacom-tablets">2.1.4.1. Lenovo-Wacom Tablets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-installation">2.1.3. Docker Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nvidia-driver-installation">2.1.4. Nvidia Driver Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker-gpu-configuration">2.1.4.1. Docker GPU Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-image-build">2.1.4.2. Docker Image Build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-image-running">2.1.4.3. Docker Image Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify-cuda">2.1.4.4. Verify Cuda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#caveats">2.1.4.5. Caveats</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#find-a-new-home">2.1.5. FIND A NEW HOME</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#linux-server">2.2. Linux Server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">2.2.1. Installing Packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nvidia-driver-installation">2.2.2. Nvidia Driver Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-installation">2.2.3. Docker Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-gpu-configuration">2.2.4. Docker GPU Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-image-build">2.2.5. Docker Image Build</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#notes">2.2.5.1. NOTES</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-image-running">2.2.6. Docker Image Running</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#jupyter">2.2.6.1. JUPYTER</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ssh-remote-development-jetbrains">2.2.6.2. SSH-Remote Development (Jetbrains)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#verify-cuda">2.2.7. Verify Cuda</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#caveats">2.2.8. Caveats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tips-tricks">2.2.9. Tips &amp; Tricks</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#macos">2.3. macOS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-brew">2.3.1. Install Brew</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-packages">2.3.2. Install Packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configure-packages">2.3.3. Configure Packages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">2.3.3.1. Pyenv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">2.3.3.2. ZSH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">2.3.3.3. VIM</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#supplementary-packages">2.3.4. Supplementary Packages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">2.3.4.1. Docker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">2.3.4.2. GTest</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">2.3.5. Tips &amp; Tricks</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mdls-file-inspection">2.3.5.1. <code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remote-parallels">2.3.5.2. Remote Parallels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-tricks">2.1.5. Tips &amp; Tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux-systemctl">2.1.5.1. Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-startup-service">2.1.5.2. Linux Startup Service</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tips-trix">2.4. TIPS &amp; TRIX</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#linux-systemctl">2.4.1. Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#linux-startup-service">2.4.2. Linux Startup Service</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#executibles">2.4.3. Executibles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ssh-port-forwarding">2.4.4. SSH Port Forwarding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scp-copy-through-ssh-tunnel">2.4.5. SCP (Copy)) Through SSH Tunnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">2.2. macOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-brew">2.2.1. Install Brew</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-packages">2.2.2. Install Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supplementary-packages">2.2.3. Supplementary Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2.2.3.1. Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2.3.2. GTest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.4. Tips &amp; Tricks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mdls-file-inspection">2.2.4.1. <code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-parallels">2.2.4.2. Remote Parallels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-package-configurations">2.3. Common Package Configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.3.1. Pyenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.3.2. ZSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.3.3. VIM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">2.4. Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#executibles">2.4.1. Executibles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-port-forwarding">2.4.2. SSH Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scp-copy-through-ssh-tunnel">2.4.3. SCP (Copy)) Through SSH Tunnel</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Development.html">3. Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter2/docker.html">4. Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2/aws.html">5. AWS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2/opencv.html">6. OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2/misc.html">7. Miscellaneous Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter3/projects.html">8. Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter3/python.html">9. Python Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter3/pytorch.html">10. PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter3/random.html">11. Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter3/camera.html">12. Camera</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">13. README: LAB MANUAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/vim.html">5. VIM Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/aws.html">6. AWS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/opencv.html">7. OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/misc.html">8. Miscellaneous Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/projects.html">9. Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/python.html">10. Python Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/pytorch.html">11. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/random.html">12. Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/camera.html">13. Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">14. README: LAB MANUAL</a></li>
 </ul>
 
             
@@ -244,13 +230,16 @@
 <p>General Information HERE</p>
 <div class="section" id="linux">
 <h2><span class="section-number">2.1. </span>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p>This section overviews the specific configurations for linux systems.</p>
+<div class="section" id="linux-gui-mint">
+<h3><span class="section-number">2.1.1. </span>Linux-GUI: Mint<a class="headerlink" href="#linux-gui-mint" title="Permalink to this headline">¶</a></h3>
 <p>I’ve been running <a href="https://linuxmint.com/" target="_blank">Linux Mint</a>  over the last couple of years, and have
 so far preferred it to <a href="https://ubuntu.com/" target="_blank">Ubuntu</a>  distributions. I have also tried
 <a href="https://elementary.io/" target="_blank">Elementary OS</a> which had a nice UI, however, the inner workings of the
 networking did not fit my needs, and the UI was not comparable enough
 coming from macOS.</p>
 <div class="section" id="installing-from-usb">
-<h3><span class="section-number">2.1.1. </span>Installing from USB<a class="headerlink" href="#installing-from-usb" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.1.1. </span>Installing from USB<a class="headerlink" href="#installing-from-usb" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic">
 <li><p>Download Image from <a class="reference external" href="https://linuxmint.com/edition.php?id=284&quot;">Linux Mint Download Page</a>,</p></li>
 <li><p><a class="reference external" href="https://www.balena.io/etcher/">Use Balena Etcher tool</a> to create
@@ -274,7 +263,7 @@ application / OS specific.</p>
 </ol>
 </div>
 <div class="section" id="installing-packages">
-<h3><span class="section-number">2.1.2. </span>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.1.2. </span>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h4>
 <p>Use the following to install all dependencies and base applications on the
 fresh linux install.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## updates &amp; upgrades:</span>
@@ -323,7 +312,7 @@ errror, most likely culprit is that <code class="code docutils literal notransla
 </div></blockquote>
 <p>Log and Out for changes to take effect</p>
 <div class="section" id="docker">
-<h4><span class="section-number">2.1.2.1. </span>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.2.1. </span>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Docker</span>
 sudo apt-get install docker docker.io
 <span class="c1"># set permissions (make sure $USER is set correctly)</span>
@@ -334,7 +323,7 @@ sudo reboot -h now
 </div>
 </div>
 <div class="section" id="latex-doxygen">
-<h4><span class="section-number">2.1.2.2. </span>Latex &amp; Doxygen<a class="headerlink" href="#latex-doxygen" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.2.2. </span>Latex &amp; Doxygen<a class="headerlink" href="#latex-doxygen" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Firstly Install Latex &amp; dependencies:</span>
 <span class="c1"># cd into temp folder:</span>
 <span class="nb">cd</span> ~/Downloads
@@ -367,9 +356,9 @@ sudo apt-get install graphviz
 </div>
 </div>
 <div class="section" id="configuring-packages">
-<h3><span class="section-number">2.1.3. </span>Configuring Packages<a class="headerlink" href="#configuring-packages" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.1.3. </span>Configuring Packages<a class="headerlink" href="#configuring-packages" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="zsh">
-<h4><span class="section-number">2.1.3.1. </span>ZSH<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.3.1. </span>ZSH<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h5>
 <p>First step is to set zsh to use <code class="code docutils literal notranslate"><span class="pre">Oh</span> <span class="pre">my</span> <span class="pre">zsh</span></code>:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get Oh My Zsh:</span>
@@ -399,7 +388,7 @@ sudo ln -s <span class="nv">$HOME</span>/.zshrc /root/.zshrc
 </div></blockquote>
 </div>
 <div class="section" id="git">
-<h4><span class="section-number">2.1.3.2. </span>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.3.2. </span>GIT<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h5>
 <p>Github has introduced new token and two-factor based
 authorizations for cloning.</p>
 <p>Please follow <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token" target="_blank">github's</a>, or <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html" target="_blank">gitlab's</a> to create
@@ -424,7 +413,7 @@ future<span class="o">)</span>:
 </div>
 </div>
 <div class="section" id="gtest">
-<h4><span class="section-number">2.1.3.3. </span>GTest<a class="headerlink" href="#gtest" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.3.3. </span>GTest<a class="headerlink" href="#gtest" title="Permalink to this headline">¶</a></h5>
 <p>Finalize the GTEST install by linking the compiled libraries:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /usr/src/gtest
@@ -436,11 +425,11 @@ cp *.a /usr/lib
 </div></blockquote>
 </div>
 <div class="section" id="pyenv">
-<h4><span class="section-number">2.1.3.4. </span>Pyenv<a class="headerlink" href="#pyenv" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.3.4. </span>Pyenv<a class="headerlink" href="#pyenv" title="Permalink to this headline">¶</a></h5>
 <p>Install <code class="code docutils literal notranslate"><span class="pre">pyenv</span></code> using the guide provided <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>.</p>
 </div>
 <div class="section" id="vim">
-<h4><span class="section-number">2.1.3.5. </span>Vim<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.3.5. </span>Vim<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h5>
 <p>To finalize VIM configuration, add <code class="code docutils literal notranslate"><span class="pre">Vundle</span></code> Package to VIM:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -457,10 +446,10 @@ cp *.a /usr/lib
 </div>
 </div>
 <div class="section" id="hardware-specifics">
-<h3><span class="section-number">2.1.4. </span>Hardware-Specifics<a class="headerlink" href="#hardware-specifics" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.1.4. </span>Hardware-Specifics<a class="headerlink" href="#hardware-specifics" title="Permalink to this headline">¶</a></h4>
 <p>This section is meant to capture hardware specific configuraitons I’ve encountered.</p>
 <div class="section" id="lenovo-wacom-tablets">
-<h4><span class="section-number">2.1.4.1. </span>Lenovo-Wacom Tablets<a class="headerlink" href="#lenovo-wacom-tablets" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.1.4.1. </span>Lenovo-Wacom Tablets<a class="headerlink" href="#lenovo-wacom-tablets" title="Permalink to this headline">¶</a></h5>
 <p>Note that for the Lenovo X1 Thinkpad with Wacom tablet, I was able to install Linux mint natively with VM player W10 edition. To get pen input to work correctly (namely, OneNote in W10), VM needs to provide control to linux for wacom pen input AND its best to disable the touch capability of the wacom tablet:</p>
 <p>see: <a href="https://askubuntu.com/questions/984339/disable-wacom-finger-touch-in-ubuntu-16-04-3" target="_blank"> HERE </a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xsetwacom --list devices
@@ -476,37 +465,13 @@ xsetwacom --get <span class="s2">&quot;Wacom Intuos Pro M Finger touch&quot;</sp
 <p>This way, in the VM, windows (and host Linux) will only react to pen input, meaning that in OneNote you will not get the pen marking up the page from your palm.</p>
 </div>
 </div>
-<div class="section" id="find-a-new-home">
-<h3><span class="section-number">2.1.5. </span>FIND A NEW HOME<a class="headerlink" href="#find-a-new-home" title="Permalink to this headline">¶</a></h3>
-<p>[TODO: move to development-python notes]
-A note on virutal environmnets:</p>
-<p>When copying a virutal environment, the <cite>~/activate</cite> script stores the absolute path to the virtual env, thus need to modify this when creating a copy!</p>
-<p>## Useful python packages:
-pip install numpy
-scikit-learn
-opencv-python
-opencv-utils
-imutils
-matplotlib
-moviepy</p>
-<p># If using ROS with opencv in Python
-If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros’s installtion.</p>
-<p>To fix this issue, do the following:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">cv</span> <span class="pre">~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/</span>
-<span class="pre">`</span></code>
-here, rename the weird cv2.XXX.so to cv2.so:
-<code class="docutils literal notranslate"><span class="pre">`bash</span>
-<span class="pre">mv</span> <span class="pre">cv2.XXX.so</span> <span class="pre">cv2.so</span>
-<span class="pre">`</span></code></p>
-</div>
 </div>
 <div class="section" id="linux-server">
-<h2><span class="section-number">2.2. </span>Linux Server<a class="headerlink" href="#linux-server" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">2.1.2. </span>Linux Server<a class="headerlink" href="#linux-server" title="Permalink to this headline">¶</a></h3>
 <p><strong>ISSUES TO RESOLVE</strong></p>
 <ul class="simple">
 <li><p>[ ] docker loses containers / images on restart; seems to be known issue</p></li>
-<li><p>[ ] docker can’t link gpu after restart, seems to be fixed with <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">docker</span> <span class="pre">stop</span></code> / start</p></li>
+<li><p>[ ] docker can’t link gpu after restart, seems to be fixed with <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">docker</span> <span class="pre">stop</span></code> / <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">docker</span> <span class="pre">start</span></code></p></li>
 </ul>
 <p>The linux server installation and configuration is almost identical to
 the standard  linux mint installation, with some slight changes to
@@ -519,9 +484,9 @@ selctions.</p>
 This OS has been proven to work stabily in the environments I require.</p>
 <p>The installation image can be found at the <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
 page</a>.</p>
-<p>To install from USB, see <span class="xref std std-ref">OSConfigurations:Installing from USB</span></p>
+<p>To install from USB, see <a href="#installing-from-usb">Installing from USB</a>.</p>
 <div class="section" id="id1">
-<h3><span class="section-number">2.2.1. </span>Installing Packages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.2.1. </span>Installing Packages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install git-core <span class="se">\</span>
     cmake <span class="se">\</span>
     hwinfo <span class="se">\</span>
@@ -531,7 +496,7 @@ page</a>.</p>
     htop <span class="se">\</span>
     screen <span class="se">\</span>
     libbz2-dev <span class="se">\</span>
-    librealine6-dev <span class="se">\</span>
+    libreadline6-dev <span class="se">\</span>
     libsqlite3-dev <span class="se">\</span>
     python3-pip <span class="se">\</span>
 
@@ -542,20 +507,16 @@ chsh -s <span class="k">$(</span>which zsh<span class="k">)</span>
 <span class="c1"># todo.. ln -s the oh my zsh folder from user to root...</span>
 </pre></div>
 </div>
-<p>Add the following to zshrc:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="nv">$EUID</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{red}root@</span><span class="nv">$HOST</span><span class="s2">%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
-<span class="k">else</span>
-        <span class="nv">PROMPT</span><span class="o">=</span><span class="s2">&quot;%B%F{green}</span><span class="nv">$HOST</span><span class="s2">%b%f </span><span class="nv">$PROMPT</span><span class="s2">&quot;</span>
-<span class="k">fi</span>
-</pre></div>
-</div>
-<p>Need to install samba utilities
+<p><strong>TODO</strong>: Need to install samba utilities
 Mounting SMB drive…</p>
 </div>
+</div>
+<div class="section" id="docker-installation">
+<h3><span class="section-number">2.1.3. </span>Docker Installation<a class="headerlink" href="#docker-installation" title="Permalink to this headline">¶</a></h3>
+</div>
 <div class="section" id="nvidia-driver-installation">
-<h3><span class="section-number">2.2.2. </span>Nvidia Driver Installation<a class="headerlink" href="#nvidia-driver-installation" title="Permalink to this headline">¶</a></h3>
-<p>Get GPU hw info:</p>
+<h3><span class="section-number">2.1.4. </span>Nvidia Driver Installation<a class="headerlink" href="#nvidia-driver-installation" title="Permalink to this headline">¶</a></h3>
+<p>Get GPU hw info</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hwinfo --gfxcard --short
 </pre></div>
 </div>
@@ -567,14 +528,10 @@ sudo apt-get install nvidia-driver-450-server
 nvidia-smi
 </pre></div>
 </div>
-</div>
-<div class="section" id="docker-installation">
-<h3><span class="section-number">2.2.3. </span>Docker Installation<a class="headerlink" href="#docker-installation" title="Permalink to this headline">¶</a></h3>
-<p>[TODO: add xref to docker install]</p>
-</div>
 <div class="section" id="docker-gpu-configuration">
-<h3><span class="section-number">2.2.4. </span>Docker GPU Configuration<a class="headerlink" href="#docker-gpu-configuration" title="Permalink to this headline">¶</a></h3>
-<p>to get docker to use GPUs: [<a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>]</p>
+<h4><span class="section-number">2.1.4.1. </span>Docker GPU Configuration<a class="headerlink" href="#docker-gpu-configuration" title="Permalink to this headline">¶</a></h4>
+<p>For Docker installation, see: <a href="#docker">Docker Installation</a></p>
+<p>To get docker to use GPUs: [<a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>]</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install runtime:</span>
 curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey <span class="p">|</span> sudo apt-key add -
 <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span>
@@ -590,8 +547,7 @@ sudo systemctl start docker
 </div>
 </div>
 <div class="section" id="docker-image-build">
-<h3><span class="section-number">2.2.5. </span>Docker Image Build<a class="headerlink" href="#docker-image-build" title="Permalink to this headline">¶</a></h3>
-<p>[TODO: add docker xref]</p>
+<h4><span class="section-number">2.1.4.2. </span>Docker Image Build<a class="headerlink" href="#docker-image-build" title="Permalink to this headline">¶</a></h4>
 <p>The provided docker images (in dockerfiles dir) have minimal necessary
 builds for python3-based development using pytorch and either ssh
 development (with jetbrains tools), or jupyterlab.</p>
@@ -607,7 +563,7 @@ docker build -t nvidia-gpu-ssh -f nvidia-gpu-ssh .
 </pre></div>
 </div>
 <div class="section" id="notes">
-<h4><span class="section-number">2.2.5.1. </span>NOTES<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.4.2.1. </span>NOTES<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h5>
 <p>I’ve added two extra dockerfiles with <code class="code docutils literal notranslate"><span class="pre">-dev-</span></code> in the middle,
 one for <code class="code docutils literal notranslate"><span class="pre">nvidia-gpu-dev-base</span></code> and one for <code class="code docutils literal notranslate"><span class="pre">nvidia-gpu-dev-ssh</span></code>. These
 files use the <code class="code docutils literal notranslate"><span class="pre">cudnn7</span></code> and development base images that should provide
@@ -622,10 +578,10 @@ sudo systemctl start docker
 </div>
 </div>
 <div class="section" id="docker-image-running">
-<h3><span class="section-number">2.2.6. </span>Docker Image Running<a class="headerlink" href="#docker-image-running" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.4.3. </span>Docker Image Running<a class="headerlink" href="#docker-image-running" title="Permalink to this headline">¶</a></h4>
 <p>Two images can run, either jupyter, or ssh deveopment.</p>
 <div class="section" id="jupyter">
-<h4><span class="section-number">2.2.6.1. </span>JUPYTER<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.4.3.1. </span>JUPYTER<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h5>
 <p>To nvidia-gpu-enabled docker container and develop remotely, firstly,
 on the server-side, run the docker container and map any necessary
 data folders to the container:</p>
@@ -664,7 +620,7 @@ options are possible:</p>
 container as well!</p>
 </div>
 <div class="section" id="ssh-remote-development-jetbrains">
-<h4><span class="section-number">2.2.6.2. </span>SSH-Remote Development (Jetbrains)<a class="headerlink" href="#ssh-remote-development-jetbrains" title="Permalink to this headline">¶</a></h4>
+<h5><span class="section-number">2.1.4.3.2. </span>SSH-Remote Development (Jetbrains)<a class="headerlink" href="#ssh-remote-development-jetbrains" title="Permalink to this headline">¶</a></h5>
 <p>In server, run the container:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --gpus all --cap-add sys_ptrace -p127.0.0.1:2222:22 -v /home/en/Data:/tmp/Data --name dev-gpu nvidia-gpu-ssh
 </pre></div>
@@ -678,7 +634,7 @@ container as well!</p>
 </div>
 </div>
 <div class="section" id="verify-cuda">
-<h3><span class="section-number">2.2.7. </span>Verify Cuda<a class="headerlink" href="#verify-cuda" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.4.4. </span>Verify Cuda<a class="headerlink" href="#verify-cuda" title="Permalink to this headline">¶</a></h4>
 <p>To verify cuda is running, in jupyter block or pycharm console, run one or
 both of the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># access container command:</span>
@@ -692,7 +648,7 @@ torch.cude.get_device_name<span class="o">(</span><span class="m">0</span><span 
 </div>
 </div>
 <div class="section" id="caveats">
-<h3><span class="section-number">2.2.8. </span>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">2.1.4.5. </span>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h4>
 <p>It seems like cannot Install Ubuntu 20.04 server without ethernet.</p>
 <p>Trying fresh install, update, upgrade, nmcli install + config.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install network-manager
@@ -709,11 +665,12 @@ $ &gt; quit
 reboot
 </pre></div>
 </div>
-<p>in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
-:code:8.8.8.8:</p>
+<p>in <code class="code docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>: need to ensure nameserver is set to router IP, or
+<code class="code docutils literal notranslate"><span class="pre">8.8.8.8</span></code>:</p>
+</div>
 </div>
 <div class="section" id="tips-tricks">
-<h3><span class="section-number">2.2.9. </span>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.5. </span>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h3>
 <p>Some systems have auto sleep enabled by default as a system service.
 This may not be desirable for systems that should stay awake for
 remote work.</p>
@@ -727,26 +684,45 @@ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.ta
 </pre></div>
 </div>
 <p><a href="https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/" target="_blank">ref</a></p>
+<div class="section" id="linux-systemctl">
+<h4><span class="section-number">2.1.5.1. </span>Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code><a class="headerlink" href="#linux-systemctl" title="Permalink to this headline">¶</a></h4>
+<p>TODO: useage</p>
+</div>
+<div class="section" id="linux-startup-service">
+<h4><span class="section-number">2.1.5.2. </span>Linux Startup Service<a class="headerlink" href="#linux-startup-service" title="Permalink to this headline">¶</a></h4>
+<p>TODO: how to create linux startup service</p>
+<ul class="simple">
+<li><p>create startup script/application</p></li>
+<li><p>create a <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, put it in <code class="code docutils literal notranslate"><span class="pre">etc/systemd/system/</span></code> [TODO add example from
+other service for how it looks / breaks down]</p></li>
+<li><p>make the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, call your script/application</p></li>
+<li><p>put your script/application in <code class="code docutils literal notranslate"><span class="pre">/etc/</span></code> directory (as part of install process,
+same with <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file)</p></li>
+<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> on the script/application</p></li>
+<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+664</span></code> on the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file</p></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="macos">
-<h2><span class="section-number">2.3. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
 <p>The macOS is built on a linux-like system, however, unlike common linux distros,
 it is missing a package manager (i.e. <code class="code docutils literal notranslate"><span class="pre">apt</span></code>).</p>
+<p><em>Currently testing with Big Sur</em></p>
 <div class="section" id="install-brew">
-<h3><span class="section-number">2.3.1. </span>Install Brew<a class="headerlink" href="#install-brew" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>Install Brew<a class="headerlink" href="#install-brew" title="Permalink to this headline">¶</a></h3>
 <p>Thus, the first step of setting up a mac for development is the installation
 of a packagement tool, namely, <code class="code docutils literal notranslate"><span class="pre">homebrew</span></code>, or <code class="code docutils literal notranslate"><span class="pre">brew</span></code>. The installation
 can be found on the <a href="http://brew.sh/" target="_blank">Brew</a>  website.</p>
 </div>
 <div class="section" id="install-packages">
-<h3><span class="section-number">2.3.2. </span>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.2. </span>Install Packages<a class="headerlink" href="#install-packages" title="Permalink to this headline">¶</a></h3>
 <p>Once brew is installed, the following packages can be installed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update Brew</span>
 brew update
 
-<span class="c1"># Install zsh</span>
-brew install zsh
+<span class="c1"># Install zsh --depracated, zsh native to mac</span>
+<span class="c1"># brew install zsh</span>
 
 <span class="c1"># Install macvim</span>
 brew install macvim
@@ -768,19 +744,70 @@ brew install mactex
 
 <span class="c1"># Install doxygen:</span>
 brew install doxygen
+
+<span class="c1"># Install drawio:</span>
+brew install drawio
 </pre></div>
 </div>
 </div>
-<div class="section" id="configure-packages">
-<h3><span class="section-number">2.3.3. </span>Configure Packages<a class="headerlink" href="#configure-packages" title="Permalink to this headline">¶</a></h3>
-<p>The following section provides information, guidance and some reasoning
-behind various component configurations.</p>
+<div class="section" id="supplementary-packages">
+<h3><span class="section-number">2.2.3. </span>Supplementary Packages<a class="headerlink" href="#supplementary-packages" title="Permalink to this headline">¶</a></h3>
+<p>The following packages are not available through <a href="http://brew.sh/" target="_blank">Brew</a> at the
+moment, and thus warrant their own section.</p>
 <div class="section" id="id2">
-<h4><span class="section-number">2.3.3.1. </span>Pyenv<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>Pyenv post installation configuration can be found <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>.</p>
+<h4><span class="section-number">2.2.3.1. </span>Docker<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a> is an OS-level virtualization platform for running applications.
+It is useful for development and running applications of different languages
+and ensures the underlying OS is configured for the application.</p>
+<p>For more information about docker, see the page <a href="https://evgenyslab.github.io/labmanual/docker.html" target="_blank">Docker</a>.</p>
+<p>To install Docker for Mac, following the instructions on the <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a>
+page.</p>
 </div>
 <div class="section" id="id3">
-<h4><span class="section-number">2.3.3.2. </span>ZSH<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.2.3.2. </span>GTest<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>GTest is a C++ test-suite developed by Google.</p>
+<p>The installation instructions for macOS can be found <a href="" target="_blank">GTest Installation</a>.</p>
+<p>The installation requires updating <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">2.2.4. </span>Tips &amp; Tricks<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The following tips and tricks are accumulated over time.</p>
+<div class="section" id="mdls-file-inspection">
+<h4><span class="section-number">2.2.4.1. </span><code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection<a class="headerlink" href="#mdls-file-inspection" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="code docutils literal notranslate"><span class="pre">mdls</span></code> command can be used to retrieve meta data on
+any file, useful for scripting file renaming.</p>
+<p>If the command returns <code class="code docutils literal notranslate"><span class="pre">(null)</span></code> it means spotlight search
+needs to be rebuilt on the drive using <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mdutil</span> <span class="pre">-E</span> <span class="pre">/Drive</span></code>.</p>
+</div>
+<div class="section" id="remote-parallels">
+<h4><span class="section-number">2.2.4.2. </span>Remote Parallels<a class="headerlink" href="#remote-parallels" title="Permalink to this headline">¶</a></h4>
+<p>The standard <a href="https://www.parallels.com/" target="_blank">Parallels</a> installation does not provide
+command line tools and integrations, however, that does not
+mean that we cannot <code class="code docutils literal notranslate"><span class="pre">ssh</span></code> into a linux image that is
+installed and running.</p>
+<p>In my image configurations, I use the default network adaptor
+to expose the Parallels image to my network and allow it to
+dynamically receive an IP on my local network.</p>
+<p>Then, I can simply install and use <code class="code docutils literal notranslate"><span class="pre">openssh</span></code> to
+remote log into the virtual machine.</p>
+<p>This is also useful for remote development methods as
+described in <a href="#id8"><span class="problematic" id="id9">|xref_remote_development|</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="common-package-configurations">
+<h2><span class="section-number">2.3. </span>Common Package Configurations<a class="headerlink" href="#common-package-configurations" title="Permalink to this headline">¶</a></h2>
+<p><strong>TODO</strong>: what is the purpose of this section? to provide common
+package configs between linux/mac; install instructions should
+have been handled in os-specific location.</p>
+<p>git</p>
+<div class="section" id="id5">
+<h3><span class="section-number">2.3.1. </span>Pyenv<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Pyenv post installation configuration can be found <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>.</p>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">2.3.2. </span>ZSH<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>The first part of configuring <code class="code docutils literal notranslate"><span class="pre">zsh</span></code> is to install
 <code class="code docutils literal notranslate"><span class="pre">Oh</span> <span class="pre">My</span> <span class="pre">Zsh</span></code>: <a href="https://ohmyz.sh/#install" target="_blank">Oh My ZSH</a>.</p>
 <p>Next step would be to set up the <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file. There
@@ -794,6 +821,10 @@ descriptive information for my items.</p>
 # Can be added with `wget &lt;url&gt; -O --&gt; ~/.zshrc`
 #
 #
+
+# Part of Pyenv install:
+export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
 
 # Aliasing auto python virtual environment creating using `mkvenv`
 # that relies on pyenv installation of python3.8:
@@ -810,7 +841,7 @@ fi
 
 alias activate=&quot;source .venv/bin/activate&quot;
 # MAC only:
-if [ &quot;$(uname)&quot; == &quot;Darwin&quot; ]; then
+if [[ &quot;$(uname)&quot; == &quot;Darwin&quot; ]]; then
     alias vim=&quot;mvim -v&quot;
 fi
 
@@ -819,93 +850,34 @@ fi
 export CPLUS_INCLUDE_PATH=&quot;/usr/local/include&quot;
 export LIBRARY_PATH=&quot;/usr/local/lib&quot;
 
-# Part of Pyenv install:
-export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
-export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+
 
 </pre></div>
 </div>
+<p><strong>NOTE</strong>: the above is post-pyenv install! make sure not to duplicate…</p>
 <p>This can be quickly added to your <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="sb">`</span>wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O -&gt;&gt; ~/.zshrc<span class="sb">`</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -o ~/.zshrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h4><span class="section-number">2.3.3.3. </span>VIM<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<p>Vim is a terminal editor that is very portable. My take on the configuration of vim
-can be found <a href="https://evgenyslab.github.io/labmanual/vim.html" target="_blank">HERE</a>.</p>
-</div>
-</div>
-<div class="section" id="supplementary-packages">
-<h3><span class="section-number">2.3.4. </span>Supplementary Packages<a class="headerlink" href="#supplementary-packages" title="Permalink to this headline">¶</a></h3>
-<p>The following packages are not available through <a href="http://brew.sh/" target="_blank">Brew</a> at the
-moment, and thus warrant their own section.</p>
-<div class="section" id="id5">
-<h4><span class="section-number">2.3.4.1. </span>Docker<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p><a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a> is an OS-level virtualization platform for running applications.
-It is useful for development and running applications of different languages
-and ensures the underlying OS is configured for the application.</p>
-<p>For more information about docker, see the page <a href="https://evgenyslab.github.io/labmanual/docker.html" target="_blank">Docker</a>.</p>
-<p>To install Docker for Mac, following the instructions on the <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker</a>
-page.</p>
-</div>
-<div class="section" id="id6">
-<h4><span class="section-number">2.3.4.2. </span>GTest<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
-<p>GTest is a C++ test-suite developed by Google.</p>
-<p>The installation instructions for macOS can be found <a href="" target="_blank">GTest Installation</a>.</p>
-<p>The installation requires updating <code class="code docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file.</p>
-</div>
-</div>
 <div class="section" id="id7">
-<h3><span class="section-number">2.3.5. </span>Tips &amp; Tricks<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>The following tips and tricks are accumulated over time.</p>
-<div class="section" id="mdls-file-inspection">
-<h4><span class="section-number">2.3.5.1. </span><code class="code docutils literal notranslate"><span class="pre">MDLS</span></code> File Inspection<a class="headerlink" href="#mdls-file-inspection" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="code docutils literal notranslate"><span class="pre">mdls</span></code> command can be used to retrieve meta data on
-any file, useful for scripting file renaming.</p>
-<p>If the command returns <code class="code docutils literal notranslate"><span class="pre">(null)</span></code> it means spotlight search
-needs to be rebuilt on the drive using <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mdutil</span> <span class="pre">-E</span> <span class="pre">/Drive</span></code>.</p>
+<h3><span class="section-number">2.3.3. </span>VIM<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Vim is a terminal editor that is very portable. My take on the configuration of vim
+can be found <strong>ADD XREF</strong>.</p>
+<p>To setup EN’s vim [MAC]:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -o ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc
+</pre></div>
 </div>
-<div class="section" id="remote-parallels">
-<h4><span class="section-number">2.3.5.2. </span>Remote Parallels<a class="headerlink" href="#remote-parallels" title="Permalink to this headline">¶</a></h4>
-<p>The standard <a href="https://www.parallels.com/" target="_blank">Parallels</a> installation does not provide
-command line tools and integrations, however, that does not
-mean that we cannot <code class="code docutils literal notranslate"><span class="pre">ssh</span></code> into a linux image that is
-installed and running.</p>
-<p>In my image configurations, I use the default network adaptor
-to expose the Parallels image to my network and allow it to
-dynamically receive an IP on my local network.</p>
-<p>Then, I can simply install and use <code class="code docutils literal notranslate"><span class="pre">openssh</span></code> to
-remote log into the virtual machine.</p>
-<p>This is also useful for remote development methods as
-described in <a href="#id8"><span class="problematic" id="id9">|xref_remote_development|</span></a>.</p>
+</div></blockquote>
 </div>
 </div>
-</div>
-<div class="section" id="tips-trix">
-<h2><span class="section-number">2.4. </span>TIPS &amp; TRIX<a class="headerlink" href="#tips-trix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="miscellaneous">
+<h2><span class="section-number">2.4. </span>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
 <p>The following are general tips and tricks picked up over time
 that are inevitabily partitially forgotten.</p>
-<div class="section" id="linux-systemctl">
-<h3><span class="section-number">2.4.1. </span>Linux <code class="code docutils literal notranslate"><span class="pre">systemctl</span></code><a class="headerlink" href="#linux-systemctl" title="Permalink to this headline">¶</a></h3>
-<p>TODO: useage</p>
-</div>
-<div class="section" id="linux-startup-service">
-<h3><span class="section-number">2.4.2. </span>Linux Startup Service<a class="headerlink" href="#linux-startup-service" title="Permalink to this headline">¶</a></h3>
-<p>TODO: how to create linux startup service</p>
-<ul class="simple">
-<li><p>create startup script/application</p></li>
-<li><p>create a <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, put it in <code class="code docutils literal notranslate"><span class="pre">etc/systemd/system/</span></code> [TODO add example from
-other service for how it looks / breaks down]</p></li>
-<li><p>make the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file, call your script/application</p></li>
-<li><p>put your script/application in <code class="code docutils literal notranslate"><span class="pre">/etc/</span></code> directory (as part of install process,
-same with <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file)</p></li>
-<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> on the script/application</p></li>
-<li><p>in install process, run <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+664</span></code> on the <code class="code docutils literal notranslate"><span class="pre">.service</span></code> file</p></li>
-</ul>
-</div>
 <div class="section" id="executibles">
-<h3><span class="section-number">2.4.3. </span>Executibles<a class="headerlink" href="#executibles" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Executibles<a class="headerlink" href="#executibles" title="Permalink to this headline">¶</a></h3>
 <p>To make files executible, especially bash/shell scripts, change the file
 access control:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change access:</span>
@@ -916,7 +888,7 @@ chmod +x myfile.sh
 </div>
 </div>
 <div class="section" id="ssh-port-forwarding">
-<h3><span class="section-number">2.4.4. </span>SSH Port Forwarding<a class="headerlink" href="#ssh-port-forwarding" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.2. </span>SSH Port Forwarding<a class="headerlink" href="#ssh-port-forwarding" title="Permalink to this headline">¶</a></h3>
 <p>SSH port forwarding enables you to tunnel traffic on a specific port
 from one device to another:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>TODO<span class="o">]</span>
@@ -929,7 +901,7 @@ and porting webui to local machine. See <a href="" target="_blank">HERE</a> for
 more information.</p>
 </div>
 <div class="section" id="scp-copy-through-ssh-tunnel">
-<h3><span class="section-number">2.4.5. </span>SCP (Copy)) Through SSH Tunnel<a class="headerlink" href="#scp-copy-through-ssh-tunnel" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.3. </span>SCP (Copy)) Through SSH Tunnel<a class="headerlink" href="#scp-copy-through-ssh-tunnel" title="Permalink to this headline">¶</a></h3>
 <p>In a situation where a file needs to go from <code class="code docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;--&gt;</span> <span class="pre">B</span> <span class="pre">&lt;--&gt;</span> <span class="pre">C</span></code>,
 it is desired not to double copy through <code class="code docutils literal notranslate"><span class="pre">B</span></code>.</p>
 <p>To facilitate a simpler transaction, use SSH port tunneling to copy

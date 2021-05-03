@@ -105,6 +105,7 @@ This is the lab manual, a resource for all things setup related and navigation.
    chapter1/OSConfigurations
    chapter1/Development
    chapter2/docker
+   chapter2/vim
    chapter2/aws
    chapter2/opencv
    chapter2/misc

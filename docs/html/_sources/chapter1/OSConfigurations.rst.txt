@@ -9,7 +9,13 @@ General Information HERE
 
 
 Linux
-=====
+*****
+
+This section overviews the specific configurations for linux systems.
+
+Linux-GUI: Mint
+===============
+
 
 I've been running |xref_mint|  over the last couple of years, and have
 so far preferred it to |xref_ubuntu|  distributions. I have also tried 
@@ -257,10 +263,6 @@ Pyenv
 
 Install :code:`pyenv` using the guide provided |xref_pyenv_conf|.
 
-.. |xref_pyenv_conf| raw:: html
-
-    <a href="https://github.com/pyenv/pyenv#basic-github-checkout" target="_blank">HERE</a>
-
 
 Vim
 ^^^
@@ -312,40 +314,38 @@ see: |ref000|.
 This way, in the VM, windows (and host Linux) will only react to pen input, meaning that in OneNote you will not get the pen marking up the page from your palm.
 
 
+.. comment
+
+    FIND A NEW HOME
+    ---------------
 
 
-FIND A NEW HOME
----------------
+    [TODO: move to development-python notes]
+    A note on virutal environmnets:
+
+    When copying a virutal environment, the `~/activate` script stores the absolute path to the virtual env, thus need to modify this when creating a copy!
 
 
-[TODO: move to development-python notes]
-A note on virutal environmnets:
+    ## Useful python packages:
+    pip install numpy
+    scikit-learn
+    opencv-python
+    opencv-utils
+    imutils
+    matplotlib
+    moviepy
 
-When copying a virutal environment, the `~/activate` script stores the absolute path to the virtual env, thus need to modify this when creating a copy!
+    # If using ROS with opencv in Python
+    If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros's installtion.
 
-
-## Useful python packages:
-pip install numpy
-scikit-learn
-opencv-python
-opencv-utils
-imutils
-matplotlib
-moviepy
-
-# If using ROS with opencv in Python
-If ros is installed, it will most likely change all the symlinks for cv2.so. Thus, when making a new virtual env and pip install opencv-python opencv-contrib, the cv2.so file is not named correctly. Thus, when using ipython and trying to import cv2, the program will try to import the system python opencv which is Ros's installtion.
-
-To fix this issue, do the following:
-```bash
-cv ~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/
-```
-here, rename the weird cv2.XXX.so to cv2.so:
-```bash
-mv cv2.XXX.so cv2.so
-```
-
-
+    To fix this issue, do the following:
+    ```bash
+    cv ~/.virtualenvs/VirtualEnvName/lib/pythonXX/site-packages/cv2/
+    ```
+    here, rename the weird cv2.XXX.so to cv2.so:
+    ```bash
+    mv cv2.XXX.so cv2.so
+    ```
 
 Linux Server
 ============
@@ -353,7 +353,7 @@ Linux Server
 **ISSUES TO RESOLVE**
 
 - [ ] docker loses containers / images on restart; seems to be known issue
-- [ ] docker can't link gpu after restart, seems to be fixed with :code:`sudo systemctl docker stop` / start
+- [ ] docker can't link gpu after restart, seems to be fixed with :code:`sudo systemctl docker stop` / :code:`sudo systemctl docker start`
 
 The linux server installation and configuration is almost identical to 
 the standard  linux mint installation, with some slight changes to 
@@ -371,12 +371,15 @@ The installation image can be found at the |xref_userver_dl|.
 
 .. |xref_userver_dl| raw:: html
 
-        <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
-        page</a>
+    <a href="https://ubuntu.com/download/server#downloads" target="_blank">Ubuntu Server Download
+    page</a>
 
 
-To install from USB, see :ref:`OSConfigurations:Installing from USB`
+To install from USB, see |install_from_usb|.
 
+.. |install_from_usb| raw:: html
+
+    <a href="#installing-from-usb">Installing from USB</a>
 
 Installing Packages
 -------------------
@@ -392,7 +395,7 @@ Installing Packages
       htop \
       screen \
       libbz2-dev \
-      librealine6-dev \
+      libreadline6-dev \
       libsqlite3-dev \
       python3-pip \
 
@@ -403,24 +406,20 @@ Installing Packages
   # todo.. ln -s the oh my zsh folder from user to root...
 
 
-Add the following to zshrc:
-
-.. code-block:: bash
-
-  if [[ $EUID == 0 ]]; then
-          PROMPT="%B%F{red}root@$HOST%b%f $PROMPT"
-  else
-          PROMPT="%B%F{green}$HOST%b%f $PROMPT"
-  fi
-
-Need to install samba utilities
+**TODO**: Need to install samba utilities
 Mounting SMB drive...
 
+
+Docker Installation
+===================
+
+
+
 Nvidia Driver Installation
---------------------------
+==========================
 
 
-Get GPU hw info:
+Get GPU hw info
 
 .. code-block:: bash
 
@@ -437,16 +436,17 @@ Get Nvidia drivers:
   nvidia-smi
 
 
-Docker Installation
--------------------
-
-[TODO: add xref to docker install]
-
 Docker GPU Configuration
 ------------------------
 
+For Docker installation, see: |local_docker_xref|
 
-to get docker to use GPUs: [|ref_00|]
+.. |local_docker_xref| raw:: html
+
+   <a href="#docker">Docker Installation</a>
+
+
+To get docker to use GPUs: [|ref_00|]
 
 .. code-block:: bash
 
@@ -463,10 +463,12 @@ to get docker to use GPUs: [|ref_00|]
   sudo systemctl start docker
 
 
+.. |ref_00| raw:: html
+
+   <a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>
+
 Docker Image Build
 ------------------
-
-[TODO: add docker xref]
 
 The provided docker images (in dockerfiles dir) have minimal necessary
 builds for python3-based development using pytorch and either ssh
@@ -592,11 +594,6 @@ both of the following:
     torch.cude.get_device_name(0)
 
 
-
-.. |ref_00| raw:: html
-
-   <a href="https://www.celantur.com/blog/run-cuda-in-docker-on-linux/" target="_blank">ref</a>
-
 Caveats
 -------
 
@@ -620,13 +617,12 @@ Trying fresh install, update, upgrade, nmcli install + config.
   reboot
 
 
-in :code:/etc/resolv.conf: need to ensure nameserver is set to router IP, or
-:code:8.8.8.8:
-
+in :code:`/etc/resolv.conf`: need to ensure nameserver is set to router IP, or
+:code:`8.8.8.8`:
 
 
 Tips & Tricks
--------------
+=============
 
 Some systems have auto sleep enabled by default as a system service. 
 This may not be desirable for systems that should stay awake for 
@@ -651,23 +647,44 @@ To disable the automatic sleep and hybernate services, use:
     <a href="https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/" target="_blank">ref</a>
 
 
+Linux :code:`systemctl`
+-----------------------
+
+TODO: useage
+
+Linux Startup Service
+---------------------
+
+TODO: how to create linux startup service
+
+- create startup script/application
+- create a :code:`.service` file, put it in :code:`etc/systemd/system/` [TODO add example from 
+  other service for how it looks / breaks down]
+- make the :code:`.service` file, call your script/application
+- put your script/application in :code:`/etc/` directory (as part of install process,
+  same with :code:`.service` file)
+- in install process, run :code:`chmod +x` on the script/application
+- in install process, run :code:`chmod +664` on the :code:`.service` file
+ 
 
 macOS
-=====
+*****
 
 The macOS is built on a linux-like system, however, unlike common linux distros,
 it is missing a package manager (i.e. :code:`apt`). 
 
+*Currently testing with Big Sur*
+
 
 Install Brew
-------------
+============
 
 Thus, the first step of setting up a mac for development is the installation
 of a packagement tool, namely, :code:`homebrew`, or :code:`brew`. The installation
 can be found on the |xref_brew|  website.
 
 Install Packages
-----------------
+================
 
 Once brew is installed, the following packages can be installed:
 
@@ -676,8 +693,8 @@ Once brew is installed, the following packages can be installed:
    # Update Brew
    brew update
 
-   # Install zsh
-   brew install zsh
+   # Install zsh --depracated, zsh native to mac
+   # brew install zsh
 
    # Install macvim
    brew install macvim
@@ -700,55 +717,18 @@ Once brew is installed, the following packages can be installed:
    # Install doxygen:
    brew install doxygen
 
-Configure Packages
-------------------
-
-The following section provides information, guidance and some reasoning
-behind various component configurations.
-
-Pyenv
-^^^^^
-
-Pyenv post installation configuration can be found |xref_pyenv_conf|.
-
-ZSH
-^^^
-
-The first part of configuring :code:`zsh` is to install
-:code:`Oh My Zsh`: |xref_ohmyzsh_install|. 
-
-Next step would be to set up the :code:`~/.zshrc` file. There
-are many ways to configure the file, the following is an 
-example of what I have appended to mine, along with some 
-descriptive information for my items.
-
-Note, I am using :code:`robbyrussell` theme.
-
-.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
- 
-This can be quickly added to your :code:`~/.zshrc` using the following command:
-
-.. code-block:: bash
-
-    `wget https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce -O ->> ~/.zshrc` 
-
-
-VIM
-^^^
-
-Vim is a terminal editor that is very portable. My take on the configuration of vim
-can be found |xref_vim_config|.
-
+   # Install drawio:
+   brew install drawio
 
 
 Supplementary Packages
-----------------------
+======================
 
 The following packages are not available through |xref_brew| at the 
 moment, and thus warrant their own section.
 
 Docker
-^^^^^^
+------
 
 |xref_docker| is an OS-level virtualization platform for running applications.
 It is useful for development and running applications of different languages
@@ -761,7 +741,7 @@ page.
 
 
 GTest
-^^^^^
+-----
 
 GTest is a C++ test-suite developed by Google.
 
@@ -771,12 +751,12 @@ The installation requires updating :code:`~/.zshrc` file.
 
 
 Tips & Tricks
--------------
+=============
 
 The following tips and tricks are accumulated over time.
 
 :code:`MDLS` File Inspection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 
 The :code:`mdls` command can be used to retrieve meta data on 
 any file, useful for scripting file renaming.
@@ -787,7 +767,7 @@ needs to be rebuilt on the drive using :code:`sudo mdutil -E /Drive`.
 
 
 Remote Parallels
-^^^^^^^^^^^^^^^^
+----------------
 
 The standard |xref_parallels| installation does not provide
 command line tools and integrations, however, that does not 
@@ -845,35 +825,71 @@ described in |xref_remote_development|.
     <a href="https://www.parallels.com/" target="_blank">Parallels</a>
 
 
-TIPS & TRIX
-===========
+Common Package Configurations
+*****************************
+
+**TODO**: what is the purpose of this section? to provide common
+package configs between linux/mac; install instructions should 
+have been handled in os-specific location.
+
+git
+
+
+Pyenv
+=====
+
+Pyenv post installation configuration can be found |xref_pyenv_conf|.
+
+ZSH
+===
+
+The first part of configuring :code:`zsh` is to install
+:code:`Oh My Zsh`: |xref_ohmyzsh_install|. 
+
+Next step would be to set up the :code:`~/.zshrc` file. There
+are many ways to configure the file, the following is an 
+example of what I have appended to mine, along with some 
+descriptive information for my items.
+
+Note, I am using :code:`robbyrussell` theme.
+
+.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
+
+**NOTE**: the above is post-pyenv install! make sure not to duplicate...
+
+This can be quickly added to your :code:`~/.zshrc` using the following command:
+
+.. code-block:: bash
+
+    curl -o ~/.zshrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce 
+
+
+VIM
+===
+
+Vim is a terminal editor that is very portable. My take on the configuration of vim
+can be found **ADD XREF**.
+
+To setup EN's vim [MAC]:
+
+    .. code-block:: bash
+
+        curl -o ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
+
+
+
+
+
+Miscellaneous 
+*************
 
 The following are general tips and tricks picked up over time
 that are inevitabily partitially forgotten.
 
-
-Linux :code:`systemctl`
------------------------
-
-TODO: useage
-
-Linux Startup Service
----------------------
-
-TODO: how to create linux startup service
-
-- create startup script/application
-- create a :code:`.service` file, put it in :code:`etc/systemd/system/` [TODO add example from 
-  other service for how it looks / breaks down]
-- make the :code:`.service` file, call your script/application
-- put your script/application in :code:`/etc/` directory (as part of install process,
-  same with :code:`.service` file)
-- in install process, run :code:`chmod +x` on the script/application
-- in install process, run :code:`chmod +664` on the :code:`.service` file
-  
+ 
 
 Executibles
------------
+===========
 
 To make files executible, especially bash/shell scripts, change the file
 access control:
@@ -887,7 +903,7 @@ access control:
 
 
 SSH Port Forwarding
--------------------
+===================
 
 SSH port forwarding enables you to tunnel traffic on a specific port
 from one device to another:
@@ -909,7 +925,7 @@ more information.
 
 
 SCP (Copy)) Through SSH Tunnel
-------------------------------
+==============================
 
 In a situation where a file needs to go from :code:`A <--> B <--> C`, 
 it is desired not to double copy through :code:`B`. 
