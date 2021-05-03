@@ -9,7 +9,13 @@ General Information HERE
 
 
 Linux
-=====
+*****
+
+This section overviews the specific configurations for linux systems.
+
+Linux-GUI: Mint
+===============
+
 
 I've been running |xref_mint|  over the last couple of years, and have
 so far preferred it to |xref_ubuntu|  distributions. I have also tried 
@@ -400,24 +406,20 @@ Installing Packages
   # todo.. ln -s the oh my zsh folder from user to root...
 
 
-Add the following to zshrc:
-
-.. code-block:: bash
-
-  if [[ $EUID == 0 ]]; then
-          PROMPT="%B%F{red}root@$HOST%b%f $PROMPT"
-  else
-          PROMPT="%B%F{green}$HOST%b%f $PROMPT"
-  fi
-
-Need to install samba utilities
+**TODO**: Need to install samba utilities
 Mounting SMB drive...
 
+
+Docker Installation
+===================
+
+
+
 Nvidia Driver Installation
---------------------------
+==========================
 
 
-Get GPU hw info:
+Get GPU hw info
 
 .. code-block:: bash
 
@@ -620,7 +622,7 @@ in :code:`/etc/resolv.conf`: need to ensure nameserver is set to router IP, or
 
 
 Tips & Tricks
--------------
+=============
 
 Some systems have auto sleep enabled by default as a system service. 
 This may not be desirable for systems that should stay awake for 
@@ -645,9 +647,28 @@ To disable the automatic sleep and hybernate services, use:
     <a href="https://www.unixtutorial.org/disable-sleep-on-ubuntu-server/" target="_blank">ref</a>
 
 
+Linux :code:`systemctl`
+-----------------------
+
+TODO: useage
+
+Linux Startup Service
+---------------------
+
+TODO: how to create linux startup service
+
+- create startup script/application
+- create a :code:`.service` file, put it in :code:`etc/systemd/system/` [TODO add example from 
+  other service for how it looks / breaks down]
+- make the :code:`.service` file, call your script/application
+- put your script/application in :code:`/etc/` directory (as part of install process,
+  same with :code:`.service` file)
+- in install process, run :code:`chmod +x` on the script/application
+- in install process, run :code:`chmod +664` on the :code:`.service` file
+ 
 
 macOS
-=====
+*****
 
 The macOS is built on a linux-like system, however, unlike common linux distros,
 it is missing a package manager (i.e. :code:`apt`). 
@@ -656,14 +677,14 @@ it is missing a package manager (i.e. :code:`apt`).
 
 
 Install Brew
-------------
+============
 
 Thus, the first step of setting up a mac for development is the installation
 of a packagement tool, namely, :code:`homebrew`, or :code:`brew`. The installation
 can be found on the |xref_brew|  website.
 
 Install Packages
-----------------
+================
 
 Once brew is installed, the following packages can be installed:
 
@@ -699,61 +720,15 @@ Once brew is installed, the following packages can be installed:
    # Install drawio:
    brew install drawio
 
-Configure Packages
-------------------
-
-The following section provides information, guidance and some reasoning
-behind various component configurations.
-
-Pyenv
-^^^^^
-
-Pyenv post installation configuration can be found |xref_pyenv_conf|.
-
-ZSH
-^^^
-
-The first part of configuring :code:`zsh` is to install
-:code:`Oh My Zsh`: |xref_ohmyzsh_install|. 
-
-Next step would be to set up the :code:`~/.zshrc` file. There
-are many ways to configure the file, the following is an 
-example of what I have appended to mine, along with some 
-descriptive information for my items.
-
-Note, I am using :code:`robbyrussell` theme.
-
-.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
-
-**NOTE**: the above is post-pyenv install! make sure not to duplicate...
-
-This can be quickly added to your :code:`~/.zshrc` using the following command:
-
-.. code-block:: bash
-
-    curl -o ~/.zshrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce 
-
-
-VIM
-^^^
-
-Vim is a terminal editor that is very portable. My take on the configuration of vim
-can be found **ADD XREF**.
-
-To setup EN's vim:
-
-    .. code-block:: bash
-
-        curl -o ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
 
 Supplementary Packages
-----------------------
+======================
 
 The following packages are not available through |xref_brew| at the 
 moment, and thus warrant their own section.
 
 Docker
-^^^^^^
+------
 
 |xref_docker| is an OS-level virtualization platform for running applications.
 It is useful for development and running applications of different languages
@@ -766,7 +741,7 @@ page.
 
 
 GTest
-^^^^^
+-----
 
 GTest is a C++ test-suite developed by Google.
 
@@ -776,12 +751,12 @@ The installation requires updating :code:`~/.zshrc` file.
 
 
 Tips & Tricks
--------------
+=============
 
 The following tips and tricks are accumulated over time.
 
 :code:`MDLS` File Inspection
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 
 The :code:`mdls` command can be used to retrieve meta data on 
 any file, useful for scripting file renaming.
@@ -792,7 +767,7 @@ needs to be rebuilt on the drive using :code:`sudo mdutil -E /Drive`.
 
 
 Remote Parallels
-^^^^^^^^^^^^^^^^
+----------------
 
 The standard |xref_parallels| installation does not provide
 command line tools and integrations, however, that does not 
@@ -850,35 +825,71 @@ described in |xref_remote_development|.
     <a href="https://www.parallels.com/" target="_blank">Parallels</a>
 
 
-TIPS & TRIX
-===========
+Common Package Configurations
+*****************************
+
+**TODO**: what is the purpose of this section? to provide common
+package configs between linux/mac; install instructions should 
+have been handled in os-specific location.
+
+git
+
+
+Pyenv
+=====
+
+Pyenv post installation configuration can be found |xref_pyenv_conf|.
+
+ZSH
+===
+
+The first part of configuring :code:`zsh` is to install
+:code:`Oh My Zsh`: |xref_ohmyzsh_install|. 
+
+Next step would be to set up the :code:`~/.zshrc` file. There
+are many ways to configure the file, the following is an 
+example of what I have appended to mine, along with some 
+descriptive information for my items.
+
+Note, I am using :code:`robbyrussell` theme.
+
+.. rli:: https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/zshsauce
+
+**NOTE**: the above is post-pyenv install! make sure not to duplicate...
+
+This can be quickly added to your :code:`~/.zshrc` using the following command:
+
+.. code-block:: bash
+
+    curl -o ~/.zshrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/zshsauce 
+
+
+VIM
+===
+
+Vim is a terminal editor that is very portable. My take on the configuration of vim
+can be found **ADD XREF**.
+
+To setup EN's vim [MAC]:
+
+    .. code-block:: bash
+
+        curl -o ~/.vimrc https://raw.githubusercontent.com/evgenyslab/labmanual/master/docs/source/codeSauces/vimrc 
+
+
+
+
+
+Miscellaneous 
+*************
 
 The following are general tips and tricks picked up over time
 that are inevitabily partitially forgotten.
 
-
-Linux :code:`systemctl`
------------------------
-
-TODO: useage
-
-Linux Startup Service
----------------------
-
-TODO: how to create linux startup service
-
-- create startup script/application
-- create a :code:`.service` file, put it in :code:`etc/systemd/system/` [TODO add example from 
-  other service for how it looks / breaks down]
-- make the :code:`.service` file, call your script/application
-- put your script/application in :code:`/etc/` directory (as part of install process,
-  same with :code:`.service` file)
-- in install process, run :code:`chmod +x` on the script/application
-- in install process, run :code:`chmod +664` on the :code:`.service` file
-  
+ 
 
 Executibles
------------
+===========
 
 To make files executible, especially bash/shell scripts, change the file
 access control:
@@ -892,7 +903,7 @@ access control:
 
 
 SSH Port Forwarding
--------------------
+===================
 
 SSH port forwarding enables you to tunnel traffic on a specific port
 from one device to another:
@@ -914,7 +925,7 @@ more information.
 
 
 SCP (Copy)) Through SSH Tunnel
-------------------------------
+==============================
 
 In a situation where a file needs to go from :code:`A <--> B <--> C`, 
 it is desired not to double copy through :code:`B`. 
