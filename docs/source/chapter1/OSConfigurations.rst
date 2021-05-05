@@ -713,6 +713,9 @@ Once brew is installed, the following packages can be installed:
 
    # Install MacTex for Latex Compilation:
    brew install mactex
+   
+   # Graphviz for doxygen
+   brew install graphviz
 
    # Install doxygen:
    brew install doxygen
