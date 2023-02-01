@@ -723,6 +723,9 @@ Once brew is installed, the following packages can be installed:
    # Install drawio:
    brew install drawio
 
+   # Install bash-completion
+   brew install bash-completion
+
 
 Supplementary Packages
 ======================
